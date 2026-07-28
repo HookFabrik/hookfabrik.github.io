@@ -169,6 +169,17 @@
   .feature:hover .go{gap:15px}
   .honest{font-size:.94rem;color:var(--muted);margin-top:20px;max-width:60ch;line-height:1.55}
 
+  /* ausblick / weitere systeme */
+  .roadgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:34px}
+  .roadcard{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--radius);padding:26px 26px;position:relative;overflow:hidden;
+    transition:transform .22s var(--ease),border-color .22s}
+  .roadcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--muted-light);transform:scaleY(.35);transform-origin:top}
+  .roadcard:hover{transform:translateY(-4px);border-color:#3C3C48}
+  .roadcard .st{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-light);display:block;margin-bottom:12px}
+  .roadcard h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:-.01em;color:#fff;margin-bottom:9px}
+  .roadcard p{font-size:.9rem;color:#9C9CA4;line-height:1.5}
+  .road-foot{font-family:'Space Mono',monospace;font-size:.74rem;color:var(--label-dark);margin-top:26px}
+
   /* manifest */
   .manifest p{font-family:'Archivo Black',sans-serif;font-size:clamp(1.5rem,3.8vw,2.5rem);line-height:1.12;letter-spacing:-.025em;max-width:24ch;color:#fff}
   .manifest .snd{color:var(--signal);display:block;margin-top:4px}
@@ -213,6 +224,7 @@
       <a class="link" href="#was">Was es ist</a>
       <a class="link" href="#systeme">Systeme</a>
       <a class="link" href="#verfuegbar">Verfügbar</a>
+      <a class="link" href="#ausblick">Ausblick</a>
       <a class="btn btn-primary btn-sm nav-cta" href="/content-system/">Content-System</a>
     </nav>
     <div class="nav-prog"></div>
@@ -282,15 +294,14 @@
       </div>
       <div class="sys reveal d1">
         <div class="row"><span class="no">01</span><div class="body"><h3>Business</h3><p>Strategie, Geschäftsmodell, Positionierung, Operating Model.</p></div></div>
-        <div class="row"><span class="no">02</span><div class="body"><h3>Entscheidung <span class="badge next">Als Nächstes</span></h3><p>Optionen, Trade-offs, Risikobewertung, fertige Entscheidungsvorlage.</p></div></div>
+        <div class="row"><span class="no">02</span><div class="body"><h3>Entscheidung</h3><p>Optionen, Trade-offs, Risikobewertung, fertige Entscheidungsvorlage.</p></div></div>
         <div class="row"><span class="no">03</span><div class="body"><h3>Projekt</h3><p>Roadmap, Priorisierung, Abhängigkeiten, Meilensteine.</p></div></div>
         <a class="row" href="/content-system/"><span class="no">04</span><div class="body"><h3>Content <span class="badge on">Verfügbar</span></h3><p>Content-System, Redaktionslogik, Produktionsprozess.</p></div><span class="arr">&rarr;</span></a>
         <div class="row"><span class="no">05</span><div class="body"><h3>Software</h3><p>Architektur, Spezifikation, Entwicklungsplan.</p></div></div>
-        <div class="row"><span class="no">06</span><div class="body"><h3>Workflow <span class="badge next">Als Nächstes</span></h3><p>Prozessdesign, Automatisierung, Übergaben und Kontrollen.</p></div></div>
-        <div class="row"><span class="no">07</span><div class="body"><h3>Knowledge <span class="badge next">Als Nächstes</span></h3><p>Wissensmodell, Recherchearchitektur, Dokumentationssystem.</p></div></div>
+        <div class="row"><span class="no">06</span><div class="body"><h3>Workflow</h3><p>Prozessdesign, Automatisierung, Übergaben und Kontrollen.</p></div></div>
+        <div class="row"><span class="no">07</span><div class="body"><h3>Knowledge</h3><p>Wissensmodell, Recherchearchitektur, Dokumentationssystem.</p></div></div>
         <div class="row"><span class="no">08</span><div class="body"><h3>Meta</h3><p>Neue Engines, Module und Regeln. Die Plattform baut sich selbst weiter.</p></div></div>
       </div>
-      <p class="outlook-line reveal">Als Nächstes kommen weitere spezialisierte Systeme, unter anderem für <b>Entscheidungen, Research und Workflow-Automatisierung</b>. Jedes folgt demselben Prinzip: eine durchgehende Kette statt isolierter Prompts.</p>
     </div>
   </section>
 
@@ -314,13 +325,42 @@
     </div>
   </section>
 
+  <!-- WEITERE SYSTEME / AUSBLICK -->
+  <section class="band band-dark" id="ausblick">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Ausblick</span>
+        <h2>Weitere Systeme sind in Arbeit.</h2>
+        <p class="sec-lead">Als Nächstes kommen weitere spezialisierte Systeme, unter anderem für Entscheidungen, Research und Workflow-Automatisierung. Jedes folgt dem gleichen Prinzip: <b>eine durchgängige Produktionskette statt isolierter Prompts.</b></p>
+      </div>
+      <div class="roadgrid">
+        <div class="roadcard reveal">
+          <span class="st">// In Arbeit</span>
+          <h3>Entscheidungs-System</h3>
+          <p>Optionen, Kriterien, Gewichtung, Empfehlung. Für die Momente, in denen du feststeckst.</p>
+        </div>
+        <div class="roadcard reveal d1">
+          <span class="st">// In Arbeit</span>
+          <h3>Research-System</h3>
+          <p>Frage rein, geprüfte Synthese raus. Mit Quellen, ohne halluziniertes Blabla.</p>
+        </div>
+        <div class="roadcard reveal d2">
+          <span class="st">// In Arbeit</span>
+          <h3>Workflow-Automatisierung</h3>
+          <p>Wiederkehrende Abläufe als Kette, die einmal gebaut immer gleich läuft.</p>
+        </div>
+      </div>
+      <p class="road-foot reveal">Fertig, wenn sie fertig sind. Nicht vorher.</p>
+    </div>
+  </section>
+
   <!-- MANIFEST -->
   <section class="band band-dark">
     <div class="wrap">
       <span class="eyebrow reveal">// Das Prinzip</span>
       <div class="manifest reveal d1" style="margin-top:16px">
         <p>Wir schreiben nicht bessere Prompts.<span class="snd">Wir entscheiden, ob du überhaupt einen brauchst.</span></p>
-        <p class="foot">Meta Engine v3.7. Die nächsten Systeme kommen, wenn sie fertig sind. Nicht vorher.</p>
+        <p class="foot">Meta Engine v3.7. Antworten lösen einzelne Fragen. Systeme lösen Problemklassen.</p>
       </div>
     </div>
   </section>
