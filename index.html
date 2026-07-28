@@ -160,6 +160,19 @@
   .plat-avail:hover .go{gap:14px}
   .dev-label{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--label-dark);margin:34px 0 16px}
   .dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:10px}
+  /* systemreihe */
+  .sysgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;margin-top:34px}
+  .syscard{display:block;background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--radius);padding:26px 26px;position:relative;overflow:hidden;transition:transform .22s var(--ease),border-color .22s}
+  .syscard.on{border-left:4px solid var(--mint)}
+  .syscard.on:hover{transform:translateY(-4px);border-color:#3C3C48}
+  .syscard:not(.on){opacity:.8}
+  .syscard .sstat{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--label-dark);display:inline-block;margin-bottom:12px}
+  .syscard .sstat.on{color:var(--mint)}
+  .syscard h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.24rem;letter-spacing:-.01em;color:#fff;margin-bottom:8px}
+  .syscard p{font-size:.92rem;color:#9C9CA4;line-height:1.5}
+  .syscard.on p{color:#B8B7BD}
+  .syscard .sgo{font-family:'Space Mono',monospace;font-size:.78rem;color:#fff;font-weight:700;display:inline-flex;gap:8px;align-items:center;margin-top:14px;transition:gap .2s var(--ease)}
+  .syscard.on:hover .sgo{gap:14px}
   .dev-chip{border:1px dashed var(--ink-3);border-radius:10px;padding:15px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
   .dev-chip .n{font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;color:#D8D7DC}
   .dev-chip .s{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--label-dark)}
@@ -277,7 +290,7 @@
     <a class="brand" href="#top"><span class="hk">Hook</span><span class="fb">fabrik</span><span class="dot"></span></a>
     <nav class="nav-links">
       <a class="link" href="#engine">Meta Engine</a>
-      <a class="link" href="#plattform">Plattform</a>
+      <a class="link" href="#systeme">Systeme</a>
       <a class="link" href="#fuerwen">Für wen</a>
       <a class="link" href="#kontakt">Kontakt</a>
       <a class="btn btn-primary btn-sm" href="#kontakt">Angebot anfragen</a>
@@ -293,10 +306,10 @@
     <div class="wrap hero-inner">
       <span class="eyebrow" style="color:var(--label-dark)">Hookfabrik Meta Engine · v3.7</span>
       <h1 class="reveal in">Die meisten nutzen KI.<br><span class="em">Wir entwickeln Systeme, die mit KI arbeiten.</span></h1>
-      <p class="hero-sub reveal in d1">Die Meta Engine analysiert Probleme, entwickelt die passende Architektur und baut daraus spezialisierte Systeme. Nicht Antworten. Lösungen.</p>
+      <p class="hero-sub reveal in d1">Jedes ist ein fertiges System für eine echte Problemklasse, gebaut in unserer Meta Engine, der Fabrik dahinter. Nicht Antworten. Lösungen.</p>
       <div class="hero-cta reveal in d2">
-        <a class="btn btn-primary" href="#engine">Meta Engine entdecken &rarr;</a>
-        <a class="btn btn-ghost on-dark" href="/content-system/">Content-System ansehen</a>
+        <a class="btn btn-primary" href="#systeme">Unsere Systeme &rarr;</a>
+        <a class="btn btn-ghost on-dark" href="/content-system/">Content System ansehen</a>
       </div>
       <div class="line">
         <p class="line-cap">// Der Kernprozess: die Engine verarbeitet <b style="color:var(--signal)">eine Aufgabe nach der anderen</b></p>
@@ -349,7 +362,7 @@
         </div>
       </div>
       <div class="stats">
-        <div class="stat"><div class="num" data-count="8">8</div><div class="cap">Systemklassen</div></div>
+        <div class="stat"><div class="num" data-count="6">6</div><div class="cap">Systeme</div></div>
         <div class="stat"><div class="num" data-count="12">12</div><div class="cap">Schritte im Prozess</div></div>
         <div class="stat"><div class="num" data-count="1">1</div><div class="cap">System verfügbar</div></div>
         <div class="stat"><div class="num">3.7</div><div class="cap">Version</div></div>
@@ -372,9 +385,9 @@
   <section class="band band-dark" id="engine">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">// Die Meta Engine</span>
-        <h2>Die Meta Engine ist keine KI. Sie ist eine Denkarchitektur.</h2>
-        <p class="sec-lead">Sie analysiert Probleme, erkennt Strukturen, bewertet Optionen und entwickelt daraus spezialisierte Systeme. So entstehen <b>reproduzierbare Lösungen statt zufälliger Ergebnisse.</b></p>
+        <span class="eyebrow">// Die Fabrik</span>
+        <h2>Die Meta Engine ist unsere Fabrik für Systeme.</h2>
+        <p class="sec-lead">Sie ist keine KI, sondern eine Denkarchitektur. Sie analysiert Probleme, entwirft die Struktur und baut daraus fertige Systeme. <b>Nicht ein besserer Prompt. Ein System, das läuft.</b></p>
       </div>
       <div class="cmp2 reveal d1">
         <div class="panel">
@@ -423,26 +436,25 @@
   </section>
 
   <!-- PLATTFORM -->
-  <section class="band band-dark" id="plattform">
+  <section class="band band-dark" id="systeme">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">// Die Plattform</span>
-        <h2>Eine Architektur, viele Systeme.</h2>
-        <p class="sec-lead">Jede Problemklasse wird zu einem eigenen System. Eines ist fertig, die anderen entstehen. So wächst eine Plattform statt einem Produkt.</p>
+        <span class="eyebrow">// Unsere Systeme</span>
+        <h2>Wir verkaufen keine Tools. Wir verkaufen Systeme.</h2>
+        <p class="sec-lead">Jedes System löst eine Problemklasse und entsteht in derselben Fabrik, der Meta Engine. Content ist verfügbar, die anderen sind in Arbeit.</p>
       </div>
-      <a class="plat-avail reveal d1" href="/content-system/">
-        <div><span class="k">✓ Heute verfügbar</span><h3>Meta Engine Content</h3></div>
-        <span class="go">Ansehen &rarr;</span>
-      </a>
-      <p class="dev-label">// In Entwicklung</p>
-      <div class="dev-grid reveal">
-        <div class="dev-chip"><span class="n">Business</span><span class="s">bald</span></div>
-        <div class="dev-chip"><span class="n">Decision</span><span class="s">bald</span></div>
-        <div class="dev-chip"><span class="n">Project</span><span class="s">bald</span></div>
-        <div class="dev-chip"><span class="n">Software</span><span class="s">bald</span></div>
-        <div class="dev-chip"><span class="n">Workflow</span><span class="s">bald</span></div>
-        <div class="dev-chip"><span class="n">Knowledge</span><span class="s">bald</span></div>
-        <div class="dev-chip"><span class="n">Meta</span><span class="s">bald</span></div>
+      <div class="sysgrid reveal d1">
+        <a class="syscard on" href="/content-system/">
+          <span class="sstat on">✓ Verfügbar</span>
+          <h3>Content System</h3>
+          <p>Content für TikTok, Reels und Shorts. Von der Idee bis zum Umsatz.</p>
+          <span class="sgo">Ansehen &rarr;</span>
+        </a>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Business System</h3><p>Strategie, Geschäftsmodell, Positionierung.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Marketing System</h3><p>Kampagnen, Funnels und Botschaften, die konvertieren.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Workflow System</h3><p>Prozesse und Automatisierung, die einmal gebaut immer laufen.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Knowledge System</h3><p>Recherche, Quellen und Wissen, das nutzbar wird.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Decision System</h3><p>Optionen, Kriterien, Gewichtung, klare Empfehlung.</p></div>
       </div>
     </div>
   </section>
@@ -476,9 +488,9 @@
         <p class="sec-lead">Content war die erste Klasse, die wir zu Ende gebaut haben. Nicht der Star der Plattform, sondern der Beweis, dass die Architektur trägt.</p>
       </div>
       <a class="feature reveal d1" href="/content-system/">
-        <span class="tag">// Meta Engine Content · Claude Edition 2026</span>
+        <span class="tag">// Content System · Claude Edition 2026</span>
         <span class="px">59 €</span>
-        <h3>Meta Engine Content</h3>
+        <h3>Content System</h3>
         <p class="best">Von der Rohidee bis zum Umsatz. Eine durchgehende Kette.</p>
         <p class="desc">56 Prompts in 8 Kategorien, jeder mit fertigem Beispiel-Output. Dazu 7 Bonus-Sektionen, ein Master-Prompt und ein komplettes Praxisprojekt. Gebaut für Claude.</p>
         <span class="go">Ansehen <span>&rarr;</span></span>
@@ -533,15 +545,15 @@
       <div class="reveal d1">
         <p class="rgroup now">// Heute</p>
         <div class="rmap" style="margin-bottom:6px">
-          <div class="rstep now"><h4>Meta Engine Content <span class="st">Verfügbar</span></h4><p>Content-Systeme für Creator. Idee bis Umsatz.</p></div>
+          <div class="rstep now"><h4>Content System <span class="st">Verfügbar</span></h4><p>Content für Creator. Idee bis Umsatz.</p></div>
         </div>
         <p class="rgroup next">// Morgen</p>
         <div class="rmap">
-          <div class="rstep"><h4>Meta Engine Business</h4><p>Strategie, Geschäftsmodell, Positionierung.</p></div>
-          <div class="rstep"><h4>Meta Engine Software</h4><p>Architektur, Spezifikation, Entwicklungsplan.</p></div>
-          <div class="rstep"><h4>Meta Engine Workflow</h4><p>Prozessdesign, Automatisierung, Kontrollen.</p></div>
-          <div class="rstep"><h4>Meta Engine Knowledge</h4><p>Recherche, Quellenbewertung, Synthese.</p></div>
-          <div class="rstep"><h4>Meta Engine Meta</h4><p>Neue Engines und Module. Die Plattform baut sich selbst weiter.</p></div>
+          <div class="rstep"><h4>Business System</h4><p>Strategie, Geschäftsmodell, Positionierung.</p></div>
+          <div class="rstep"><h4>Marketing System</h4><p>Kampagnen, Funnels und Botschaften, die konvertieren.</p></div>
+          <div class="rstep"><h4>Workflow System</h4><p>Prozesse und Automatisierung, die einmal gebaut immer laufen.</p></div>
+          <div class="rstep"><h4>Knowledge System</h4><p>Recherche, Quellen und Wissen, das nutzbar wird.</p></div>
+          <div class="rstep"><h4>Decision System</h4><p>Optionen, Kriterien, Gewichtung, klare Empfehlung.</p></div>
         </div>
       </div>
     </div>
@@ -583,7 +595,7 @@
     <div class="foot">
       <span>© 2026 Hookfabrik</span>
       <nav>
-        <a href="/content-system/">Meta Engine Content</a>
+        <a href="/content-system/">Content System</a>
         <a href="/impressum.html">Impressum</a>
         <a href="/datenschutz.html">Datenschutz</a>
         <a href="https://www.linkedin.com/company/hookfabrik" target="_blank" rel="noopener">LinkedIn</a>
