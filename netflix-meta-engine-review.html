@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Netflix Decision Review | Meta Engine</title>
+
+<style>
+:root{
+  --black:#090909;--ink:#171717;--white:#fff;--paper:#f5f5f3;--soft:#ececea;
+  --line:#d8d8d3;--muted:#696963;--red:#e50914;--red-dark:#a90710;
+  --green:#18794e;--amber:#a76500;--danger:#b42318;--sidebar:300px;
+  --radius:18px;--shadow:0 12px 34px rgba(0,0,0,.07);--max:1180px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.62}
+a{color:inherit}.layout{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+aside{position:sticky;top:0;height:100vh;overflow:auto;background:var(--black);color:var(--white);border-right:1px solid #272727;padding:26px 22px}
+.brand{padding:4px 0 22px;border-bottom:1px solid #333;margin-bottom:18px}.brand strong{display:block;font-size:20px;letter-spacing:-.02em}.brand span{display:block;color:#aaa;font-size:12px;margin-top:5px}
+.nmark{width:42px;height:42px;background:var(--red);display:grid;place-items:center;font-weight:900;font-size:25px;margin-bottom:15px;border-radius:5px}
+nav h4{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#777;margin:21px 0 8px}nav a{display:block;text-decoration:none;color:#d4d4d4;font-size:13px;padding:7px 9px;border-radius:8px;margin:2px 0}nav a:hover{background:#202020;color:#fff}
+.mobile-nav{display:none}main{min-width:0}.hero{background:linear-gradient(135deg,#050505 0%,#151515 65%,#3a0508 100%);color:#fff;border-bottom:8px solid var(--red)}
+.hero-inner{max-width:var(--max);margin:auto;padding:78px 56px 70px}.eyebrow{display:inline-block;color:#ff5961;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-bottom:18px}
+h1{font-size:clamp(42px,6vw,78px);line-height:1.02;letter-spacing:-.045em;margin:0 0 22px;max-width:1050px}h2{font-size:clamp(27px,3vw,42px);line-height:1.12;letter-spacing:-.025em;margin:0 0 18px}h3{margin-top:26px}
+.lead{font-size:20px;max-width:920px;color:#ddd}.meta{font-size:13px;color:#aaa}.tagline{margin-top:30px;border-left:5px solid var(--red);background:#171717;padding:18px 22px;max-width:980px}
+.content{max-width:var(--max);margin:auto;padding:50px 56px 72px}section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px;margin:0 0 28px}
+section.band{background:var(--black);color:#fff;border-color:#222}section.band p,section.band li{color:#ddd}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:19px;background:#fff}.band .card{background:#151515;border-color:#333}.card strong{display:block;margin-bottom:7px}.muted{color:var(--muted)}.band .muted{color:#aaa}
+.metric{display:block;font-size:28px;font-weight:900;letter-spacing:-.03em}.good{color:var(--green)}.danger{color:var(--danger)}.accent{color:var(--red)}
+blockquote{margin:24px 0 0;padding:19px 22px;border-left:5px solid var(--red);background:#f5f5f3;font-size:18px}.band blockquote{background:#181818;color:#fff}
+.pill{display:inline-block;background:#171717;color:#fff;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-right:8px}
+.timeline{border-left:2px solid var(--line);margin:22px 0 0 8px;padding-left:24px}.timeline article{position:relative;margin:0 0 24px}.timeline article:before{content:"";position:absolute;left:-31px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(229,9,20,.12)}.timeline time{font-weight:800;color:var(--red)}
+table{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:14px 12px;border-bottom:1px solid var(--line)}th{background:#f1f1ef;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.score{font-weight:900;font-size:18px}.winner{background:#fff4f4}.verdict{font-size:24px;font-weight:900;line-height:1.3;border:2px solid var(--red);padding:22px;border-radius:14px;background:#fff8f8}
+.chain{display:grid;grid-template-columns:46px 1fr;gap:14px;margin:16px 0}.num{width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900}
+.note{padding:15px 18px;border:1px solid #e1c487;border-radius:12px;background:#fff9eb;color:#684500}.source-list li{margin-bottom:10px}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:24px}.button-row{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;padding:11px 15px;border-radius:9px;font-weight:800}.btn-primary{background:var(--red);color:#fff}.btn-secondary{background:#222;color:#fff}
+.contact-form{display:grid;gap:12px}.contact-form label{display:block;font-size:12px;font-weight:800;margin-bottom:4px}.contact-form input,.contact-form textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font:inherit}.contact-form textarea{min-height:110px}
+.brand-footer{background:#111;color:#ddd}.brand-footer-inner{max-width:var(--max);margin:auto;padding:28px 56px;display:flex;justify-content:space-between;gap:22px}.brand-footer-links{display:flex;gap:16px}
+footer{max-width:var(--max);margin:0 auto;padding:24px 42px 45px;color:var(--muted);text-align:center;font-size:13px}
+@media(max-width:980px){.layout{display:block}aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid #333}.desktop-nav{display:none}.mobile-nav{display:block}.hero-inner,.content{padding-left:22px;padding-right:22px}.grid,.grid-4,.contact-box{grid-template-columns:1fr}.brand-footer-inner{padding-left:22px;padding-right:22px;display:block}.brand-footer-links{margin-top:12px}}
+@media print{body{background:#fff;color:#111}aside,.contact-box,.brand-footer{display:none}.layout{display:block}.hero{background:#fff!important;color:#111;border-bottom:2px solid #111}.hero-inner,.content{padding:26px 0}section{box-shadow:none;break-inside:avoid}.lead,.meta{color:#333}}
+</style>
+<meta content="Meta Engine Decision Review zur Frage, ob Netflix mit der Einführung eines werbefinanzierten Abonnements strategisch richtig entschieden hat." name="description"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="#08090d" name="theme-color"/><link href="https://hookfabrik.github.io/review/netflix-meta-engine-review.html" rel="canonical"/><meta content="article" property="og:type"/><meta content="Netflix Decision Review | Meta Engine" property="og:title"/><meta content="Meta Engine Decision Review zur Frage, ob Netflix mit der Einführung eines werbefinanzierten Abonnements strategisch richtig entschieden hat." property="og:description"/><meta content="https://hookfabrik.github.io/review/netflix-meta-engine-review.html" property="og:url"/><meta content="Hookfabrik Meta Engine" property="og:site_name"/><meta content="summary_large_image" name="twitter:card"/><meta content="Netflix Decision Review | Meta Engine" name="twitter:title"/><meta content="Meta Engine Decision Review zur Frage, ob Netflix mit der Einführung eines werbefinanzierten Abonnements strategisch richtig entschieden hat." name="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://hookfabrik.github.io/#organization", "name": "Hookfabrik", "url": "https://hookfabrik.github.io/"}, {"@type": "Article", "headline": "Netflix Decision Review", "description": "Meta Engine Decision Review zur Frage, ob Netflix mit der Einführung eines werbefinanzierten Abonnements strategisch richtig entschieden hat.", "inLanguage": "de-DE", "datePublished": "2026-07-29", "dateModified": "2026-07-29", "mainEntityOfPage": "https://hookfabrik.github.io/review/netflix-meta-engine-review.html", "author": {"@id": "https://hookfabrik.github.io/#organization"}, "publisher": {"@id": "https://hookfabrik.github.io/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hookfabrik", "item": "https://hookfabrik.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Meta Engine Reviews", "item": "https://hookfabrik.github.io/review/"}, {"@type": "ListItem", "position": 3, "name": "Netflix", "item": "https://hookfabrik.github.io/review/netflix-meta-engine-review.html"}]}]}</script><style>
+/* Hookfabrik Meta Engine Review v2 — unified design system */
+:root{
+  --hf-bg:#08090d;--hf-panel:#11131a;--hf-panel-2:#171a23;--hf-text:#f5f7fb;
+  --hf-muted:#a6adbb;--hf-line:#292e3a;--hf-accent:#e50914;--hf-accent-2:#e509142;
+  --hf-good:#68d391;--hf-warn:#f6c85f;--hf-danger:#ff8585;--hf-sidebar:300px;
+  --hf-radius:18px;--hf-shadow:0 18px 46px rgba(0,0,0,.26);--hf-max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body.review-v2{margin:0;background:linear-gradient(180deg,#08090d 0%,#0b0d13 46%,#0e1118 100%)!important;color:var(--hf-text)!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;line-height:1.7!important}
+body.review-v2 a{color:var(--hf-accent);text-decoration:none}
+body.review-v2 a:hover{text-decoration:underline}
+body.review-v2 .layout{display:grid!important;grid-template-columns:var(--hf-sidebar) minmax(0,1fr)!important;min-height:100vh}
+body.review-v2 aside{position:sticky!important;top:0!important;height:100vh!important;overflow-y:auto!important;background:rgba(7,8,12,.97)!important;color:var(--hf-text)!important;border-right:1px solid var(--hf-line)!important;padding:24px 18px 38px!important;z-index:20;backdrop-filter:blur(16px)}
+body.review-v2 .brand{padding:7px 10px 21px!important;border-bottom:1px solid var(--hf-line)!important;margin-bottom:18px!important}
+body.review-v2 .brand .mark,body.review-v2 .brand .nmark{width:42px!important;height:42px!important;border-radius:12px!important;background:rgba(255,255,255,.04)!important;border:1px solid color-mix(in srgb,var(--hf-accent) 55%,transparent)!important;color:var(--hf-accent)!important;display:grid!important;place-items:center!important;font-weight:900!important;font-size:15px!important;margin:0 0 15px!important}
+body.review-v2 .brand strong{display:block!important;color:#fff!important;font-size:1.08rem!important;letter-spacing:-.02em!important;line-height:1.28!important}
+body.review-v2 .brand span{display:block!important;color:var(--hf-muted)!important;font-size:.79rem!important;margin-top:6px!important}
+body.review-v2 nav h4{margin:20px 10px 8px!important;color:#d7dbe5!important;font-size:.68rem!important;text-transform:uppercase!important;letter-spacing:.16em!important}
+body.review-v2 nav a{display:block!important;padding:8px 10px!important;border-radius:9px!important;color:var(--hf-muted)!important;font-size:.86rem!important;line-height:1.35!important}
+body.review-v2 nav a:hover,body.review-v2 nav a.is-active{background:var(--hf-panel-2)!important;color:#fff!important;text-decoration:none!important}
+body.review-v2 main{min-width:0!important}
+body.review-v2 .hero{padding:0!important;color:#fff!important;border:0!important;border-bottom:1px solid var(--hf-line)!important;background:radial-gradient(circle at 82% 12%,color-mix(in srgb,var(--hf-accent) 20%,transparent),transparent 35%),radial-gradient(circle at 48% -8%,color-mix(in srgb,var(--hf-accent-2) 10%,transparent),transparent 32%),#090b10!important}
+body.review-v2 .hero-inner{max-width:var(--hf-max)!important;margin:auto!important;padding:86px 56px 72px!important}
+body.review-v2 .eyebrow{display:inline-block!important;color:var(--hf-accent)!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.16em!important;font-size:.74rem!important;margin-bottom:14px!important}
+body.review-v2 h1{font-size:clamp(2.65rem,6vw,5rem)!important;line-height:1.02!important;letter-spacing:-.048em!important;margin:0 0 22px!important;max-width:1080px!important;color:#fff!important}
+body.review-v2 h2{font-size:clamp(1.8rem,3.3vw,2.75rem)!important;line-height:1.12!important;letter-spacing:-.03em!important;margin:0 0 18px!important;color:#fff!important}
+body.review-v2 h3{font-size:1.28rem!important;line-height:1.25!important;color:#fff!important;margin:30px 0 12px!important}
+body.review-v2 h4{color:#fff}
+body.review-v2 .lead{font-size:1.18rem!important;max-width:920px!important;color:#d5d9e2!important}
+body.review-v2 .meta{font-size:.82rem!important;color:var(--hf-muted)!important;margin-top:22px!important}
+body.review-v2 .tagline{margin-top:30px!important;border:1px solid color-mix(in srgb,var(--hf-accent) 36%,transparent)!important;border-left:4px solid var(--hf-accent)!important;border-radius:0 14px 14px 0!important;background:color-mix(in srgb,var(--hf-accent) 8%,transparent)!important;padding:20px 23px!important;max-width:980px!important;color:#eef1f7!important}
+body.review-v2 .content{max-width:var(--hf-max)!important;margin:auto!important;padding:48px 56px 90px!important}
+body.review-v2 section{scroll-margin-top:24px!important;background:linear-gradient(180deg,rgba(18,21,29,.97),rgba(12,15,21,.98))!important;color:var(--hf-text)!important;border:1px solid var(--hf-line)!important;border-radius:var(--hf-radius)!important;box-shadow:var(--hf-shadow)!important;padding:34px!important;margin:0 0 28px!important}
+body.review-v2 section.band{background:linear-gradient(135deg,color-mix(in srgb,var(--hf-accent) 11%,#11131a),#10131a)!important;border-color:color-mix(in srgb,var(--hf-accent) 28%,var(--hf-line))!important}
+body.review-v2 p,body.review-v2 li,body.review-v2 td{color:#d2d7e1!important}
+body.review-v2 .muted,body.review-v2 section .muted{color:var(--hf-muted)!important}
+body.review-v2 .grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+body.review-v2 .grid-3{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:15px!important}
+body.review-v2 .grid-4{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}
+body.review-v2 .card,body.review-v2 .scenario,body.review-v2 .phase{background:rgba(7,9,13,.52)!important;border:1px solid var(--hf-line)!important;border-radius:14px!important;padding:19px!important;color:var(--hf-text)!important}
+body.review-v2 .card strong,body.review-v2 .scenario b,body.review-v2 .phase b{display:block!important;color:#fff!important;margin-bottom:7px!important}
+body.review-v2 .metric{font-size:1.7rem!important;font-weight:900!important;letter-spacing:-.03em!important;color:#fff!important}
+body.review-v2 .accent,body.review-v2 .timeline time{color:var(--hf-accent)!important}
+body.review-v2 .good,body.review-v2 .high,body.review-v2 .leader{color:var(--hf-good)!important}
+body.review-v2 .warn,body.review-v2 .med,body.review-v2 .mixed{color:var(--hf-warn)!important}
+body.review-v2 .danger,body.review-v2 .low,body.review-v2 .follower{color:var(--hf-danger)!important}
+body.review-v2 blockquote{margin:23px 0 0!important;padding:19px 22px!important;border:0!important;border-left:4px solid var(--hf-accent)!important;border-radius:0 12px 12px 0!important;background:color-mix(in srgb,var(--hf-accent) 8%,transparent)!important;color:#edf0f6!important;font-size:1.04rem!important}
+body.review-v2 .pill{display:inline-block!important;background:transparent!important;color:#c6ccd7!important;border:1px solid var(--hf-line)!important;border-radius:999px!important;padding:5px 10px!important;font-size:.75rem!important;font-weight:700!important;margin:4px 6px 0 0!important}
+body.review-v2 .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:18px;border:1px solid var(--hf-line);border-radius:13px}
+body.review-v2 table{width:100%!important;min-width:720px!important;border-collapse:collapse!important;margin:0!important;background:rgba(7,9,13,.48)!important;font-size:.88rem!important}
+body.review-v2 th,body.review-v2 td{padding:13px 14px!important;border:0!important;border-bottom:1px solid var(--hf-line)!important;text-align:left!important;vertical-align:top!important}
+body.review-v2 th{background:#171a22!important;color:#f3f5f9!important;font-size:.72rem!important;text-transform:uppercase!important;letter-spacing:.07em!important}
+body.review-v2 tr:last-child td{border-bottom:0!important}
+body.review-v2 .timeline{border-left:2px solid var(--hf-line)!important;margin:22px 0 0 8px!important;padding-left:24px!important}
+body.review-v2 .timeline article:before{background:var(--hf-accent)!important;box-shadow:0 0 0 5px color-mix(in srgb,var(--hf-accent) 14%,transparent)!important}
+body.review-v2 .num{background:var(--hf-accent)!important;color:#08090d!important}
+body.review-v2 .verdict{font-size:1.28rem!important;font-weight:900!important;line-height:1.4!important;border:1px solid color-mix(in srgb,var(--hf-accent) 55%,transparent)!important;padding:22px!important;border-radius:14px!important;background:color-mix(in srgb,var(--hf-accent) 9%,transparent)!important;color:#fff!important}
+body.review-v2 .note{padding:15px 18px!important;border:1px solid rgba(246,200,95,.34)!important;border-radius:12px!important;background:rgba(246,200,95,.08)!important;color:#f5dfac!important}
+body.review-v2 .btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:44px!important;text-decoration:none!important;padding:11px 16px!important;border-radius:10px!important;font-weight:800!important}
+body.review-v2 .btn-primary{background:var(--hf-accent)!important;color:#08090d!important}
+body.review-v2 .btn-secondary{background:#20242e!important;color:#fff!important;border:1px solid var(--hf-line)!important}
+body.review-v2 .brand-footer,body.review-v2 footer{background:#090b10!important;color:var(--hf-muted)!important}
+body.review-v2 .brand-footer-inner{max-width:var(--hf-max)!important;margin:auto!important;padding:29px 56px!important}
+body.review-v2 footer{max-width:var(--hf-max)!important;margin:auto!important;padding:24px 42px 44px!important;text-align:center!important;font-size:.82rem!important}
+.skip-link{position:fixed;left:14px;top:14px;z-index:9999;transform:translateY(-160%);background:#fff;color:#000!important;padding:10px 14px;border-radius:8px;font-weight:800}.skip-link:focus{transform:none}
+.mobile-toc{display:none;position:sticky;top:0;z-index:50;padding:10px 14px;background:rgba(8,9,13,.94);border-bottom:1px solid var(--hf-line);backdrop-filter:blur(14px)}
+.mobile-toc button{width:100%;min-height:44px;border:1px solid var(--hf-line);border-radius:10px;background:#151820;color:#fff;font:inherit;font-weight:800;text-align:left;padding:10px 14px}
+.review-library{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.review-library a{display:block;padding:15px;border:1px solid var(--hf-line);border-radius:12px;background:rgba(7,9,13,.45);color:#fff!important}.review-library small{display:block;color:var(--hf-muted);margin-top:4px}
+:focus-visible{outline:3px solid var(--hf-accent)!important;outline-offset:3px!important}
+@media(max-width:980px){
+ body.review-v2 .layout{display:block!important}body.review-v2 aside{position:fixed!important;inset:65px 0 0 0!important;height:auto!important;transform:translateX(-105%);transition:transform .24s ease;border-right:0!important;padding-bottom:70px!important}body.review-v2.toc-open aside{transform:none}body.review-v2 .mobile-toc{display:block}body.review-v2 .hero-inner{padding:62px 22px 50px!important}body.review-v2 .content{padding:34px 18px 70px!important}body.review-v2 section{padding:25px 20px!important}body.review-v2 .grid,body.review-v2 .grid-3,body.review-v2 .grid-4,body.review-v2 .roadmap,body.review-v2 .contact-box,body.review-v2 .review-library{grid-template-columns:1fr!important}body.review-v2 h1{font-size:clamp(2.35rem,12vw,3.7rem)!important}body.review-v2 .lead{font-size:1.05rem!important}body.review-v2 .brand-footer-inner{padding:25px 20px!important}.review-library{grid-template-columns:1fr}}
+@media(max-width:560px){body.review-v2 section{border-radius:14px!important}body.review-v2 th,body.review-v2 td{padding:11px 12px!important}body.review-v2 .hero-inner{padding-top:48px!important}body.review-v2 .content{padding-left:12px!important;padding-right:12px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media print{.mobile-toc,.skip-link,.review-library{display:none!important}body.review-v2{background:#fff!important;color:#111!important}body.review-v2 aside{display:none!important}body.review-v2 .layout{display:block!important}body.review-v2 .hero{background:#fff!important;color:#111!important}body.review-v2 h1,body.review-v2 h2,body.review-v2 h3{color:#111!important}body.review-v2 section{box-shadow:none!important;background:#fff!important;color:#111!important;break-inside:avoid}body.review-v2 p,body.review-v2 li,body.review-v2 td{color:#222!important}}
+</style></head>
+<body class="review-v2 company-netflix"><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<div class="mobile-toc"><button aria-controls="review-sidebar" aria-expanded="false" id="toc-toggle" type="button">Inhaltsverzeichnis öffnen</button></div><div class="layout">
+<aside aria-label="Inhaltsverzeichnis" id="review-sidebar">
+<div class="brand"><div class="nmark">ME</div><strong>Meta Engine Decision Review</strong><span>Netflix · Stand 29.07.2026</span></div>
+<nav class="desktop-nav">
+<h4>Engine</h4>
+<a href="#engine">Was die Engine leisten sollte</a><a href="#methodik">Methodik &amp; Evidenz</a>
+<h4>Decision Review</h4>
+<a href="#executive">Executive Summary</a><a href="#ausgangslage">Ausgangssituation</a><a href="#frage">Entscheidungsfrage</a><a href="#optionen">Handlungsoptionen</a><a href="#vergleich">Optionsvergleich</a><a href="#reality">Reality Check</a><a href="#urteil">Urteil</a><a href="#learnings">Strategische Prinzipien</a><a href="#quellen">Quellen</a><a href="#annahmen">Annahmen</a><a href="#kontakt">Kontakt</a>
+</nav>
+<details class="mobile-nav"><summary>Inhaltsverzeichnis</summary><nav>
+<a href="#engine">Engine</a><a href="#executive">Executive Summary</a><a href="#ausgangslage">Ausgangssituation</a><a href="#frage">Entscheidungsfrage</a><a href="#optionen">Optionen</a><a href="#vergleich">Vergleich</a><a href="#reality">Reality Check</a><a href="#urteil">Urteil</a><a href="#learnings">Learnings</a>
+</nav></details>
+</aside>
+<main id="main-content">
+<header class="hero">
+<div class="hero-inner">
+<span class="eyebrow">Strategisches Decision Review</span>
+<h1>Netflix: War das werbefinanzierte Abonnement die richtige Entscheidung?</h1>
+<p class="lead">Eine öffentliche Meta-Engine-Session, die nicht die Vergangenheit nacherzählt, sondern die damalige Entscheidung unter realistischen Alternativen rekonstruiert und aus heutiger Sicht bewertet.</p>
+<p class="meta">Analysestand: 29. Juli 2026 · Entscheidungszeitraum: 2022 · Beobachtungsfenster: 2022–2026</p>
+<div class="tagline"><strong>Kernurteil:</strong> Ja. Die Einführung war strategisch richtig – aber nicht als isoliertes Werbeprojekt. Ihre volle Wirkung entstand erst als Teil eines kombinierten Modells aus niedrigerem Einstiegspreis, Paid Sharing, Preisarchitektur und wachsender Werbetechnologie.</div>
+</div></header>
+<div class="content">
+<section class="band" id="engine">
+<h2>Was die Meta Engine bei dieser Aufgabe leisten sollte</h2>
+<p>Die Engine soll die Entscheidung nicht nachträglich rechtfertigen. Sie soll rekonstruieren, welche Optionen 2022 realistisch waren, welche Zielkonflikte bestanden und welche Option unter Unsicherheit am robustesten war.</p>
+<div class="grid">
+<div class="card"><strong>1. Entscheidung zeitlich einfrieren</strong><span class="muted">Bewertet wird mit dem Informationsstand von 2022 – nicht mit dem Wissen von 2026.</span></div>
+<div class="card"><strong>2. Optionen vollständig machen</strong><span class="muted">Nicht nur „Werbung ja oder nein“, sondern Preis, Kosten, Content und Monetarisierung kombinieren.</span></div>
+<div class="card"><strong>3. Zielkonflikte sichtbar machen</strong><span class="muted">Wachstum, Marge, Marke, Nutzererlebnis und strategische Flexibilität konkurrierten miteinander.</span></div>
+<div class="card"><strong>4. Wirkungsketten prüfen</strong><span class="muted">Eine günstigere Stufe verändert Akquise, Kannibalisierung, Preissetzung und Werbeinventar gleichzeitig.</span></div>
+<div class="card"><strong>5. Gegenhypothesen testen</strong><span class="muted">War die Erholung wirklich Werbung – oder vor allem Paid Sharing, Content und Konjunktur?</span></div>
+<div class="card"><strong>6. Urteil konditionieren</strong><span class="muted">Eine richtige Entscheidung kann falsch umgesetzt werden; Erfolg hängt an Design und Sequenzierung.</span></div>
+</div>
+<blockquote>Die relevante Frage lautet nicht: „Hat Werbung funktioniert?“ Sondern: „War Werbung 2022 die robusteste Antwort auf Sättigung, Preisdruck und unmonetarisierte Nutzung?“</blockquote>
+</section>
+<section id="methodik">
+<h2>Methodik und Evidenzlogik</h2>
+<p><span class="pill">Fakt</span> direkt durch Netflix-Unterlagen oder etablierte Marktquellen belegt.</p>
+<p><span class="pill">Schlussfolgerung</span> aus mehreren Fakten abgeleitet.</p>
+<p><span class="pill">Annahme</span> plausible, aber öffentlich nicht vollständig überprüfbare Entscheidungsgrundlage.</p>
+<p>Die Bewertung folgt der Meta Engine v3.7: Problemdefinition, Optionsraum, Kriterienmodell, Szenarien, Gegenhypothesen, Reality Check und strategische Synthese.</p>
+</section>
+<section class="band" id="executive">
+<h2>Executive Summary</h2>
+<div class="grid-4">
+<div class="card"><span class="metric danger">−200.000</span><span class="muted">Netto-Abonnenten Q1 2022</span></div>
+<div class="card"><span class="metric danger">−970.000</span><span class="muted">Netto-Abonnenten Q2 2022</span></div>
+<div class="card"><span class="metric accent">12 Märkte</span><span class="muted">Start des Ads-Plans 2022</span></div>
+<div class="card"><span class="metric good">&gt;250 Mio.</span><span class="muted">monatlich aktive Ads-Zuschauer 2026</span></div>
+</div>
+<h3>Entscheidungslogik in einem Satz</h3>
+<p>Netflix musste aus einem reinen Premium-Abonnement ein flexibleres Erlösportfolio machen, ohne die werbefreie Kernmarke aufzugeben. Eine zusätzliche, günstigere Ads-Stufe erfüllte dieses Ziel besser als reine Preiserhöhungen, lineare Kostensenkungen oder eine radikale Content-Kürzung.</p>
+<h3>Urteil</h3>
+<p><strong>Strategisch richtig, operativ zunächst unvollständig, langfristig stark.</strong> Der Schritt schuf Preiselastizität, einen neuen Erlösstrom und zusätzliche Verhandlungsmacht. Neue Komplexität, Datenschutzfragen und Markenrisiken waren real, aber beherrschbar.</p>
+</section>
+<section id="ausgangslage">
+<h2>1. Rekonstruktion der Ausgangssituation</h2>
+<div class="timeline">
+<article><time>Marktumfeld 2021–2022</time><p>Der pandemische Nachfragevorsprung normalisierte sich. Streaming wurde vom Wachstumsmarkt zum Verdrängungsmarkt. Disney+, Max, Prime Video, Hulu, Apple TV+ und lokale Anbieter erhöhten zugleich Content-Ausgaben und Preisdruck.</p></article>
+<article><time>Wirtschaftlicher Druck</time><p>Netflix hatte hohe, weitgehend fixe Content-Verpflichtungen. Sinkendes Nutzerwachstum traf deshalb nicht nur die Story am Kapitalmarkt, sondern die zentrale Skalierungslogik des Geschäftsmodells.</p></article>
+<article><time>Nutzerentwicklung</time><p>2022 meldete Netflix erstmals seit Jahren rückläufige Abonnentenzahlen. Gleichzeitig verwiesen rund 100 Millionen zusätzlich nutzende Haushalte außerhalb zahlender Accounts auf einen großen, bislang unmonetarisierten Nutzungspool.</p></article>
+<article><time>Wettbewerbsdruck</time><p>Mehrere Konkurrenten waren bereits werbefinanziert oder bündelten Streaming mit größeren Ökosystemen. Netflix konkurrierte daher nicht nur um Abos, sondern gegen Querfinanzierung, Bundles und niedrigere Einstiegspreise.</p></article>
+<article><time>Interner Zielkonflikt</time><p>Netflix hatte Werbung lange als schlechteres Nutzererlebnis positioniert. Ein Ads-Plan versprach Wachstum, widersprach aber dem bisherigen Reinheitsversprechen und erforderte neue Vertriebs-, Mess-, Datenschutz- und Technologiekompetenzen.</p></article>
+</div>
+<h3>Die eigentliche Spannung</h3>
+<blockquote><strong>Netflix musste gleichzeitig drei Probleme lösen:</strong> preissensible Haushalte erreichen, bestehende Nutzer stärker monetarisieren und das Umsatzwachstum vom reinen Abonnentenwachstum entkoppeln.</blockquote>
+</section>
+<section id="frage">
+<h2>2. Die eigentliche Entscheidungsfrage</h2>
+<p>Die Managementfrage war nicht: <em>„Soll Netflix Werbung zeigen?“</em></p>
+<div class="verdict">Welche Kombination aus Preis, Produkt, Content und Monetarisierung stabilisiert Wachstum und Cashflow, ohne das Premium-Erlebnis irreversibel zu beschädigen?</div>
+<h3>Entscheidungskriterien</h3>
+<div class="grid">
+<div class="card"><strong>Wachstumswirkung</strong><span class="muted">Kann die Option neue oder bislang unmonetarisierte Nutzer erschließen?</span></div>
+<div class="card"><strong>Unit Economics</strong><span class="muted">Verbessert sie Erlös pro Nutzung und langfristigen freien Cashflow?</span></div>
+<div class="card"><strong>Markenwirkung</strong><span class="muted">Bleibt Netflix einfach, hochwertig und differenziert?</span></div>
+<div class="card"><strong>Kundenwirkung</strong><span class="muted">Erhöht sie Wahlfreiheit oder erzeugt sie Zwang, Friktion und Kündigungen?</span></div>
+<div class="card"><strong>Umsetzbarkeit</strong><span class="muted">Kann Netflix die benötigten Fähigkeiten schnell genug aufbauen?</span></div>
+<div class="card"><strong>Option Value</strong><span class="muted">Eröffnet die Entscheidung weitere strategische Wege?</span></div>
+</div>
+</section>
+<section id="optionen">
+<h2>3. Realistische Handlungsoptionen</h2>
+<h3>Option A · Premium-Modell unverändert beibehalten</h3>
+<div class="grid"><div class="card"><strong>Chance</strong><span class="muted">Maximale Markenklarheit, geringe operative Komplexität, werbefreies Differenzierungsmerkmal.</span></div><div class="card"><strong>Risiko</strong><span class="muted">Kein Angebot für preissensible Nutzer; Wachstum bleibt vollständig von Abos und Preiserhöhungen abhängig.</span></div></div>
+<h3>Option B · Preise erhöhen</h3>
+<div class="grid"><div class="card"><strong>Chance</strong><span class="muted">Schneller ARPU-Effekt ohne neues Geschäftsmodell; hohe Wirkung bei geringer Kündigungselastizität.</span></div><div class="card"><strong>Risiko</strong><span class="muted">Beschleunigt Churn, Account Sharing und Abwanderung zu günstigeren Bundles.</span></div></div>
+<h3>Option C · Kosten und Content-Ausgaben deutlich senken</h3>
+<div class="grid"><div class="card"><strong>Chance</strong><span class="muted">Kurzfristig bessere Margen und Cashflows.</span></div><div class="card"><strong>Risiko</strong><span class="muted">Schwächerer Content senkt Nutzung und erhöht Kündigungen; der Sparhebel beschädigt den Wachstumsmotor.</span></div></div>
+<h3>Option D · Content-Strategie radikal fokussieren</h3>
+<div class="grid"><div class="card"><strong>Chance</strong><span class="muted">Mehr Qualität pro investiertem Euro, stärkere Franchises, weniger Long-Tail-Verschwendung.</span></div><div class="card"><strong>Risiko</strong><span class="muted">Hohe Prognoseunsicherheit; globale Vielfalt und tägliche Relevanz könnten leiden.</span></div></div>
+<h3>Option E · Werbefinanziertes Modell einführen</h3>
+<div class="grid"><div class="card"><strong>Chance</strong><span class="muted">Niedrigere Eintrittsschwelle, zusätzlicher Erlösstrom, Monetarisierung von Aufmerksamkeit, bessere Preisdifferenzierung.</span></div><div class="card"><strong>Risiko</strong><span class="muted">Kannibalisierung, Werbetech-Komplexität, Datenschutz, Lizenzlücken und mögliche Beschädigung des Nutzererlebnisses.</span></div></div>
+<h3>Option F · Kombinationsstrategie</h3>
+<div class="grid"><div class="card"><strong>Chance</strong><span class="muted">Ads-Plan + Paid Sharing + selektive Preise + Content-Disziplin adressieren mehrere Ursachen gleichzeitig.</span></div><div class="card"><strong>Risiko</strong><span class="muted">Viele parallele Eingriffe erschweren Attribution und können Kunden als koordinierte Monetarisierungsoffensive erscheinen.</span></div></div>
+</section>
+<section id="vergleich">
+<h2>4. Systematischer Optionsvergleich</h2>
+<p>Skala: 1 = schwach, 5 = sehr stark. Die Gewichtung priorisiert langfristige Wettbewerbsfähigkeit und Wachstum vor kurzfristiger Einfachheit.</p>
+<div aria-label="Tabelle horizontal scrollbar" class="table-wrap" role="region" tabindex="0"><table>
+<thead><tr><th>Option</th><th>Wachstum</th><th>Finanzen</th><th>Marke/Kunden</th><th>Wettbewerb</th><th>Umsetzung</th><th>Gesamt</th></tr></thead>
+<tbody>
+<tr><td>A Premium unverändert</td><td>1</td><td>2</td><td>5</td><td>2</td><td>5</td><td class="score">2,8</td></tr>
+<tr><td>B Preise erhöhen</td><td>2</td><td>4</td><td>2</td><td>2</td><td>5</td><td class="score">3,0</td></tr>
+<tr><td>C Kosten senken</td><td>1</td><td>4</td><td>2</td><td>2</td><td>4</td><td class="score">2,6</td></tr>
+<tr><td>D Content fokussieren</td><td>3</td><td>3</td><td>4</td><td>4</td><td>3</td><td class="score">3,4</td></tr>
+<tr><td>E Ads-Plan</td><td>5</td><td>4</td><td>3</td><td>5</td><td>2</td><td class="score">3,9</td></tr>
+<tr class="winner"><td><strong>F Kombination</strong></td><td>5</td><td>5</td><td>3</td><td>5</td><td>3</td><td class="score accent">4,3</td></tr>
+</tbody>
+</table></div>
+<h3>Warum Werbung strategisch überlegen war</h3>
+<ol>
+<li><strong>Sie erweiterte den Markt.</strong> Eine günstigere Stufe erschloss Nutzer, die bei einem reinen Premiumpreis nicht oder nicht dauerhaft zahlten.</li>
+<li><strong>Sie schuf einen zweiten Erlös pro Stunde Aufmerksamkeit.</strong> Netflix musste Wachstum nicht mehr ausschließlich über mehr Abos oder höhere Preise erzeugen.</li>
+<li><strong>Sie bewahrte Wahlfreiheit.</strong> Werbung wurde als zusätzliche Stufe eingeführt, nicht als Zwang im Premiumprodukt.</li>
+<li><strong>Sie erhöhte strategische Flexibilität.</strong> Das Unternehmen konnte Preise differenzieren, Bundles bauen und später eigene Werbetechnologie entwickeln.</li>
+<li><strong>Sie passte zum Marktübergang.</strong> Aufmerksamkeit verlagerte sich aus linearem Fernsehen ins Streaming; Netflix konnte diesen Transfer monetarisieren.</li>
+</ol>
+</section>
+<section id="reality">
+<h2>5. Reality Check und Red Team</h2>
+<div class="chain"><div class="num">1</div><div><strong>Gegenhypothese: Paid Sharing war der wahre Wachstumstreiber.</strong><p>Teilweise richtig. Die Erholung kann nicht allein dem Ads-Plan zugeschrieben werden. Paid Sharing monetarisierte bestehende Nutzung direkter. Das schwächt die Behauptung „Ads rettete Netflix“, aber nicht die strategische Logik eines breiteren Erlösportfolios.</p></div></div>
+<div class="chain"><div class="num">2</div><div><strong>Gegenhypothese: Netflix hätte nur Preise erhöhen müssen.</strong><p>Preiserhöhungen waren wirksam, hätten ohne günstigere Ausweichstufe jedoch den Churn- und Markenstress erhöht. Der Ads-Plan machte höhere Premiumpreise politisch und ökonomisch leichter.</p></div></div>
+<div class="chain"><div class="num">3</div><div><strong>Gegenhypothese: Werbung verwässert die Marke.</strong><p>Das Risiko bestand. Es wurde begrenzt, weil das werbefreie Produkt erhalten blieb und der Ads-Plan später technisch verbessert wurde. Die Marke verschob sich von „immer werbefrei“ zu „beste Unterhaltung mit Wahlfreiheit“.</p></div></div>
+<div class="chain"><div class="num">4</div><div><strong>Gegenhypothese: Der Aufbau von Ad Tech ist eine Ablenkung.</strong><p>Ein Fremdpartner ermöglichte Tempo, eigene Technologie erhöht später Kontrolle und Marge. Trotzdem entstehen neue organisatorische Komplexität und ein zweites Kundensystem neben den Zuschauern: Werbetreibende.</p></div></div>
+<h3>Welche neuen Probleme entstanden?</h3>
+<ul>
+<li>Kannibalisierung höherpreisiger Abos und komplexere Preisarchitektur.</li>
+<li>Zwei gleichzeitig zu optimierende Kundenerlebnisse: Zuschauer und Werbekunden.</li>
+<li>Datenschutz-, Mess- und Brand-Safety-Anforderungen.</li>
+<li>Abhängigkeit von ausreichendem Inventar, Reichweite und Werbenachfrage.</li>
+<li>Gefahr, Content- und Produktentscheidungen zunehmend an Werbewirkung auszurichten.</li>
+</ul>
+<div class="note"><strong>Meta-Engine-Korrektur:</strong> Der Erfolg des Ads-Plans beweist nicht, dass jede Plattform Werbung einführen sollte. Netflix besaß außergewöhnliche globale Reichweite, hohe Nutzung, starke First-Party-Daten und ein Premium-Inventar. Ohne diese Voraussetzungen wäre dieselbe Entscheidung deutlich schwächer.</div>
+</section>
+<section class="band" id="urteil">
+<h2>6. Bewertung der tatsächlich getroffenen Entscheidung</h2>
+<div class="verdict" style="background:#151515;color:#fff"><span class="accent">Urteil:</span> Die Einführung war richtig. Die strategisch stärkere Entscheidung war jedoch nicht „Werbung“, sondern die Transformation von einem Ein-Produkt-Abo zu einer mehrschichtigen Monetarisierungsarchitektur.</div>
+<h3>Welche Probleme wurden gelöst?</h3>
+<ul>
+<li>Ein niedrigerer Einstiegspreis verbesserte Reichweite und Akquise.</li>
+<li>Werbung reduzierte die Abhängigkeit von reinem Abonnentenwachstum.</li>
+<li>Die Stufe schuf eine Auffangoption bei Preiserhöhungen.</li>
+<li>Netflix gewann Zugang zum globalen TV-Werbebudget.</li>
+<li>Die Kombination mit Paid Sharing monetarisierte Nutzergruppen differenziert statt pauschal.</li>
+</ul>
+<h3>Welche Alternative wäre möglicherweise besser gewesen?</h3>
+<p>Keine einzelne Alternative war überlegen. Die stärkste denkbare Variante wäre eine <strong>früher vorbereitete Kombinationsstrategie</strong> gewesen: Ads-Plan, Paid Sharing, selektive Preiserhöhungen und Content-Produktivität als abgestimmtes Programm – mit klarer Kommunikation und eigener Ad-Tech-Roadmap von Beginn an.</p>
+<h3>Warum nicht früher?</h3>
+<p>Vor 2022 hätte Werbung unnötig Komplexität erzeugt und das Premiumversprechen geschwächt, solange das reine Abomodell noch stark wuchs. Nach 2022 wäre ein späterer Einstieg riskant gewesen, weil Wettbewerber Reichweite, Agenturbeziehungen und Werbetechnologie aufgebaut hätten. Der Zeitpunkt war daher nicht perfekt, aber strategisch plausibel.</p>
+</section>
+<section id="learnings">
+<h2>7. Allgemeine strategische Erkenntnisse</h2>
+<div class="grid">
+<div class="card"><strong>1. Geschäftsmodellprinzipien sind keine Dogmen</strong><span class="muted">Was eine Marke in der Wachstumsphase differenziert, kann in der Reifephase zur Einschränkung werden.</span></div>
+<div class="card"><strong>2. Preisarchitektur ist Strategie</strong><span class="muted">Mehrere Stufen können Marktbreite und Premiumabschöpfung gleichzeitig ermöglichen.</span></div>
+<div class="card"><strong>3. Neue Erlösmodelle brauchen Wahlfreiheit</strong><span class="muted">Die Akzeptanz steigt, wenn Kunden nicht in das neue Modell gezwungen werden.</span></div>
+<div class="card"><strong>4. Sequenzierung entscheidet</strong><span class="muted">Ads, Paid Sharing und Preise wirkten stärker zusammen als isoliert.</span></div>
+<div class="card"><strong>5. Distribution allein reicht nicht</strong><span class="muted">Werbung wird erst durch Messung, Targeting, Einkaufssysteme und Vertrauen zu einem Geschäft.</span></div>
+<div class="card"><strong>6. Optionenwert ist ein Entscheidungskriterium</strong><span class="muted">Gute Strategien lösen nicht nur ein Problem, sondern öffnen weitere profitable Wege.</span></div>
+</div>
+<blockquote><strong>Übertragbares Prinzip:</strong> Wenn ein Kernmarkt reift, ist die stärkste Antwort häufig nicht die Maximierung des alten Modells, sondern eine kontrollierte Erweiterung, die neue Kundensegmente und Erlösquellen erschließt, ohne den Kern abzuschaffen.</blockquote>
+</section>
+<section id="quellen">
+<h2>Quellen und Evidenz</h2>
+<ol class="source-list">
+<li><a href="https://about.netflix.com/de/news/announcing-basic-with-ads-de">Netflix: Ankündigung des werbefinanzierten Abos in Deutschland, 13. Oktober 2022</a></li>
+<li><a href="https://about.netflix.com/de/news/our-newest-plan-now-available-from-4-99-eur-a-month">Netflix: Einführung des Ads-Plans, 2. November 2022</a></li>
+<li><a href="https://about.netflix.com/de/news/one-year-into-netflix-ads">Netflix: Ein Jahr Netflix Ads, 1. November 2023</a></li>
+<li><a href="https://about.netflix.com/en/news/netflix-celebrates-two-years-of-advertising">Netflix: Zwei Jahre Ads, 12. November 2024</a></li>
+<li><a href="https://about.netflix.com/en/news/netflix-upfront-2025-the-center-of-attention">Netflix Upfront 2025</a></li>
+<li><a href="https://about.netflix.com/en/news/netflix-upfront-2026-get-closer?pubDate=20260514">Netflix Upfront 2026</a></li>
+<li><a href="https://ir.netflix.net/financials/annual-reports-and-proxies/">Netflix Annual Reports 2022–2025</a></li>
+</ol>
+<p class="muted"><strong>Quellenkritik:</strong> Reichweiten- und Werbewirkungsdaten stammen überwiegend von Netflix und dienen auch der Vermarktung. Sie belegen Skalierung, erlauben aber keine vollständige unabhängige Beurteilung der Werbeprofitabilität.</p>
+</section>
+<section id="annahmen">
+<h2>Annahmen und Grenzen</h2>
+<ul>
+<li>Interne Entscheidungsunterlagen, Deckungsbeiträge nach Tarif und Kannibalisierungsdaten sind nicht öffentlich.</li>
+<li>Die Optionsbewertung rekonstruiert den plausiblen Entscheidungsraum; sie behauptet nicht, dass Netflix intern exakt dieselben Alternativen formal bewertet hat.</li>
+<li>Die Entwicklung seit 2022 ist multikausal. Ads, Paid Sharing, Content, Preise und Marktbedingungen lassen sich öffentlich nicht sauber isolieren.</li>
+<li>Die Bewertung setzt voraus, dass Werbedruck und Datenschutz so gesteuert werden, dass das Kernprodukt nicht substanziell erodiert.</li>
+<li>Die aktuelle Reichweite des Ads-Geschäfts zeigt Adoption, nicht automatisch dessen vollständige Profitabilität.</li>
+</ul>
+</section>
+<section id="kontakt">
+<h2>Kontakt &amp; Kundenanfragen</h2>
+<div class="contact-box">
+<div><p>Sie möchten eine vergleichbare Entscheidungsanalyse für Ihr Unternehmen, Ihren Markt oder eine konkrete strategische Weichenstellung?</p><p class="muted">Senden Sie eine kurze Anfrage per E-Mail oder kontaktieren Sie Hookfabrik direkt über LinkedIn.</p><div class="button-row"><a class="btn btn-primary" href="mailto:hookfabrik@proton.me?subject=Kundenanfrage%20Hookfabrik%20Meta%20Engine">E-Mail senden</a><a class="btn btn-secondary" href="https://www.linkedin.com/company/hookfabrik" rel="noopener noreferrer" target="_blank">LinkedIn öffnen</a></div></div>
+<form class="contact-form" onsubmit="sendInquiry(event)"><div><label for="name">Name</label><input id="name" name="name" placeholder="Ihr Name" type="text"/></div><div><label for="company">Unternehmen</label><input id="company" name="company" placeholder="Unternehmen oder Organisation" type="text"/></div><div><label for="message">Anfrage</label><textarea id="message" name="message" placeholder="Worum geht es?"></textarea></div><button class="btn btn-primary" type="submit">Anfrage per E-Mail vorbereiten</button></form>
+</div>
+</section>
+<section id="weitere-reviews"><h2>Weitere Meta Engine Reviews</h2><p class="muted">Weitere öffentliche Analysen aus der Meta Engine Review Bibliothek.</p><div class="review-library"><a href="/review/volkswagen-meta-engine-review.html">Volkswagen<small>Business Review</small></a><a href="/review/openai-meta-engine-review.html">OpenAI<small>Future Strategy Review</small></a><a href="/review/nike-meta-engine-review.html">Nike<small>Future &amp; Innovation Review</small></a><a href="/review/lufthansa-meta-engine-review.html">Lufthansa<small>Transformation Review</small></a><a href="/review/apple-meta-engine-review.html">Apple<small>Technology Review</small></a></div></section></div>
+<div class="brand-footer"><div class="brand-footer-inner"><div><strong>Hookfabrik Meta Engine</strong><br/><span>Strategische Analyse, Systemdesign und belastbare Entscheidungsgrundlagen.</span></div><div class="brand-footer-links"><a href="mailto:hookfabrik@proton.me">hookfabrik@proton.me</a><a href="https://www.linkedin.com/company/hookfabrik" rel="noopener noreferrer" target="_blank">LinkedIn</a></div></div></div>
+<footer>Meta Engine Decision Review · Netflix · Datenstand 29. Juli 2026</footer>
+</main>
+</div>
+<script>
+function setupMobileNav(){const menu=document.querySelector('.mobile-nav');if(!menu)return;if(window.matchMedia('(max-width: 980px)').matches){menu.removeAttribute('open');menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>menu.removeAttribute('open')))}}
+setupMobileNav();
+function sendInquiry(event){event.preventDefault();const name=document.getElementById('name').value.trim();const company=document.getElementById('company').value.trim();const message=document.getElementById('message').value.trim();const subject=encodeURIComponent('Kundenanfrage Hookfabrik Meta Engine');const body=encodeURIComponent('Name: '+(name||'—')+'\nUnternehmen: '+(company||'—')+'\n\nAnfrage:\n'+(message||'—'));window.location.href='mailto:hookfabrik@proton.me?subject='+subject+'&body='+body}
+</script>
+<script>
+(()=>{const b=document.getElementById('toc-toggle'),body=document.body,aside=document.getElementById('review-sidebar');if(b&&aside){b.addEventListener('click',()=>{const open=body.classList.toggle('toc-open');b.setAttribute('aria-expanded',String(open));b.textContent=open?'Inhaltsverzeichnis schließen':'Inhaltsverzeichnis öffnen'});aside.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{body.classList.remove('toc-open');b.setAttribute('aria-expanded','false');b.textContent='Inhaltsverzeichnis öffnen'}));}const links=[...document.querySelectorAll('aside nav a[href^="#"]')],sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window&&sections.length){const io=new IntersectionObserver(es=>{es.filter(e=>e.isIntersecting).forEach(e=>{links.forEach(a=>a.classList.toggle('is-active',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-18% 0px -72% 0px'});sections.forEach(s=>io.observe(s));}})();
+</script></body>
+</html>

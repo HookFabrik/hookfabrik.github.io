@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Apple Technology Review | Meta Engine</title>
+
+<style>
+:root{--black:#0a0a0b;--graphite:#1c1c1e;--silver:#f5f5f7;--white:#fff;--line:#d8d8dc;--muted:#6e6e73;--blue:#0071e3;--green:#178746;--red:#b42318;--amber:#a76500;--sidebar:300px;--radius:18px;--shadow:0 12px 34px rgba(0,0,0,.07);--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--silver);color:#171719;font-family:Arial,Helvetica,sans-serif;line-height:1.62}
+a{color:inherit}.layout{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+aside{position:sticky;top:0;height:100vh;overflow:auto;background:var(--black);color:#fff;border-right:1px solid #2b2b2e;padding:26px 22px}
+.brand{padding:4px 0 22px;border-bottom:1px solid #333338;margin-bottom:18px}.brand strong{display:block;font-size:20px;letter-spacing:-.02em}.brand span{display:block;color:#aaaab2;font-size:12px;margin-top:5px}
+.mark{width:43px;height:43px;border-radius:11px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900;font-size:22px;margin-bottom:15px}
+nav h4{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#777780;margin:21px 0 8px}nav a{display:block;text-decoration:none;color:#d8d8df;font-size:13px;padding:7px 9px;border-radius:8px;margin:2px 0}nav a:hover{background:#222226;color:#fff}
+.mobile-nav{display:none}main{min-width:0}.hero{background:radial-gradient(circle at 85% 15%,#2b2b33 0,#16161a 35%,#050506 75%);color:#fff;border-bottom:8px solid var(--blue)}
+.hero-inner{max-width:var(--max);margin:auto;padding:78px 56px 70px}.eyebrow{display:inline-block;color:#69aef7;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-bottom:18px}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-.045em;margin:0 0 22px;max-width:1080px}h2{font-size:clamp(27px,3vw,42px);line-height:1.12;letter-spacing:-.025em;margin:0 0 18px}h3{margin-top:26px}
+.lead{font-size:20px;max-width:930px;color:#dedee6}.meta{font-size:13px;color:#aaaab3}.tagline{margin-top:30px;border-left:5px solid var(--blue);background:#17171c;padding:18px 22px;max-width:980px}
+.content{max-width:var(--max);margin:auto;padding:50px 56px 72px}section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px;margin:0 0 28px}
+section.band{background:var(--black);color:#fff;border-color:#242429}section.band p,section.band li{color:#dedee6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:19px;background:#fff}.band .card{background:#17171b;border-color:#34343a}.card strong{display:block;margin-bottom:7px}.muted{color:var(--muted)}.band .muted{color:#b7b7bf}
+.metric{display:block;font-size:28px;font-weight:900;letter-spacing:-.03em}.good{color:var(--green)}.danger{color:var(--red)}.accent{color:var(--blue)}
+blockquote{margin:24px 0 0;padding:19px 22px;border-left:5px solid var(--blue);background:#f3f5f8;font-size:18px}.band blockquote{background:#17171b;color:#fff}
+.pill{display:inline-block;background:#171719;color:#fff;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-right:8px}
+table{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:14px 12px;border-bottom:1px solid var(--line)}th{background:#f1f2f5;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.score{font-weight:900}.leader{color:var(--green)}.follower{color:var(--red)}.mixed{color:var(--amber)}
+.chain{display:grid;grid-template-columns:46px 1fr;gap:14px;margin:17px 0}.num{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900}
+.verdict{font-size:23px;font-weight:900;line-height:1.35;border:2px solid var(--blue);padding:22px;border-radius:14px;background:#f2f8ff}
+.scenario{padding:20px;border-radius:14px;border:1px solid var(--line);background:#fafafa}.scenario b{display:block;margin-bottom:8px}
+.note{padding:15px 18px;border:1px solid #d7b66a;border-radius:12px;background:#fff9e9;color:#654900}.source-list li{margin-bottom:10px}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:24px}.button-row{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;padding:11px 15px;border-radius:9px;font-weight:800}.btn-primary{background:var(--blue);color:#fff}.btn-secondary{background:#171719;color:#fff}
+.contact-form{display:grid;gap:12px}.contact-form label{display:block;font-size:12px;font-weight:800;margin-bottom:4px}.contact-form input,.contact-form textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font:inherit}.contact-form textarea{min-height:110px}
+.brand-footer{background:#111114;color:#dddde3}.brand-footer-inner{max-width:var(--max);margin:auto;padding:28px 56px;display:flex;justify-content:space-between;gap:22px}.brand-footer-links{display:flex;gap:16px}
+footer{max-width:var(--max);margin:0 auto;padding:24px 42px 45px;color:var(--muted);text-align:center;font-size:13px}
+@media(max-width:980px){.layout{display:block}aside{position:relative;width:100%;height:auto}.desktop-nav{display:none}.mobile-nav{display:block}.hero-inner,.content{padding-left:22px;padding-right:22px}.grid,.grid-3,.grid-4,.contact-box{grid-template-columns:1fr}.brand-footer-inner{padding-left:22px;padding-right:22px;display:block}.brand-footer-links{margin-top:12px}}
+@media print{body{background:#fff;color:#111}aside,.contact-box,.brand-footer{display:none}.layout{display:block}.hero{background:#fff!important;color:#111;border-bottom:2px solid #111}.hero-inner,.content{padding:26px 0}section{box-shadow:none;break-inside:avoid}.lead,.meta{color:#333}}
+</style>
+<meta content="Meta Engine Technology Review zur Frage, ob Apple technologisch weiterhin Innovationsführer ist oder zunehmend vom eigenen Ökosystem getragen wird." name="description"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="#08090d" name="theme-color"/><link href="https://hookfabrik.github.io/review/apple-meta-engine-review.html" rel="canonical"/><meta content="article" property="og:type"/><meta content="Apple Technology Review | Meta Engine" property="og:title"/><meta content="Meta Engine Technology Review zur Frage, ob Apple technologisch weiterhin Innovationsführer ist oder zunehmend vom eigenen Ökosystem getragen wird." property="og:description"/><meta content="https://hookfabrik.github.io/review/apple-meta-engine-review.html" property="og:url"/><meta content="Hookfabrik Meta Engine" property="og:site_name"/><meta content="summary_large_image" name="twitter:card"/><meta content="Apple Technology Review | Meta Engine" name="twitter:title"/><meta content="Meta Engine Technology Review zur Frage, ob Apple technologisch weiterhin Innovationsführer ist oder zunehmend vom eigenen Ökosystem getragen wird." name="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://hookfabrik.github.io/#organization", "name": "Hookfabrik", "url": "https://hookfabrik.github.io/"}, {"@type": "Article", "headline": "Apple Technology Review", "description": "Meta Engine Technology Review zur Frage, ob Apple technologisch weiterhin Innovationsführer ist oder zunehmend vom eigenen Ökosystem getragen wird.", "inLanguage": "de-DE", "datePublished": "2026-07-29", "dateModified": "2026-07-29", "mainEntityOfPage": "https://hookfabrik.github.io/review/apple-meta-engine-review.html", "author": {"@id": "https://hookfabrik.github.io/#organization"}, "publisher": {"@id": "https://hookfabrik.github.io/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hookfabrik", "item": "https://hookfabrik.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Meta Engine Reviews", "item": "https://hookfabrik.github.io/review/"}, {"@type": "ListItem", "position": 3, "name": "Apple", "item": "https://hookfabrik.github.io/review/apple-meta-engine-review.html"}]}]}</script><style>
+/* Hookfabrik Meta Engine Review v2 — unified design system */
+:root{
+  --hf-bg:#08090d;--hf-panel:#11131a;--hf-panel-2:#171a23;--hf-text:#f5f7fb;
+  --hf-muted:#a6adbb;--hf-line:#292e3a;--hf-accent:#a7c7ff;--hf-accent-2:#a7c7ff2;
+  --hf-good:#68d391;--hf-warn:#f6c85f;--hf-danger:#ff8585;--hf-sidebar:300px;
+  --hf-radius:18px;--hf-shadow:0 18px 46px rgba(0,0,0,.26);--hf-max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body.review-v2{margin:0;background:linear-gradient(180deg,#08090d 0%,#0b0d13 46%,#0e1118 100%)!important;color:var(--hf-text)!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;line-height:1.7!important}
+body.review-v2 a{color:var(--hf-accent);text-decoration:none}
+body.review-v2 a:hover{text-decoration:underline}
+body.review-v2 .layout{display:grid!important;grid-template-columns:var(--hf-sidebar) minmax(0,1fr)!important;min-height:100vh}
+body.review-v2 aside{position:sticky!important;top:0!important;height:100vh!important;overflow-y:auto!important;background:rgba(7,8,12,.97)!important;color:var(--hf-text)!important;border-right:1px solid var(--hf-line)!important;padding:24px 18px 38px!important;z-index:20;backdrop-filter:blur(16px)}
+body.review-v2 .brand{padding:7px 10px 21px!important;border-bottom:1px solid var(--hf-line)!important;margin-bottom:18px!important}
+body.review-v2 .brand .mark,body.review-v2 .brand .nmark{width:42px!important;height:42px!important;border-radius:12px!important;background:rgba(255,255,255,.04)!important;border:1px solid color-mix(in srgb,var(--hf-accent) 55%,transparent)!important;color:var(--hf-accent)!important;display:grid!important;place-items:center!important;font-weight:900!important;font-size:15px!important;margin:0 0 15px!important}
+body.review-v2 .brand strong{display:block!important;color:#fff!important;font-size:1.08rem!important;letter-spacing:-.02em!important;line-height:1.28!important}
+body.review-v2 .brand span{display:block!important;color:var(--hf-muted)!important;font-size:.79rem!important;margin-top:6px!important}
+body.review-v2 nav h4{margin:20px 10px 8px!important;color:#d7dbe5!important;font-size:.68rem!important;text-transform:uppercase!important;letter-spacing:.16em!important}
+body.review-v2 nav a{display:block!important;padding:8px 10px!important;border-radius:9px!important;color:var(--hf-muted)!important;font-size:.86rem!important;line-height:1.35!important}
+body.review-v2 nav a:hover,body.review-v2 nav a.is-active{background:var(--hf-panel-2)!important;color:#fff!important;text-decoration:none!important}
+body.review-v2 main{min-width:0!important}
+body.review-v2 .hero{padding:0!important;color:#fff!important;border:0!important;border-bottom:1px solid var(--hf-line)!important;background:radial-gradient(circle at 82% 12%,color-mix(in srgb,var(--hf-accent) 20%,transparent),transparent 35%),radial-gradient(circle at 48% -8%,color-mix(in srgb,var(--hf-accent-2) 10%,transparent),transparent 32%),#090b10!important}
+body.review-v2 .hero-inner{max-width:var(--hf-max)!important;margin:auto!important;padding:86px 56px 72px!important}
+body.review-v2 .eyebrow{display:inline-block!important;color:var(--hf-accent)!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.16em!important;font-size:.74rem!important;margin-bottom:14px!important}
+body.review-v2 h1{font-size:clamp(2.65rem,6vw,5rem)!important;line-height:1.02!important;letter-spacing:-.048em!important;margin:0 0 22px!important;max-width:1080px!important;color:#fff!important}
+body.review-v2 h2{font-size:clamp(1.8rem,3.3vw,2.75rem)!important;line-height:1.12!important;letter-spacing:-.03em!important;margin:0 0 18px!important;color:#fff!important}
+body.review-v2 h3{font-size:1.28rem!important;line-height:1.25!important;color:#fff!important;margin:30px 0 12px!important}
+body.review-v2 h4{color:#fff}
+body.review-v2 .lead{font-size:1.18rem!important;max-width:920px!important;color:#d5d9e2!important}
+body.review-v2 .meta{font-size:.82rem!important;color:var(--hf-muted)!important;margin-top:22px!important}
+body.review-v2 .tagline{margin-top:30px!important;border:1px solid color-mix(in srgb,var(--hf-accent) 36%,transparent)!important;border-left:4px solid var(--hf-accent)!important;border-radius:0 14px 14px 0!important;background:color-mix(in srgb,var(--hf-accent) 8%,transparent)!important;padding:20px 23px!important;max-width:980px!important;color:#eef1f7!important}
+body.review-v2 .content{max-width:var(--hf-max)!important;margin:auto!important;padding:48px 56px 90px!important}
+body.review-v2 section{scroll-margin-top:24px!important;background:linear-gradient(180deg,rgba(18,21,29,.97),rgba(12,15,21,.98))!important;color:var(--hf-text)!important;border:1px solid var(--hf-line)!important;border-radius:var(--hf-radius)!important;box-shadow:var(--hf-shadow)!important;padding:34px!important;margin:0 0 28px!important}
+body.review-v2 section.band{background:linear-gradient(135deg,color-mix(in srgb,var(--hf-accent) 11%,#11131a),#10131a)!important;border-color:color-mix(in srgb,var(--hf-accent) 28%,var(--hf-line))!important}
+body.review-v2 p,body.review-v2 li,body.review-v2 td{color:#d2d7e1!important}
+body.review-v2 .muted,body.review-v2 section .muted{color:var(--hf-muted)!important}
+body.review-v2 .grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+body.review-v2 .grid-3{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:15px!important}
+body.review-v2 .grid-4{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}
+body.review-v2 .card,body.review-v2 .scenario,body.review-v2 .phase{background:rgba(7,9,13,.52)!important;border:1px solid var(--hf-line)!important;border-radius:14px!important;padding:19px!important;color:var(--hf-text)!important}
+body.review-v2 .card strong,body.review-v2 .scenario b,body.review-v2 .phase b{display:block!important;color:#fff!important;margin-bottom:7px!important}
+body.review-v2 .metric{font-size:1.7rem!important;font-weight:900!important;letter-spacing:-.03em!important;color:#fff!important}
+body.review-v2 .accent,body.review-v2 .timeline time{color:var(--hf-accent)!important}
+body.review-v2 .good,body.review-v2 .high,body.review-v2 .leader{color:var(--hf-good)!important}
+body.review-v2 .warn,body.review-v2 .med,body.review-v2 .mixed{color:var(--hf-warn)!important}
+body.review-v2 .danger,body.review-v2 .low,body.review-v2 .follower{color:var(--hf-danger)!important}
+body.review-v2 blockquote{margin:23px 0 0!important;padding:19px 22px!important;border:0!important;border-left:4px solid var(--hf-accent)!important;border-radius:0 12px 12px 0!important;background:color-mix(in srgb,var(--hf-accent) 8%,transparent)!important;color:#edf0f6!important;font-size:1.04rem!important}
+body.review-v2 .pill{display:inline-block!important;background:transparent!important;color:#c6ccd7!important;border:1px solid var(--hf-line)!important;border-radius:999px!important;padding:5px 10px!important;font-size:.75rem!important;font-weight:700!important;margin:4px 6px 0 0!important}
+body.review-v2 .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:18px;border:1px solid var(--hf-line);border-radius:13px}
+body.review-v2 table{width:100%!important;min-width:720px!important;border-collapse:collapse!important;margin:0!important;background:rgba(7,9,13,.48)!important;font-size:.88rem!important}
+body.review-v2 th,body.review-v2 td{padding:13px 14px!important;border:0!important;border-bottom:1px solid var(--hf-line)!important;text-align:left!important;vertical-align:top!important}
+body.review-v2 th{background:#171a22!important;color:#f3f5f9!important;font-size:.72rem!important;text-transform:uppercase!important;letter-spacing:.07em!important}
+body.review-v2 tr:last-child td{border-bottom:0!important}
+body.review-v2 .timeline{border-left:2px solid var(--hf-line)!important;margin:22px 0 0 8px!important;padding-left:24px!important}
+body.review-v2 .timeline article:before{background:var(--hf-accent)!important;box-shadow:0 0 0 5px color-mix(in srgb,var(--hf-accent) 14%,transparent)!important}
+body.review-v2 .num{background:var(--hf-accent)!important;color:#08090d!important}
+body.review-v2 .verdict{font-size:1.28rem!important;font-weight:900!important;line-height:1.4!important;border:1px solid color-mix(in srgb,var(--hf-accent) 55%,transparent)!important;padding:22px!important;border-radius:14px!important;background:color-mix(in srgb,var(--hf-accent) 9%,transparent)!important;color:#fff!important}
+body.review-v2 .note{padding:15px 18px!important;border:1px solid rgba(246,200,95,.34)!important;border-radius:12px!important;background:rgba(246,200,95,.08)!important;color:#f5dfac!important}
+body.review-v2 .btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:44px!important;text-decoration:none!important;padding:11px 16px!important;border-radius:10px!important;font-weight:800!important}
+body.review-v2 .btn-primary{background:var(--hf-accent)!important;color:#08090d!important}
+body.review-v2 .btn-secondary{background:#20242e!important;color:#fff!important;border:1px solid var(--hf-line)!important}
+body.review-v2 .brand-footer,body.review-v2 footer{background:#090b10!important;color:var(--hf-muted)!important}
+body.review-v2 .brand-footer-inner{max-width:var(--hf-max)!important;margin:auto!important;padding:29px 56px!important}
+body.review-v2 footer{max-width:var(--hf-max)!important;margin:auto!important;padding:24px 42px 44px!important;text-align:center!important;font-size:.82rem!important}
+.skip-link{position:fixed;left:14px;top:14px;z-index:9999;transform:translateY(-160%);background:#fff;color:#000!important;padding:10px 14px;border-radius:8px;font-weight:800}.skip-link:focus{transform:none}
+.mobile-toc{display:none;position:sticky;top:0;z-index:50;padding:10px 14px;background:rgba(8,9,13,.94);border-bottom:1px solid var(--hf-line);backdrop-filter:blur(14px)}
+.mobile-toc button{width:100%;min-height:44px;border:1px solid var(--hf-line);border-radius:10px;background:#151820;color:#fff;font:inherit;font-weight:800;text-align:left;padding:10px 14px}
+.review-library{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.review-library a{display:block;padding:15px;border:1px solid var(--hf-line);border-radius:12px;background:rgba(7,9,13,.45);color:#fff!important}.review-library small{display:block;color:var(--hf-muted);margin-top:4px}
+:focus-visible{outline:3px solid var(--hf-accent)!important;outline-offset:3px!important}
+@media(max-width:980px){
+ body.review-v2 .layout{display:block!important}body.review-v2 aside{position:fixed!important;inset:65px 0 0 0!important;height:auto!important;transform:translateX(-105%);transition:transform .24s ease;border-right:0!important;padding-bottom:70px!important}body.review-v2.toc-open aside{transform:none}body.review-v2 .mobile-toc{display:block}body.review-v2 .hero-inner{padding:62px 22px 50px!important}body.review-v2 .content{padding:34px 18px 70px!important}body.review-v2 section{padding:25px 20px!important}body.review-v2 .grid,body.review-v2 .grid-3,body.review-v2 .grid-4,body.review-v2 .roadmap,body.review-v2 .contact-box,body.review-v2 .review-library{grid-template-columns:1fr!important}body.review-v2 h1{font-size:clamp(2.35rem,12vw,3.7rem)!important}body.review-v2 .lead{font-size:1.05rem!important}body.review-v2 .brand-footer-inner{padding:25px 20px!important}.review-library{grid-template-columns:1fr}}
+@media(max-width:560px){body.review-v2 section{border-radius:14px!important}body.review-v2 th,body.review-v2 td{padding:11px 12px!important}body.review-v2 .hero-inner{padding-top:48px!important}body.review-v2 .content{padding-left:12px!important;padding-right:12px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media print{.mobile-toc,.skip-link,.review-library{display:none!important}body.review-v2{background:#fff!important;color:#111!important}body.review-v2 aside{display:none!important}body.review-v2 .layout{display:block!important}body.review-v2 .hero{background:#fff!important;color:#111!important}body.review-v2 h1,body.review-v2 h2,body.review-v2 h3{color:#111!important}body.review-v2 section{box-shadow:none!important;background:#fff!important;color:#111!important;break-inside:avoid}body.review-v2 p,body.review-v2 li,body.review-v2 td{color:#222!important}}
+</style></head>
+<body class="review-v2 company-apple"><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<div class="mobile-toc"><button aria-controls="review-sidebar" aria-expanded="false" id="toc-toggle" type="button">Inhaltsverzeichnis öffnen</button></div><div class="layout">
+<aside aria-label="Inhaltsverzeichnis" id="review-sidebar">
+<div class="brand"><div class="mark">ME</div><strong>Meta Engine Technology Review</strong><span>Apple · Stand 29.07.2026</span></div>
+<nav class="desktop-nav">
+<h4>Engine</h4><a href="#engine">Aufgabe der Engine</a><a href="#methodik">Methodik</a>
+<h4>Technology Review</h4><a href="#executive">Executive Summary</a><a href="#stand">Technologischer Stand</a><a href="#entwicklungen">Kommende Entwicklungen</a><a href="#strategie">Innovationsstrategie</a><a href="#vergleich">Technologievergleich</a><a href="#szenarien">Szenarien</a><a href="#faehigkeit">Innovationsfähigkeit</a><a href="#urteil">Technologieurteil</a><a href="#quellen">Quellen</a><a href="#annahmen">Annahmen</a><a href="#kontakt">Kontakt</a>
+</nav>
+<details class="mobile-nav"><summary>Inhaltsverzeichnis</summary><nav><a href="#executive">Executive Summary</a><a href="#stand">Stand</a><a href="#entwicklungen">Entwicklungen</a><a href="#strategie">Strategie</a><a href="#vergleich">Vergleich</a><a href="#szenarien">Szenarien</a><a href="#faehigkeit">Fähigkeit</a><a href="#urteil">Urteil</a></nav></details>
+</aside>
+<main id="main-content">
+<header class="hero"><div class="hero-inner">
+<span class="eyebrow">Strategisches Technology Review</span>
+<h1>Apple: Innovationsführer – oder Meister der technologischen Integration?</h1>
+<p class="lead">Eine öffentliche Meta-Engine-Session zur Frage, ob Apples technologische Führungsposition aus eigenen Durchbrüchen entsteht oder zunehmend aus der Fähigkeit, Chips, Betriebssysteme, Geräte, Services und Datenschutz zu einem überlegenen Gesamtsystem zu verbinden.</p>
+<p class="meta">Analysestand: 29. Juli 2026 · Horizont: 2026–2036</p>
+<div class="tagline"><strong>Kernurteil:</strong> Apple ist nicht in jeder Schlüsseltechnologie führend. Das Unternehmen bleibt jedoch einer der stärksten Systeminnovatoren der Welt. Die größte Gefahr entsteht, wenn Integration nicht mehr ausreicht, weil KI selbst zur primären Benutzeroberfläche und Plattform wird.</div>
+</div></header>
+<div class="content">
+<section class="band" id="engine">
+<h2>Was die Meta Engine hier leisten sollte</h2>
+<div class="grid">
+<div class="card"><strong>1. Technologieebenen trennen</strong><span class="muted">Komponenteninnovation, Plattforminnovation und Systemintegration werden nicht vermischt.</span></div>
+<div class="card"><strong>2. Führung relativ bewerten</strong><span class="muted">Apple wird nicht an Produktpopularität, sondern an technischer Tiefe und strategischer Kontrolle gemessen.</span></div>
+<div class="card"><strong>3. Ökosystemeffekte entkoppeln</strong><span class="muted">Erfolg durch Lock-in wird von echtem technologischem Vorsprung unterschieden.</span></div>
+<div class="card"><strong>4. Zukunftsrisiken prüfen</strong><span class="muted">Entscheidend ist, welche Ebene künftig die Kundenschnittstelle kontrolliert.</span></div>
+<div class="card"><strong>5. Gegenhypothesen testen</strong><span class="muted">Spätes Handeln kann Disziplin sein – oder ein Zeichen technologischer Rückstände.</span></div>
+<div class="card"><strong>6. Urteil konditionieren</strong><span class="muted">Apple kann gleichzeitig führend in Systemarchitektur und nachlaufend bei Basismodellen sein.</span></div>
+</div>
+<blockquote>Die eigentliche Frage lautet nicht: „Erfindet Apple genug?“ Sondern: „Kontrolliert Apple auch im KI-Zeitalter die entscheidende Technologieschicht zwischen Nutzer, Gerät, Daten und Handlung?“</blockquote>
+</section>
+<section id="methodik">
+<h2>Methodik und Evidenzlogik</h2>
+<p><span class="pill">Fakt</span> durch offizielle Technologie- und Entwicklerquellen belegt.</p>
+<p><span class="pill">Schlussfolgerung</span> aus Architektur, Produktstrategie und Wettbewerbsposition abgeleitet.</p>
+<p><span class="pill">Annahme</span> Zukunftshypothese, deren Eintritt nicht gesichert ist.</p>
+</section>
+<section class="band" id="executive">
+<h2>Executive Summary</h2>
+<div class="grid-4">
+<div class="card"><span class="metric leader">Führend</span><span class="muted">Chipsysteme &amp; Geräteintegration</span></div>
+<div class="card"><span class="metric leader">Führend</span><span class="muted">Privacy-by-Architecture</span></div>
+<div class="card"><span class="metric mixed">Gemischt</span><span class="muted">Spatial Computing &amp; Entwicklerplattform</span></div>
+<div class="card"><span class="metric follower">Rückstand</span><span class="muted">Frontier-KI &amp; offene Agentenplattform</span></div>
+</div>
+<h3>Strategische Diagnose</h3>
+<p>Apple führt dort, wo Hard- und Software extrem eng gekoppelt werden müssen: energieeffiziente Chips, Betriebssysteme, Sensorik, Sicherheitsarchitektur, Gerätewechselwirkungen und kontrollierte Nutzererlebnisse. Bei generativer KI, skalierbarer Cloud-Infrastruktur und offenen Agenten-Ökosystemen haben OpenAI, Google, Microsoft und NVIDIA einen Vorsprung.</p>
+<h3>Das eigentliche Risiko</h3>
+<p>Apples Ökosystem ist ein Wettbewerbsvorteil, solange das Betriebssystem die primäre Orchestrierungsebene bleibt. Werden KI-Agenten zur dominanten Schnittstelle, kann sich Wertschöpfung oberhalb von iOS und macOS verlagern. Dann droht Apple zum hervorragend integrierten Hardware- und Distributionskanal für fremde Intelligenz zu werden.</p>
+</section>
+<section id="stand">
+<h2>1. Aktueller technologischer Stand</h2>
+<div class="grid">
+<div class="card"><strong>Hardware</strong><span class="muted">Apple beherrscht industrielle Produktintegration auf sehr hohem Niveau. Der Vorsprung liegt weniger in einzelnen Bauteilen als in Sensorik, Energieeffizienz, Material, Design und Fertigungsabstimmung.</span></div>
+<div class="card"><strong>Chips</strong><span class="muted">Apple Silicon ist ein Kernvorteil. CPU, GPU, Neural Engine, Speicherarchitektur und Betriebssystem werden gemeinsam optimiert. Dadurch entstehen Leistung pro Watt und On-Device-Fähigkeiten, die schwer kopierbar sind.</span></div>
+<div class="card"><strong>Software &amp; Betriebssysteme</strong><span class="muted">iOS, macOS, watchOS und visionOS bilden eine konsistente Plattformfamilie. Schwäche: geschlossene Regeln begrenzen externe Innovation und erhöhen regulatorischen Druck.</span></div>
+<div class="card"><strong>KI</strong><span class="muted">Apple Intelligence verbindet On-Device-Modelle mit Private Cloud Compute. Die Architektur ist differenziert; die Modellführerschaft selbst liegt jedoch bei anderen.</span></div>
+<div class="card"><strong>Services</strong><span class="muted">Services erhöhen Bindung und Monetarisierung. Technologisch sind viele Services solide integriert, aber selten eigenständige Frontier-Innovationen.</span></div>
+<div class="card"><strong>Entwicklerplattform</strong><span class="muted">Swift, SwiftUI, Xcode, Core ML, Foundation Models Framework, ARKit und RealityKit schaffen starke vertikale Werkzeuge. Offenheit und plattformübergreifende Reichweite bleiben begrenzt.</span></div>
+<div class="card"><strong>Datenschutz</strong><span class="muted">On-Device-Verarbeitung, Secure Enclave und Private Cloud Compute bilden eine glaubwürdige technische Differenzierung, nicht nur Marketing.</span></div>
+<div class="card"><strong>Ökosystemintegration</strong><span class="muted">Continuity, gemeinsame Identität, AirDrop, iCloud und Gerätekoordination erzeugen hohen Nutzen. Ein Teil des Erfolgs stammt jedoch aus Wechselkosten und Plattformkontrolle.</span></div>
+</div>
+<blockquote><strong>Zwischenurteil:</strong> Apple ist heute kein universeller Technologieführer. Es ist der weltweit stärkste Integrator persönlicher Computertechnologie.</blockquote>
+</section>
+<section id="entwicklungen">
+<h2>2. Technologische Entwicklungen der kommenden Jahre</h2>
+<div class="grid-3">
+<div class="card"><strong>Generative KI</strong><span class="muted">Modelle werden austauschbarer; Orchestrierung, Kontext, Tools und Distribution gewinnen an Wert.</span></div>
+<div class="card"><strong>On-Device AI</strong><span class="muted">Kleinere leistungsfähige Modelle verschieben Intelligenz auf Smartphones, Wearables und lokale Systeme – ein struktureller Vorteil für Apple.</span></div>
+<div class="card"><strong>Agentische Systeme</strong><span class="muted">Assistenten entwickeln sich von Antworten zu Handlungen. Wer App-Zugriffe und Rechte orchestriert, kontrolliert die neue Benutzeroberfläche.</span></div>
+<div class="card"><strong>Spatial Computing</strong><span class="muted">Vision Pro beweist technische Tiefe, aber noch keine Massenplattform. Preis, Gewicht, Inhalte und soziale Akzeptanz bleiben Engpässe.</span></div>
+<div class="card"><strong>Wearables</strong><span class="muted">Gesundheit, Kontext und kontinuierliche Sensorik können Apples persönlichste Daten- und Interaktionsschicht werden.</span></div>
+<div class="card"><strong>Robotik</strong><span class="muted">Physical AI verbindet Sensorik, Chips und Modelle. Apple besitzt relevante Bausteine, aber keine sichtbare Plattformposition wie NVIDIA.</span></div>
+<div class="card"><strong>Neue Hardwareplattformen</strong><span class="muted">Leichte Brillen, Hearables und kontextbewusste Geräte könnten das Smartphone ergänzen oder langfristig teilweise ersetzen.</span></div>
+<div class="card"><strong>Cloud-Infrastruktur</strong><span class="muted">Große Modelle und Agenten erfordern globale Compute-Skalierung. Hier bleibt Apple strukturell schwächer als Hyperscaler.</span></div>
+<div class="card"><strong>Softwareentwicklung</strong><span class="muted">KI verändert Coding, App-Erstellung und Distribution. Apple muss Entwicklerzugang zu Modellen und Systemaktionen deutlich erweitern.</span></div>
+</div>
+</section>
+<section id="strategie">
+<h2>3. Apples Innovationsstrategie</h2>
+<div class="chain"><div class="num">1</div><div><strong>Apple entwickelt selbst, wenn Kontrolle differenziert.</strong><p>Chips, Betriebssysteme, Sicherheitsarchitektur, Geräteframeworks, Sensorfusion und Benutzeroberflächen bleiben Kernkompetenzen.</p></div></div>
+<div class="chain"><div class="num">2</div><div><strong>Apple integriert, wenn Basistechnologie kommoditisiert.</strong><p>Displays, Funkstandards, Cloudmodelle und externe KI können zugekauft oder partnerschaftlich eingebunden werden, solange Apple die Nutzererfahrung kontrolliert.</p></div></div>
+<div class="chain"><div class="num">3</div><div><strong>Apple wartet, bis Technologie produktreif erscheint.</strong><p>Diese Disziplin schützt Qualität und Marge. Im KI-Zeitalter kann zu spätes Handeln jedoch Plattformkontrolle kosten, weil Entwickler und Nutzer Gewohnheiten außerhalb des Apple-Stacks aufbauen.</p></div></div>
+<h3>Wo Integration stärker ist als Durchbruch</h3>
+<ul><li>Smartphones, Uhren und Kopfhörer: selten jede Basistechnologie zuerst, aber oft die stärkste Gesamtumsetzung.</li><li>Services: hohe Integration, begrenzte technologische Eigenständigkeit.</li><li>KI: differenzierte Datenschutz- und Systemarchitektur, aber Abhängigkeit von externen Frontier-Modellen.</li></ul>
+<h3>Neue Chance</h3>
+<p>Apple kann KI zur unsichtbaren Systemfunktion machen: persönlich, lokal, multimodal und über Geräte hinweg. Damit würde das Unternehmen nicht den größten Chatbot bauen, sondern das intelligenteste persönliche Betriebssystem.</p>
+</section>
+<section id="vergleich">
+<h2>4. Vergleich mit führenden Technologieunternehmen</h2>
+<div aria-label="Tabelle horizontal scrollbar" class="table-wrap" role="region" tabindex="0"><table>
+<thead><tr><th>Unternehmen</th><th>Technologische Stärke</th><th>Strategischer Ansatz</th><th>Apple-Risiko</th></tr></thead>
+<tbody>
+<tr><td><strong>OpenAI</strong></td><td>Frontier-Modelle, Agenten, schnelle Produktiteration</td><td>Intelligenz als horizontale Plattform</td><td>KI wird zur primären Nutzeroberfläche oberhalb des Betriebssystems.</td></tr>
+<tr><td><strong>Google</strong></td><td>Modelle, Suche, Cloud, Android, Daten, Chips</td><td>KI durch alle Plattformschichten integrieren</td><td>Google kombiniert Modell- und Distributionsmacht stärker als Apple.</td></tr>
+<tr><td><strong>Microsoft</strong></td><td>Enterprise-Distribution, Cloud, Agenten-Governance, Developer Tools</td><td>KI direkt in Arbeitsprozesse und Unternehmensdaten einbetten</td><td>Apple bleibt im Unternehmenskontext gegenüber Windows, Azure und Microsoft 365 sekundär.</td></tr>
+<tr><td><strong>NVIDIA</strong></td><td>AI Compute, Software-Stack, Simulation, Robotik</td><td>Infrastruktur jeder KI- und Physical-AI-Plattform kontrollieren</td><td>Apple besitzt starke Edge-Chips, aber keine vergleichbare externe Compute-Plattform.</td></tr>
+<tr><td><strong>Meta</strong></td><td>Open Models, soziale Graphen, AI Glasses, massive Consumer-Reichweite</td><td>Offenes KI-Ökosystem plus neue Wearable-Schnittstellen</td><td>Meta könnte bei leichten KI-Brillen schneller eine Massenplattform etablieren.</td></tr>
+<tr><td><strong>Apple</strong></td><td>Chips, Geräte, OS, Privacy, Integration, Premiumdistribution</td><td>Technologie kontrolliert in persönliche Alltagsprodukte übersetzen</td><td>Stärke wird zur Schwäche, falls Offenheit und Modelltempo wichtiger werden als Integration.</td></tr>
+</tbody>
+</table></div>
+</section>
+<section id="szenarien">
+<h2>5. Technologieszenarien 2026–2036</h2>
+<div class="grid-3">
+<div class="scenario"><b>Szenario A · Intelligenz wandert aufs Gerät</b><p>Effiziente Modelle laufen lokal, persönliche Daten bleiben privat, Wearables liefern Kontext.</p><p class="leader"><strong>Wirkung:</strong> Sehr positiv für Apple.</p></div>
+<div class="scenario"><b>Szenario B · Cloud-Agenten dominieren</b><p>Wenige extrem leistungsfähige Agenten steuern Apps, Arbeit und Kommunikation plattformübergreifend.</p><p class="follower"><strong>Wirkung:</strong> Hohes Disintermediationsrisiko.</p></div>
+<div class="scenario"><b>Szenario C · Brillen werden neues Interface</b><p>Leichte KI-Brillen übernehmen Kamera, Audio, Navigation und kontextuelle Assistenz.</p><p class="mixed"><strong>Wirkung:</strong> Große Chance, aber Meta besitzt frühen Marktzugang.</p></div>
+<div class="scenario"><b>Szenario D · Privacy wird kaufentscheidend</b><p>Regulierung und Vertrauen begrenzen zentralisierte Datennutzung.</p><p class="leader"><strong>Wirkung:</strong> Apples Architektur wird zum Standardvorteil.</p></div>
+<div class="scenario"><b>Szenario E · Apps verlieren Bedeutung</b><p>Nutzer delegieren Ziele an Agenten; klassische App-Navigation wird sekundär.</p><p class="follower"><strong>Wirkung:</strong> App-Store- und OS-Kontrolle verlieren Wert.</p></div>
+<div class="scenario"><b>Szenario F · Physical AI skaliert</b><p>Robotik und autonome Systeme werden neue Compute-Plattformen.</p><p class="mixed"><strong>Wirkung:</strong> Apple besitzt Komponenten, aber noch keine klare Plattformstrategie.</p></div>
+</div>
+</section>
+<section class="band" id="faehigkeit">
+<h2>6. Langfristige Innovationsfähigkeit</h2>
+<h3>Warum Apple führend bleiben kann</h3>
+<ul><li>Kontrolle über Chips, Betriebssysteme, Geräte und Distribution.</li><li>Milliarden aktiver Geräte als unmittelbare AI-Deployment-Basis.</li><li>Starke Fähigkeit, komplexe Technologien massenmarkttauglich zu machen.</li><li>Vertrauensvorteil bei persönlichen Daten und sicherer On-Device-Verarbeitung.</li><li>Wearables und Health als Zugang zu einzigartigem persönlichem Kontext.</li></ul>
+<h3>Welche Entscheidungen entscheidend werden</h3>
+<ol>
+<li><strong>Siri und Apple Intelligence zur echten Agentenplattform machen</strong> – nicht nur zu einer Feature-Schicht.</li>
+<li><strong>Entwicklern sichere Systemaktionen und Modellzugänge öffnen</strong>, damit Innovation innerhalb des Apple-Ökosystems statt außerhalb entsteht.</li>
+<li><strong>Cloud-AI-Kapazität strategisch absichern</strong>, ohne den Datenschutzvorteil aufzugeben.</li>
+<li><strong>Leichtere räumliche Hardware entwickeln</strong>, bevor konkurrierende Brillen die nächste Schnittstelle besetzen.</li>
+<li><strong>Physical AI und Robotik als Plattformoption aufbauen</strong>, nicht nur als internes Forschungsfeld.</li>
+<li><strong>Modellpartnerschaften austauschbar halten</strong>, damit Apple nicht von einem einzelnen KI-Lieferanten abhängig wird.</li>
+</ol>
+</section>
+<section id="urteil">
+<h2>7. Technologieurteil</h2>
+<div class="verdict"><strong>Apple ist weiterhin Innovationsführer – aber in einer engeren Kategorie als früher.</strong><br/><br/>Das Unternehmen führt bei integrierter persönlicher Technologie, nicht bei jeder Basistechnologie. Sein Erfolg basiert zunehmend auf dem Ökosystem, doch dieses Ökosystem ist selbst das Ergebnis tiefgreifender technischer Kompetenzen in Chips, Sicherheit, Betriebssystemen und Gerätekoordination.</div>
+<h3>Wo Apple langfristig einen Vorteil besitzt</h3>
+<ul><li>Apple Silicon und energieeffizientes On-Device Computing</li><li>Privacy-by-Architecture und sichere persönliche Datenverarbeitung</li><li>Integration über Geräte, Sensoren, Betriebssysteme und Services</li><li>Produktisierung komplexer Technologien für den Massenmarkt</li><li>Distribution neuer Funktionen auf einer großen installierten Basis</li></ul>
+<h3>Wo Apple aufholen muss</h3>
+<ul><li>Frontier-Modelle und agentische Fähigkeiten</li><li>Cloud-Infrastruktur und Skalierung großer KI-Systeme</li><li>Offenere Entwicklerplattform für Modelle, Agenten und Systemaktionen</li><li>Marktreife, leichte räumliche Hardware</li><li>Strategische Position bei Robotik und Physical AI</li></ul>
+<blockquote><strong>Meta-Engine-Synthese:</strong> Apples Zukunft hängt nicht davon ab, jedes Modell selbst zu bauen. Sie hängt davon ab, ob Apple fremde und eigene Intelligenz so orchestriert, dass Nutzer weiterhin Apple – und nicht den Modellanbieter – als primäre Technologieplattform erleben.</blockquote>
+</section>
+<section id="quellen">
+<h2>Quellen</h2>
+<ol class="source-list">
+<li><a href="https://www.apple.com/de/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple Intelligence Architektur 2026</a></li>
+<li><a href="https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/">Apple Siri AI 2026</a></li>
+<li><a href="https://www.apple.com/newsroom/2024/06/introducing-apple-intelligence-for-iphone-ipad-and-mac/">Apple Intelligence und Private Cloud Compute</a></li>
+<li><a href="https://developer.apple.com/visionos/">Apple visionOS Developer Platform</a></li>
+<li><a href="https://blog.google/products-and-platforms/platforms/android/gemini-intelligence/">Google Gemini Intelligence auf Android</a></li>
+<li><a href="https://learn.microsoft.com/en-us/agents/">Microsoft Agent Platform</a></li>
+<li><a href="https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform">NVIDIA Vera Rubin AI Platform</a></li>
+<li><a href="https://www.nvidia.com/en-us/industries/robotics/.com/">NVIDIA Robotics Platform</a></li>
+<li><a href="https://about.fb.com/news/2026/06/meta-essilorluxottica-partner-launch-meta-glasses/">Meta AI Glasses 2026</a></li>
+<li><a href="https://openai.com/index/how-agents-are-transforming-work/">OpenAI: Agentische Arbeitssysteme</a></li>
+</ol>
+<p class="muted"><strong>Quellenkritik:</strong> Die meisten Primärquellen stammen von den Unternehmen selbst. Sie belegen Architektur, Produkte und strategische Richtung, nicht automatisch unabhängige Leistungsführerschaft.</p>
+</section>
+<section id="annahmen">
+<h2>Annahmen und Grenzen</h2>
+<ul><li>Interne Modellleistung, Trainingskosten, Roadmaps und Hardwareprojekte sind nicht vollständig öffentlich.</li><li>Technologieführung wird als Kombination aus technischer Tiefe, Plattformkontrolle, Produktwirkung und Zukunftsfähigkeit bewertet.</li><li>Der Review trennt Modellführerschaft bewusst von System- und Integrationsführerschaft.</li><li>Die Entwicklung von Agenten, Brillen und Robotik ist hochgradig unsicher.</li><li>Partnerschaften mit externen Modellanbietern werden als strategischer Bestandteil, nicht automatisch als Schwäche bewertet.</li></ul>
+</section>
+<section id="kontakt">
+<h2>Kontakt &amp; Kundenanfragen</h2>
+<div class="contact-box">
+<div><p>Sie möchten eine vergleichbare Technologieanalyse für Ihr Unternehmen, Ihren Markt oder eine konkrete strategische Weichenstellung?</p><p class="muted">Senden Sie eine kurze Anfrage per E-Mail oder kontaktieren Sie Hookfabrik über LinkedIn.</p><div class="button-row"><a class="btn btn-primary" href="mailto:hookfabrik@proton.me?subject=Kundenanfrage%20Hookfabrik%20Meta%20Engine">E-Mail senden</a><a class="btn btn-secondary" href="https://www.linkedin.com/company/hookfabrik" rel="noopener noreferrer" target="_blank">LinkedIn öffnen</a></div></div>
+<form class="contact-form" onsubmit="sendInquiry(event)"><div><label for="name">Name</label><input id="name" placeholder="Ihr Name" type="text"/></div><div><label for="company">Unternehmen</label><input id="company" placeholder="Unternehmen oder Organisation" type="text"/></div><div><label for="message">Anfrage</label><textarea id="message" placeholder="Worum geht es?"></textarea></div><button class="btn btn-primary" type="submit">Anfrage per E-Mail vorbereiten</button></form>
+</div>
+</section>
+<section id="weitere-reviews"><h2>Weitere Meta Engine Reviews</h2><p class="muted">Weitere öffentliche Analysen aus der Meta Engine Review Bibliothek.</p><div class="review-library"><a href="/review/volkswagen-meta-engine-review.html">Volkswagen<small>Business Review</small></a><a href="/review/openai-meta-engine-review.html">OpenAI<small>Future Strategy Review</small></a><a href="/review/nike-meta-engine-review.html">Nike<small>Future &amp; Innovation Review</small></a><a href="/review/netflix-meta-engine-review.html">Netflix<small>Decision Review</small></a><a href="/review/lufthansa-meta-engine-review.html">Lufthansa<small>Transformation Review</small></a></div></section></div>
+<div class="brand-footer"><div class="brand-footer-inner"><div><strong>Hookfabrik Meta Engine</strong><br/><span>Strategische Analyse, Systemdesign und belastbare Entscheidungsgrundlagen.</span></div><div class="brand-footer-links"><a href="mailto:hookfabrik@proton.me">hookfabrik@proton.me</a><a href="https://www.linkedin.com/company/hookfabrik" rel="noopener noreferrer" target="_blank">LinkedIn</a></div></div></div>
+<footer>Meta Engine Technology Review · Apple · Datenstand 29. Juli 2026</footer>
+</main></div>
+<script>
+function setupMobileNav(){const m=document.querySelector('.mobile-nav');if(!m)return;if(window.matchMedia('(max-width:980px)').matches){m.removeAttribute('open');m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.removeAttribute('open')))}}
+setupMobileNav();
+function sendInquiry(e){e.preventDefault();const n=document.getElementById('name').value.trim(),c=document.getElementById('company').value.trim(),m=document.getElementById('message').value.trim();window.location.href='mailto:hookfabrik@proton.me?subject='+encodeURIComponent('Kundenanfrage Hookfabrik Meta Engine')+'&body='+encodeURIComponent('Name: '+(n||'—')+'\nUnternehmen: '+(c||'—')+'\n\nAnfrage:\n'+(m||'—'))}
+</script>
+<script>
+(()=>{const b=document.getElementById('toc-toggle'),body=document.body,aside=document.getElementById('review-sidebar');if(b&&aside){b.addEventListener('click',()=>{const open=body.classList.toggle('toc-open');b.setAttribute('aria-expanded',String(open));b.textContent=open?'Inhaltsverzeichnis schließen':'Inhaltsverzeichnis öffnen'});aside.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{body.classList.remove('toc-open');b.setAttribute('aria-expanded','false');b.textContent='Inhaltsverzeichnis öffnen'}));}const links=[...document.querySelectorAll('aside nav a[href^="#"]')],sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window&&sections.length){const io=new IntersectionObserver(es=>{es.filter(e=>e.isIntersecting).forEach(e=>{links.forEach(a=>a.classList.toggle('is-active',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-18% 0px -72% 0px'});sections.forEach(s=>io.observe(s));}})();
+</script></body></html>
