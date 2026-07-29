@@ -243,47 +243,45 @@
 
 
   /* Meta Engine Reviews */
-  /* Public Meta Engine review library */
   #reviews{position:relative;overflow:hidden}
-  #reviews::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-220px;top:60px;background:rgba(0,250,252,.08);filter:blur(10px);pointer-events:none}
+  #reviews::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-260px;top:40px;background:rgba(0,250,252,.07);filter:blur(12px);pointer-events:none}
   .review-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:34px}
-  .review-note{max-width:42ch;font-family:'Space Mono',monospace;font-size:.72rem;line-height:1.65;color:var(--muted);text-align:right}
-  .review-library{margin-top:34px}
-  .review-card{position:relative;isolation:isolate;overflow:hidden;background:var(--ink);color:#fff;border:1px solid var(--ink-3);border-radius:18px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:34px;min-height:390px;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+  .review-note{max-width:46ch;font-family:'Space Mono',monospace;font-size:.72rem;line-height:1.65;color:var(--muted);text-align:right}
+  .review-library{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:34px}
+  .review-card{--accent:var(--signal);position:relative;isolation:isolate;overflow:hidden;background:var(--ink);color:#fff;border:1px solid var(--ink-3);border-radius:18px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;min-height:330px;grid-column:span 4;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+  .review-card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:34px;min-height:390px;padding:clamp(28px,4vw,46px)}
   .review-card::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(90deg,#000,transparent 82%)}
-  .review-card::after{content:"";position:absolute;z-index:-1;width:360px;height:360px;border-radius:50%;right:-120px;bottom:-190px;background:radial-gradient(circle,rgba(0,250,252,.24),rgba(0,250,252,0) 68%);transition:transform .4s var(--ease)}
-  .review-card:hover{transform:translateY(-6px);box-shadow:0 34px 70px -34px rgba(21,21,28,.7);border-color:rgba(0,250,252,.5)}
+  .review-card::after{content:"";position:absolute;z-index:-1;width:300px;height:300px;border-radius:50%;right:-130px;bottom:-170px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 26%,transparent),transparent 68%);transition:transform .4s var(--ease)}
+  .review-card:hover{transform:translateY(-6px);box-shadow:0 34px 70px -34px rgba(21,21,28,.7);border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
   .review-card:hover::after{transform:scale(1.14)}
-  .review-main{display:flex;flex-direction:column;min-width:0}
-  .review-top{display:flex;align-items:center;justify-content:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:34px}
-  .review-type{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--signal)}
-  .review-status{display:inline-flex;align-items:center;gap:7px;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);background:rgba(0,250,252,.08);border:1px solid rgba(0,250,252,.26);border-radius:999px;padding:5px 9px}
-  .review-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(0,250,252,.1)}
-  .review-card h3{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,4.5vw,4rem);letter-spacing:-.04em;line-height:.98;max-width:11ch;margin-bottom:20px}
-  .review-question{font-size:clamp(1rem,1.8vw,1.2rem);color:#C5C4CA;line-height:1.55;max-width:58ch;margin-bottom:30px}
-  .review-topics{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
-  .review-topics span{font-family:'Space Mono',monospace;font-size:.61rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border:1px solid rgba(255,255,255,.13);border-radius:999px;color:#D9D8DD;background:rgba(255,255,255,.035)}
+  .review-card[data-accent="green"]{--accent:#25F4A4}.review-card[data-accent="red"]{--accent:#FF4D5A}.review-card[data-accent="yellow"]{--accent:#FFD84A}.review-card[data-accent="lime"]{--accent:#C8FF45}.review-card[data-accent="silver"]{--accent:#C9CED8}
+  .review-main{display:flex;flex-direction:column;min-width:0;height:100%}
+  .review-top{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+  .review-type{font-family:'Space Mono',monospace;font-size:.61rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .review-status{display:inline-flex;align-items:center;gap:7px;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);border-radius:999px;padding:5px 9px}
+  .review-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 10%,transparent)}
+  .review-card h3{font-family:'Archivo Black',sans-serif;font-size:clamp(1.8rem,3vw,3rem);letter-spacing:-.04em;line-height:.98;max-width:12ch;margin-bottom:17px}
+  .review-card.featured h3{font-size:clamp(2.2rem,4.5vw,4rem)}
+  .review-question{font-size:clamp(.94rem,1.4vw,1.08rem);color:#C5C4CA;line-height:1.55;max-width:58ch;margin-bottom:24px}
+  .review-topics{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}
+  .review-topics span{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.07em;text-transform:uppercase;padding:7px 9px;border:1px solid rgba(255,255,255,.13);border-radius:999px;color:#D9D8DD;background:rgba(255,255,255,.035)}
   .review-side{align-self:stretch;display:flex;flex-direction:column;padding-left:30px;border-left:1px solid rgba(255,255,255,.12)}
   .review-side-label{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-light);margin-bottom:16px}
   .review-findings{list-style:none;margin:0;padding:0;display:grid;gap:13px}
   .review-findings li{display:flex;gap:10px;font-size:.88rem;line-height:1.48;color:#D2D1D6}
-  .review-findings li::before{content:"↳";font-family:'Space Mono',monospace;color:var(--mint);font-weight:700;flex:none}
+  .review-findings li::before{content:"↳";font-family:'Space Mono',monospace;color:var(--accent);font-weight:700;flex:none}
   .review-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
   .review-metric{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:13px}
   .review-metric b{display:block;font-family:'Archivo',sans-serif;font-size:1.15rem;color:#fff;line-height:1.1}
   .review-metric span{display:block;font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:#A7A6AE;margin-top:5px}
-  .review-action{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:26px;font-family:'Archivo',sans-serif;font-size:.93rem;font-weight:800;color:#fff}
-  .review-action span:last-child{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--signal);font-size:1.1rem;transition:transform .22s var(--ease),background .22s}
+  .review-action{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-family:'Archivo',sans-serif;font-size:.9rem;font-weight:800;color:#fff}
+  .review-card.featured .review-action{margin-top:auto;padding-top:26px;border-top:0}
+  .review-action span:last-child{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;font-size:1rem;transition:transform .22s var(--ease),background .22s}
   .review-card:hover .review-action span:last-child{transform:translateX(5px);background:#fff;color:var(--ink)}
-  .review-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-  .review-rail-item{min-height:118px;padding:18px;border:1px dashed #C9C7BC;border-radius:13px;background:rgba(255,255,255,.32);display:flex;flex-direction:column;justify-content:space-between}
-  .review-rail-item span{font-family:'Space Mono',monospace;font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--label)}
-  .review-rail-item strong{font-family:'Archivo',sans-serif;font-size:1rem;line-height:1.25}
   .review-proof{margin-top:18px;padding:20px 22px;border-radius:13px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-  .review-proof p{font-size:.9rem;color:var(--muted);max-width:70ch}
-  .review-proof b{color:var(--ink)}
-  @media(max-width:900px){.review-card{grid-template-columns:1fr;min-height:0}.review-side{padding-left:0;padding-top:26px;border-left:0;border-top:1px solid rgba(255,255,255,.12)}.review-intro{align-items:flex-start}.review-note{text-align:left}.review-rail{grid-template-columns:1fr 1fr}.review-rail-item:last-child{grid-column:1/-1}}
-  @media(max-width:640px){.review-intro{display:block}.review-note{margin-top:16px}.review-card{padding:24px;border-radius:15px}.review-card h3{font-size:2.25rem}.review-top{margin-bottom:26px}.review-meta{grid-template-columns:1fr 1fr}.review-rail{grid-template-columns:1fr}.review-rail-item:last-child{grid-column:auto}.review-proof{align-items:flex-start}}
+  .review-proof p{font-size:.9rem;color:var(--muted);max-width:70ch}.review-proof b{color:var(--ink)}
+  @media(max-width:980px){.review-card{grid-column:span 6}.review-card.featured{grid-template-columns:1fr}.review-side{padding-left:0;padding-top:26px;border-left:0;border-top:1px solid rgba(255,255,255,.12)}.review-intro{align-items:flex-start}.review-note{text-align:left}}
+  @media(max-width:640px){.review-intro{display:block}.review-note{margin-top:16px}.review-library{gap:11px}.review-card,.review-card.featured{grid-column:1/-1;padding:24px;border-radius:15px;min-height:0}.review-card h3,.review-card.featured h3{font-size:2.2rem}.review-top{margin-bottom:24px}.review-meta{grid-template-columns:1fr 1fr}.review-proof{align-items:flex-start}}
 
   /* plattform */
   .plat-avail{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:space-between;background:var(--ink-2);border:1px solid var(--ink-3);border-left:4px solid var(--mint);border-radius:var(--radius);padding:24px 28px;margin-top:32px;transition:transform .2s var(--ease)}
@@ -650,40 +648,40 @@
       </div>
 
       <div class="review-library reveal d1">
-        <a class="review-card" href="/review/volkswagen-meta-engine-review.html" aria-label="Volkswagen Meta Engine Review öffnen">
+        <a class="review-card featured" href="/review/volkswagen-meta-engine-review.html" aria-label="Volkswagen Business Review öffnen">
           <div class="review-main">
-            <div class="review-top">
-              <span class="review-type">Meta Engine Review · 001</span>
-              <span class="review-status">Live und öffentlich</span>
-            </div>
+            <div class="review-top"><span class="review-type">Review 001 · Business</span><span class="review-status">Live</span></div>
             <h3>Volkswagen AG</h3>
-            <p class="review-question">Warum verliert Volkswagen Wettbewerbsfähigkeit und welche strukturellen Entscheidungen haben den Druck verstärkt?</p>
-            <div class="review-topics" aria-label="Analysierte Bereiche">
-              <span>Strategie</span><span>Organisation</span><span>Technologie</span><span>Markt</span><span>Entscheidungslogik</span>
-            </div>
+            <p class="review-question">Warum verliert Volkswagen Wettbewerbsfähigkeit – und welche strukturellen Entscheidungen haben den Druck verstärkt?</p>
+            <div class="review-topics"><span>Strategie</span><span>Organisation</span><span>Technologie</span><span>Markt</span></div>
           </div>
-
           <div class="review-side">
-            <span class="review-side-label">Im Review</span>
-            <ul class="review-findings">
-              <li>Symptome und strukturelle Ursachen getrennt</li>
-              <li>Markt, Wettbewerb und Technologie verbunden</li>
-              <li>Entscheidungsfelder nach Wirkung priorisiert</li>
-              <li>Konkrete Handlungsarchitektur abgeleitet</li>
-            </ul>
-            <div class="review-meta">
-              <div class="review-metric"><b>5</b><span>Analyseebenen</span></div>
-              <div class="review-metric"><b>12</b><span>Entscheidungsfelder</span></div>
-            </div>
+            <span class="review-side-label">Business Review</span>
+            <ul class="review-findings"><li>Symptome und Ursachen getrennt</li><li>Markt, Wettbewerb und Technologie verbunden</li><li>Entscheidungsfelder nach Wirkung priorisiert</li><li>Handlungsarchitektur abgeleitet</li></ul>
+            <div class="review-meta"><div class="review-metric"><b>5</b><span>Analyseebenen</span></div><div class="review-metric"><b>12</b><span>Entscheidungsfelder</span></div></div>
             <div class="review-action"><span>Vollständigen Review lesen</span><span aria-hidden="true">→</span></div>
           </div>
         </a>
 
-        <div class="review-rail" aria-label="Weitere Meta Engine Reviews">
-          <div class="review-rail-item"><span>Nächster Review</span><strong>Neue öffentliche Analyse folgt</strong></div>
-          <div class="review-rail-item"><span>Format</span><strong>Eine eigene URL pro Review</strong></div>
-          <div class="review-rail-item"><span>Bibliothek</span><strong>Wächst mit jeder neuen Analyse</strong></div>
-        </div>
+        <a class="review-card" data-accent="green" href="/review/openai-meta-engine-review.html" aria-label="OpenAI Future Strategy Review öffnen">
+          <div class="review-main"><div class="review-top"><span class="review-type">Review 002 · Future Strategy</span><span class="review-status">Live</span></div><h3>OpenAI</h3><p class="review-question">Wie kann OpenAI seine technologische Führung in ein dauerhaft tragfähiges Unternehmen übersetzen?</p><div class="review-topics"><span>Geschäftsmodell</span><span>Technologie</span><span>Wettbewerb</span></div><div class="review-action"><span>Review lesen</span><span aria-hidden="true">→</span></div></div>
+        </a>
+
+        <a class="review-card" data-accent="lime" href="/review/nike-meta-engine-review.html" aria-label="Nike Innovation Review öffnen">
+          <div class="review-main"><div class="review-top"><span class="review-type">Review 003 · Innovation</span><span class="review-status">Live</span></div><h3>Nike</h3><p class="review-question">Wie muss Nike sich entwickeln, um auch in zehn Jahren eine weltweit führende Sportmarke zu bleiben?</p><div class="review-topics"><span>Innovation</span><span>Marke</span><span>Community</span></div><div class="review-action"><span>Review lesen</span><span aria-hidden="true">→</span></div></div>
+        </a>
+
+        <a class="review-card" data-accent="red" href="/review/netflix-meta-engine-review.html" aria-label="Netflix Decision Review öffnen">
+          <div class="review-main"><div class="review-top"><span class="review-type">Review 004 · Decision</span><span class="review-status">Live</span></div><h3>Netflix</h3><p class="review-question">Welche Entscheidung bestimmt, ob Netflix die nächste Phase des Entertainment-Marktes gewinnt?</p><div class="review-topics"><span>Entscheidung</span><span>Plattform</span><span>Wachstum</span></div><div class="review-action"><span>Review lesen</span><span aria-hidden="true">→</span></div></div>
+        </a>
+
+        <a class="review-card" data-accent="yellow" href="/review/lufthansa-meta-engine-review.html" aria-label="Lufthansa Transformation Review öffnen">
+          <div class="review-main"><div class="review-top"><span class="review-type">Review 005 · Transformation</span><span class="review-status">Live</span></div><h3>Lufthansa</h3><p class="review-question">Wie kann Lufthansa Komplexität reduzieren, ohne Netzwerkqualität und Premiumanspruch zu verlieren?</p><div class="review-topics"><span>Transformation</span><span>Operations</span><span>Kundenerlebnis</span></div><div class="review-action"><span>Review lesen</span><span aria-hidden="true">→</span></div></div>
+        </a>
+
+        <a class="review-card" data-accent="silver" href="/review/apple-meta-engine-review.html" aria-label="Apple Technology Review öffnen">
+          <div class="review-main"><div class="review-top"><span class="review-type">Review 006 · Technology</span><span class="review-status">Live</span></div><h3>Apple</h3><p class="review-question">Welche Technologiearchitektur braucht Apple, um die nächste Computing-Plattform zu kontrollieren?</p><div class="review-topics"><span>Technologie</span><span>Ökosystem</span><span>KI</span></div><div class="review-action"><span>Review lesen</span><span aria-hidden="true">→</span></div></div>
+        </a>
       </div>
 
       <div class="review-proof reveal">
