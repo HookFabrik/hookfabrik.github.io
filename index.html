@@ -116,7 +116,7 @@
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
   .me-arm{transform-box:fill-box;transform-origin:left center}
   .me-eye{transform-box:fill-box;transform-origin:center;animation:blink 4.4s steps(1) infinite}
-  .me-engine{position:absolute;left:455px;top:84px}
+  .me-engine{position:absolute;left:350px;top:84px}
 
   .me-req{position:absolute;left:14px;top:70px;width:224px;padding:12px 14px;border-radius:10px;
     background:var(--ink-2);border:1px solid var(--data);opacity:0;z-index:6;will-change:transform,opacity}
@@ -125,7 +125,7 @@
 
   .me-bit{position:absolute;width:11px;height:11px;border-radius:3px;background:var(--data);box-shadow:0 0 9px 1px rgba(94,200,232,.75);z-index:4;will-change:transform,opacity}
 
-  .me-system{position:absolute;left:525px;top:38px;width:285px;padding:16px 18px 15px;border-radius:16px;
+  .me-system{position:absolute;left:615px;top:38px;width:275px;padding:16px 18px 15px;border-radius:16px;
     background:linear-gradient(180deg,rgba(243,242,236,.98),rgba(243,242,236,.92));color:var(--ink);
     font-family:'Space Mono',monospace;opacity:0;z-index:8;box-shadow:0 18px 50px -16px rgba(0,250,252,.42);
     border:1px solid rgba(0,250,252,.65);will-change:transform,opacity;overflow:hidden}
@@ -141,7 +141,7 @@
   .me-system-foot strong{color:var(--ink)}
   .me-system .me-scan{position:absolute;inset:0;border-radius:16px;overflow:hidden;pointer-events:none}
   .me-system .me-scan::before{content:"";position:absolute;top:0;bottom:0;width:40%;left:-40%;background:linear-gradient(90deg,transparent,rgba(0,250,252,.34),transparent)}
-  .me-flash{position:absolute;left:598px;top:118px;width:12px;height:12px;border-radius:50%;transform:translate(-50%,-50%);
+  .me-flash{position:absolute;left:620px;top:118px;width:12px;height:12px;border-radius:50%;transform:translate(-50%,-50%);
     background:radial-gradient(circle,rgba(255,255,255,.9),rgba(0,250,252,.45) 40%,transparent 70%);opacity:0;z-index:5}
   @keyframes scanmove{to{left:140%}}
 
@@ -409,6 +409,11 @@
   @media(max-width:400px){
   }
   @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+.hero-actions,.review-topics{position:relative;z-index:2;background:#15151C;}
+.review-topics{padding:8px 0;}
+.review-topics span{background:#22222B !important;border:1px solid rgba(255,255,255,.12);}
+
 </style>
 </head>
 <body>
@@ -529,7 +534,7 @@
       <!-- output crown -->
       <path d="M112 24V13h66v11" fill="#15151C" stroke="#4B4B58" stroke-width="1.4"/><path d="M124 17h42" stroke="#FF4B58" stroke-width="2" opacity=".65"/>
     </svg>
-    <div style="position:absolute;left:468px;top:270px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#6E6E77">// Hookfabrik Meta Engine</div>
+    <div style="position:absolute;left:363px;top:270px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#6E6E77">// Hookfabrik Meta Engine</div>
 
     <!-- Kundenanfrage -->
     <div class="me-req" id="me-req"><span class="me-rl">// Anfrage · Kunde</span><span class="me-rt" id="me-reqtext"></span></div>
