@@ -1,334 +1,1079 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Volkswagen Strategie-Review 2015–2026: Markt, Wettbewerb, Root Causes, Entscheidungen und Handlungsempfehlungen – erstellt mit der Meta Engine.">
-  <title>Volkswagen Strategie-Review 2015–2026 | Meta Engine</title>
-  <style>
-    :root{
-      --bg:#08101e;--panel:#111a2e;--panel2:#17223b;--text:#edf2ff;--muted:#aeb9d6;
-      --line:#2c395d;--accent:#7aa2ff;--accent2:#9b8cff;--good:#73d39c;
-      --warn:#f5c26b;--danger:#ef8585;--shadow:0 14px 40px rgba(0,0,0,.25);
-      --radius:18px;--max:1180px
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:linear-gradient(180deg,#08101e 0%,#0b1020 35%,#0e1426 100%);color:var(--text);line-height:1.7}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .layout{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100vh}
-    aside{position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid var(--line);
-      background:rgba(8,15,29,.97);backdrop-filter:blur(18px);padding:24px 18px 40px}
-    .brand{padding:8px 10px 20px;border-bottom:1px solid var(--line);margin-bottom:18px}
-    .brand strong{display:block;font-size:1.2rem}.brand span{color:var(--muted);font-size:.9rem}
-    nav h4{margin:18px 10px 8px;color:#d7def1;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em}
-    nav a{display:block;padding:8px 10px;border-radius:10px;color:var(--muted);font-size:.94rem}
-    nav a:hover{background:var(--panel2);color:var(--text);text-decoration:none}
-    main{min-width:0}.hero{padding:88px 42px 62px;border-bottom:1px solid var(--line);
-      background:radial-gradient(circle at 82% 15%,rgba(122,162,255,.18),transparent 34%),
-      radial-gradient(circle at 55% 0%,rgba(155,140,255,.14),transparent 28%)}
-    .hero-inner,.content{max-width:var(--max);margin:0 auto}.eyebrow{display:inline-block;color:var(--accent);
-      font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;margin-bottom:10px}
-    h1,h2,h3,h4{line-height:1.22}h1{font-size:clamp(2.5rem,5.5vw,5rem);margin:0 0 18px;letter-spacing:-.04em}
-    h2{font-size:clamp(1.8rem,3.2vw,2.8rem);margin:0 0 18px;letter-spacing:-.025em}
-    h3{font-size:1.35rem;margin:32px 0 12px}h4{font-size:1.05rem;margin:22px 0 8px}
-    .lead{max-width:900px;color:#c9d2eb;font-size:1.18rem}.meta{margin-top:22px;color:var(--muted)}
-    .tagline{margin-top:28px;padding:20px 24px;border:1px solid rgba(122,162,255,.35);
-      border-radius:var(--radius);background:rgba(122,162,255,.08);font-size:1.12rem}
-    .content{padding:44px 42px 120px}
-    section{scroll-margin-top:24px;margin:0 0 34px;padding:34px;background:linear-gradient(180deg,rgba(18,26,47,.94),rgba(13,20,38,.96));
-      border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    section.band{background:linear-gradient(135deg,rgba(122,162,255,.11),rgba(155,140,255,.08))}
-    p{margin:0 0 14px}ul,ol{margin:12px 0 0 22px;padding:0}li{margin:6px 0}
-    blockquote{margin:22px 0 0;padding:18px 22px;border-left:4px solid var(--accent);
-      background:rgba(122,162,255,.08);color:#dce5ff;border-radius:0 12px 12px 0;font-size:1.06rem}
-    table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(8,15,29,.5)}
-    th,td{padding:13px 15px;border:1px solid var(--line);text-align:left;vertical-align:top}
-    th{background:#17223c;color:#eef3ff}td{color:#cbd5ed}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
-    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
-    .card{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(8,15,29,.5)}
-    .card strong{display:block;margin-bottom:5px;color:#f2f5ff}.metric{font-size:1.65rem;font-weight:800;line-height:1.1}
-    .muted{color:var(--muted)}.pill{display:inline-block;padding:5px 10px;border:1px solid var(--line);
-      border-radius:999px;color:var(--muted);font-size:.82rem;margin:4px 6px 0 0}
-    .good{color:var(--good)}.warn{color:var(--warn)}.danger{color:var(--danger)}
-    .evidence{font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
-    .timeline{border-left:2px solid var(--line);margin:22px 0 0 8px;padding-left:24px}
-    .timeline article{position:relative;margin:0 0 24px}.timeline article:before{content:"";position:absolute;left:-31px;top:.45rem;
-      width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(122,162,255,.12)}
-    .timeline time{font-weight:800;color:var(--accent)}
-    .source-list li{margin-bottom:10px}.note{padding:15px 18px;border:1px solid rgba(245,194,107,.35);
-      border-radius:12px;background:rgba(245,194,107,.08);color:#f6e2bc}
-    footer{max-width:var(--max);margin:0 auto;padding:0 42px 50px;color:var(--muted);text-align:center}
-    @media(max-width:980px){.layout{display:block}aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)}
-      nav{columns:2;column-gap:24px}.hero,.content{padding-left:22px;padding-right:22px}.grid,.grid-4{grid-template-columns:1fr}}
-    @media print{body{background:#fff;color:#111}aside{display:none}.layout{display:block}.hero{background:#fff;color:#111;padding:30px 0}
-      .content{padding:0}section{box-shadow:none;background:#fff;color:#111;break-inside:avoid}p,li,td{color:#222}a{color:#111}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hookfabrik · Intelligente KI-Systeme für Unternehmen</title>
+<meta name="description" content="Hookfabrik entwickelt intelligente KI-Systeme für Unternehmen. Die Meta Engine analysiert Probleme, entwickelt die passende Architektur und baut daraus spezialisierte Systeme. Nicht Antworten, sondern Lösungen.">
+<meta name="author" content="Hookfabrik">
+<meta name="theme-color" content="#15151C">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://hookfabrik.github.io/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hookfabrik">
+<meta property="og:title" content="Hookfabrik · Intelligente KI-Systeme für Unternehmen">
+<meta property="og:description" content="Die meisten nutzen KI. Wir entwickeln Systeme, die mit KI arbeiten. Powered by Hookfabrik Meta Engine.">
+<meta property="og:url" content="https://hookfabrik.github.io/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://hookfabrik.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Hookfabrik · Wir entwickeln Systeme, die mit KI arbeiten.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hookfabrik · Intelligente KI-Systeme für Unternehmen">
+<meta name="twitter:description" content="Die meisten nutzen KI. Wir entwickeln Systeme, die mit KI arbeiten.">
+<meta name="twitter:image" content="https://hookfabrik.github.io/og.png">
+<meta name="twitter:image:alt" content="Hookfabrik entwickelt intelligente KI-Systeme mit der Meta Engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Archivo+Black&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Organization","@id":"https://hookfabrik.github.io/#organization","name":"Hookfabrik","url":"https://hookfabrik.github.io/","logo":"https://hookfabrik.github.io/apple-touch-icon.png","description":"Hookfabrik entwickelt intelligente KI-Systeme für Unternehmen.","sameAs":["https://www.linkedin.com/company/hookfabrik"]},
+    {"@type":"WebSite","@id":"https://hookfabrik.github.io/#website","url":"https://hookfabrik.github.io/","name":"Hookfabrik","inLanguage":"de-DE","publisher":{"@id":"https://hookfabrik.github.io/#organization"}},
+    {"@type":"WebPage","@id":"https://hookfabrik.github.io/#webpage","url":"https://hookfabrik.github.io/","name":"Hookfabrik · Intelligente KI-Systeme für Unternehmen","description":"Hookfabrik entwickelt intelligente KI-Systeme für Unternehmen. Die Meta Engine analysiert Probleme und entwickelt daraus spezialisierte Systeme.","inLanguage":"de-DE","isPartOf":{"@id":"https://hookfabrik.github.io/#website"},"about":{"@id":"https://hookfabrik.github.io/#organization"}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#15151C;--ink-2:#1E1E28;--ink-3:#2A2A36;--paper:#F3F2EC;--card:#FFFFFF;
+    --signal:#FF4A57;--signal-deep:#E23346;--mint:#14B8A0;
+    --muted:#66666F;--muted-light:#9A9AA2;--line:#E4E2D8;--line-dark:rgba(255,255,255,.10);--rail:#C4C2B4;
+    --label:#7A7982;--label-dark:#8E8E96;--maxw:1140px;--radius:14px;--ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;width:100%}
+  .eyebrow{display:inline-block;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--label)}
+  .band-dark .eyebrow{color:var(--label-dark)}
+  b{font-weight:600}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(243,242,236,.82);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.28rem;letter-spacing:-.03em;display:flex;align-items:center;gap:2px}
+  .brand .hk{color:var(--signal)}.brand .fb{color:var(--ink)}
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--mint);margin-left:6px;margin-bottom:10px;box-shadow:0 0 0 3px rgba(20,184,160,.15)}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a.link{font-size:.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+  .nav-links a.link:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:-.01em;padding:12px 20px;border-radius:10px;cursor:pointer;border:none;transition:transform .18s var(--ease),box-shadow .2s,background .2s;white-space:nowrap}
+  .btn-primary{background:var(--signal);color:#fff;box-shadow:0 6px 18px -6px rgba(255,74,87,.55)}
+  .btn-primary:hover{background:var(--signal-deep);transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(255,74,87,.6)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+  .btn-ghost.on-dark{color:#fff;border-color:rgba(255,255,255,.35)}
+  .btn-ghost.on-dark:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .btn-sm{padding:9px 16px;font-size:.85rem}
+  .nav-prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--signal);transform:scaleX(0);transform-origin:0 50%;z-index:60}
+  @supports (animation-timeline: scroll()){.nav-prog{animation:navprog linear both;animation-timeline:scroll(root block)}@keyframes navprog{to{transform:scaleX(1)}}}
+
+  /* bands */
+  .band{padding:74px 0}
+  .band-dark{background:var(--ink);color:#EDECEA}
+  .sec-head{max-width:66ch}
+  .sec-head h2{font-size:clamp(1.9rem,4vw,3rem);margin:16px 0 0;font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .sec-lead{font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--muted);max-width:64ch;line-height:1.55;margin-top:20px}
+  .band-dark .sec-lead{color:#B8B7BD}.sec-lead b{font-weight:600}.band-dark .sec-lead b{color:#fff}
+
+  /* hero */
+  .hero{background:var(--ink);color:#EDECEA;padding:66px 0 0;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(ellipse 90% 70% at 30% 22%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 90% 70% at 30% 22%,#000 40%,transparent 100%);pointer-events:none}
+  .hero-inner{position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.3rem,6.4vw,4.7rem);margin:22px 0 0;max-width:17ch;font-family:'Archivo Black',sans-serif;letter-spacing:-.03em;line-height:1.0}
+  .hero h1 .em{color:var(--signal)}
+  .hero-sub{font-size:clamp(1.05rem,1.8vw,1.24rem);color:#B8B7BD;max-width:60ch;margin-top:24px;line-height:1.55}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;margin-bottom:48px}
+  .line{margin-top:0;padding:36px 0 18px;border-top:1px solid var(--line-dark)}
+  .line-cap{font-family:'Inter',system-ui,sans-serif;font-size:1rem;line-height:1.5;letter-spacing:0;text-transform:none;color:#D8D7DC;margin:0 0 18px}
+
+  /* Meta Engine Showcase */
+
+  :root{--ink:#15151C;--ink-2:#1E1E28;--ink-3:#2A2A36;--signal:#FF4B58;--paper:#F3F2EC;--mint:#00FAFC;--data:#00FAFC;--muted:#8E8E96;--ease:cubic-bezier(.22,.61,.36,1)}
+  
+    .me-frame{width:100%;max-width:900px;position:relative}
+  .me-frame::before{content:"";position:absolute;inset:-50px -20px;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse 85% 90% at 50% 45%,#000 35%,transparent 100%);mask-image:radial-gradient(ellipse 85% 90% at 50% 45%,#000 35%,transparent 100%)}
+  .me-cap{position:relative;z-index:2;font-family:'Space Mono',monospace;font-size:.68rem;line-height:1.5;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .me-status{position:relative;z-index:2;min-height:22px;margin:0 0 20px;font-family:'Space Mono',monospace;font-size:.72rem;line-height:1.5;letter-spacing:.04em;color:var(--data);transition:color .3s}
+  .me-status.proc{color:var(--mint)}.me-status.done{color:var(--signal)}
+
+  .me-stage{position:relative;z-index:1;height:300px;width:100%}
+  @media(max-width:900px){.me-stage{transform:scale(.84);transform-origin:top center}}
+  @media(max-width:560px){.me-stage{transform:scale(.6);transform-origin:top center}}
+
+  .me-robot{position:absolute;left:14px;top:96px;width:170px;height:170px;overflow:visible;animation:bob 3.6s var(--ease) infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .me-arm{transform-box:fill-box;transform-origin:left center}
+  .me-eye{transform-box:fill-box;transform-origin:center;animation:blink 4.4s steps(1) infinite}
+  .me-engine{position:absolute;left:455px;top:84px}
+
+  .me-req{position:absolute;left:14px;top:70px;width:224px;padding:12px 14px;border-radius:10px;
+    background:var(--ink-2);border:1px solid var(--data);opacity:0;z-index:6;will-change:transform,opacity}
+  .me-req .me-rl{display:block;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--data);margin-bottom:6px}
+  .me-req .me-rt{font-size:.82rem;color:var(--paper);line-height:1.35}
+
+  .me-bit{position:absolute;width:11px;height:11px;border-radius:3px;background:var(--data);box-shadow:0 0 9px 1px rgba(94,200,232,.75);z-index:4;will-change:transform,opacity}
+
+  .me-system{position:absolute;left:525px;top:38px;width:285px;padding:16px 18px 15px;border-radius:16px;
+    background:linear-gradient(180deg,rgba(243,242,236,.98),rgba(243,242,236,.92));color:var(--ink);
+    font-family:'Space Mono',monospace;opacity:0;z-index:8;box-shadow:0 18px 50px -16px rgba(0,250,252,.42);
+    border:1px solid rgba(0,250,252,.65);will-change:transform,opacity;overflow:hidden}
+  .me-system-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}
+  .me-system-kicker{display:flex;align-items:center;gap:8px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#555560}
+  .me-system .me-sc{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px rgba(0,250,252,.75)}
+  .me-system-state{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#555560}
+  .me-system-title{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.08rem;line-height:1.1;margin-bottom:11px}
+  .me-system-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+  .me-system-pill{padding:7px 8px;border:1px solid rgba(21,21,28,.12);border-radius:8px;background:rgba(21,21,28,.045);font-size:.58rem;line-height:1.2}
+  .me-system-pill b{display:block;font-family:'Archivo',sans-serif;font-size:.65rem;margin-bottom:2px}
+  .me-system-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(21,21,28,.12);padding-top:9px;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:#555560}
+  .me-system-foot strong{color:var(--ink)}
+  .me-system .me-scan{position:absolute;inset:0;border-radius:16px;overflow:hidden;pointer-events:none}
+  .me-system .me-scan::before{content:"";position:absolute;top:0;bottom:0;width:40%;left:-40%;background:linear-gradient(90deg,transparent,rgba(0,250,252,.34),transparent)}
+  .me-flash{position:absolute;left:598px;top:118px;width:12px;height:12px;border-radius:50%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,255,255,.9),rgba(0,250,252,.45) 40%,transparent 70%);opacity:0;z-index:5}
+  @keyframes scanmove{to{left:140%}}
+
+  @media(prefers-reduced-motion:reduce){.me-robot,.me-eye{animation:none}}
+
+  .me-frame{max-width:100%;}
+  .me-stage-shell{overflow:visible;min-height:340px;}
+  @media(max-width:900px){
+    .me-stage{transform:scale(.82);transform-origin:top left;width:122%;}
+    .me-stage-shell{min-height:265px;}
+  }
+  @media(max-width:700px){
+    .hero{padding-top:46px}
+    .hero-cta{margin-top:30px;margin-bottom:56px}
+    .hero-cta .btn{justify-content:center}
+    .line{margin-top:0;padding-top:34px}
+    .line-cap{font-family:'Inter',system-ui,sans-serif;font-size:.98rem;line-height:1.45;letter-spacing:0;text-transform:none;margin-bottom:12px;color:#D8D7DC}
+    .me-frame{text-align:center}
+    .me-cap{text-align:center;margin-bottom:8px}
+    .me-status{text-align:center;min-height:44px;margin-bottom:10px;padding:0 10px}
+    .me-stage-shell{min-height:735px;overflow:visible}
+    .me-stage{transform:none;height:715px;width:100%;overflow:visible}
+    .me-req{left:50%;top:8px;width:min(92%,340px)}
+    .me-robot{left:calc(50% - 75px);top:150px;width:150px;height:150px;overflow:visible}
+    .me-engine{left:calc(50% - 135px);top:350px;width:270px;height:auto;transform:none}
+    .me-system{left:50%;top:560px;width:min(94%,360px);max-width:none;transform:translateX(-50%);text-align:left}
+    .me-system::before{content:"ERGEBNIS";display:block;margin-bottom:10px;font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.16em;color:#555560}
+    .me-system-title{font-size:1.14rem}
+    .me-system-foot{gap:12px;flex-wrap:wrap}
+    .me-flash{left:50%;top:542px}
+    .me-stage > div[style*="left:468px"]{display:none}
+  }
+  @media(max-width:420px){
+    .wrap{padding-left:20px;padding-right:20px}
+    .hero-cta{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:50px}
+    .hero-cta .btn{width:100%;white-space:normal;text-align:center;min-height:50px}
+    .line{padding-top:30px}
+    .line-cap{font-size:.94rem}
+    .me-stage-shell{min-height:740px}
+    .me-stage{height:720px}
+    .me-req{top:8px;width:100%;padding:12px}
+    .me-robot{left:calc(50% - 69px);top:148px;width:138px;height:138px}
+    .me-engine{left:calc(50% - 122.5px);top:330px;width:245px}
+    .me-system{top:530px;width:100%;padding:16px 15px 14px;border-radius:14px}
+    .me-flash{top:515px}
+    .me-system-grid{gap:5px}
+    .me-system-pill{font-size:.54rem}
+  }
+
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-dark);margin-top:26px}
+  .stat{padding:24px 10px;text-align:center;border-right:1px solid var(--line-dark)}.stat:last-child{border-right:none}
+  .stat .num{font-family:'Archivo Black',sans-serif;font-size:clamp(1.6rem,3.4vw,2.4rem);color:#fff;line-height:1}
+  .stat .cap{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8E8E96;margin-top:9px}
+
+  /* comparison visual */
+  .cmp2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+  .panel{border-radius:var(--radius);padding:28px 28px;border:1px solid var(--ink-3);background:var(--ink-2)}
+  .panel.hi{border-color:var(--signal);background:linear-gradient(180deg,rgba(255,74,87,.06),rgba(255,74,87,0))}
+  .panel .pl{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--label-dark);margin-bottom:20px}
+  .panel.hi .pl{color:var(--signal)}
+  .promptbox{font-family:'Space Mono',monospace;font-size:.82rem;background:#111119;border:1px solid var(--ink-3);border-radius:10px;padding:13px 15px;color:#EDECEA;line-height:1.5}
+  .promptbox .cur{color:var(--signal);font-weight:700}
+  .answer{margin:16px 0 18px;font-size:.92rem;color:var(--muted-light);line-height:1.5}
+  .answer .albl{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--label-dark);display:block;margin-bottom:6px}
+  .build{margin:16px 0 4px}
+  .bstep{display:flex;align-items:center;gap:11px;padding:6px 0;opacity:0;transform:translateX(-10px)}
+  .bstep.on{opacity:1;transform:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .bstep .bd{width:9px;height:9px;border-radius:50%;background:var(--ink-3);border:1px solid #45454F;flex:none;transition:background .3s,border-color .3s}
+  .bstep.on .bd{background:var(--mint);border-color:var(--mint)}
+  .bstep .bt{font-family:'Space Mono',monospace;font-size:.82rem;color:#D8D7DC}
+  .bstep .bc{margin-left:auto;color:var(--mint);font-size:.82rem;opacity:0;transition:opacity .3s .18s}
+  .bstep.on .bc{opacity:1}
+  .sysbar{margin-top:12px;display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:10px;border:1px solid rgba(20,184,160,.4);background:rgba(20,184,160,.08);opacity:0;transform:translateY(6px)}
+  .sysbar.on{opacity:1;transform:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .sysbar .sd{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:syspulse 1.7s infinite}
+  @keyframes syspulse{0%{box-shadow:0 0 0 0 rgba(20,184,160,.5)}70%{box-shadow:0 0 0 8px rgba(20,184,160,0)}100%{box-shadow:0 0 0 0 rgba(20,184,160,0)}}
+  .sysbar .stx{font-family:'Space Mono',monospace;font-size:.84rem;font-weight:700;color:#fff}
+  .sysbar .srun{margin-left:auto;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+  .panel .pc{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.12rem;letter-spacing:-.01em;color:#EDECEA;line-height:1.3;margin-top:16px}
+  .panel.hi .pc{color:#fff}
+  .cmp-note{text-align:center;font-family:'Space Mono',monospace;font-size:.82rem;letter-spacing:.04em;color:var(--label-dark);margin-top:24px}
+  .cmp-note b{color:var(--signal);font-weight:700}
+
+  /* flow diagram */
+  .flow{position:relative;margin-top:40px}
+  .flow-track{display:flex;justify-content:space-between;gap:8px;position:relative}
+  .flow-track::before{content:"";position:absolute;left:23px;right:23px;top:23px;height:2px;background:var(--rail);z-index:0}
+  .fnode{position:relative;z-index:1;flex:1;min-width:96px;text-align:center}
+  .fnode .fc{width:46px;height:46px;border-radius:50%;background:var(--card);border:1.6px solid var(--rail);display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'Space Mono',monospace;font-weight:700;font-size:.8rem;color:var(--ink);position:relative}
+  .fnode.k .fc{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fnode.last .fc{background:var(--signal);border-color:var(--signal);color:#fff}
+  .fnode .fc::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--signal);opacity:0;animation:fpulse 6s var(--ease) infinite}
+  .fnode:nth-child(1) .fc::after{animation-delay:0s}.fnode:nth-child(2) .fc::after{animation-delay:.85s}.fnode:nth-child(3) .fc::after{animation-delay:1.7s}.fnode:nth-child(4) .fc::after{animation-delay:2.55s}.fnode:nth-child(5) .fc::after{animation-delay:3.4s}.fnode:nth-child(6) .fc::after{animation-delay:4.25s}
+  @keyframes fpulse{0%{opacity:.55;transform:scale(1)}14%{opacity:0;transform:scale(1.4)}100%{opacity:0;transform:scale(1.4)}}
+  .fnode .fl{margin-top:12px;font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .fnode.last .fl{color:var(--signal);font-weight:700}
+
+
+  /* Meta Engine Reviews */
+  /* Public Meta Engine review library */
+  #reviews{position:relative;overflow:hidden}
+  #reviews::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-220px;top:60px;background:rgba(0,250,252,.08);filter:blur(10px);pointer-events:none}
+  .review-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:34px}
+  .review-note{max-width:42ch;font-family:'Space Mono',monospace;font-size:.72rem;line-height:1.65;color:var(--muted);text-align:right}
+  .review-library{margin-top:34px}
+  .review-card{position:relative;isolation:isolate;overflow:hidden;background:var(--ink);color:#fff;border:1px solid var(--ink-3);border-radius:18px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:34px;min-height:390px;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+  .review-card::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(90deg,#000,transparent 82%)}
+  .review-card::after{content:"";position:absolute;z-index:-1;width:360px;height:360px;border-radius:50%;right:-120px;bottom:-190px;background:radial-gradient(circle,rgba(0,250,252,.24),rgba(0,250,252,0) 68%);transition:transform .4s var(--ease)}
+  .review-card:hover{transform:translateY(-6px);box-shadow:0 34px 70px -34px rgba(21,21,28,.7);border-color:rgba(0,250,252,.5)}
+  .review-card:hover::after{transform:scale(1.14)}
+  .review-main{display:flex;flex-direction:column;min-width:0}
+  .review-top{display:flex;align-items:center;justify-content:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+  .review-type{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--signal)}
+  .review-status{display:inline-flex;align-items:center;gap:7px;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);background:rgba(0,250,252,.08);border:1px solid rgba(0,250,252,.26);border-radius:999px;padding:5px 9px}
+  .review-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(0,250,252,.1)}
+  .review-card h3{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,4.5vw,4rem);letter-spacing:-.04em;line-height:.98;max-width:11ch;margin-bottom:20px}
+  .review-question{font-size:clamp(1rem,1.8vw,1.2rem);color:#C5C4CA;line-height:1.55;max-width:58ch;margin-bottom:30px}
+  .review-topics{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+  .review-topics span{font-family:'Space Mono',monospace;font-size:.61rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border:1px solid rgba(255,255,255,.13);border-radius:999px;color:#D9D8DD;background:rgba(255,255,255,.035)}
+  .review-side{align-self:stretch;display:flex;flex-direction:column;padding-left:30px;border-left:1px solid rgba(255,255,255,.12)}
+  .review-side-label{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-light);margin-bottom:16px}
+  .review-findings{list-style:none;margin:0;padding:0;display:grid;gap:13px}
+  .review-findings li{display:flex;gap:10px;font-size:.88rem;line-height:1.48;color:#D2D1D6}
+  .review-findings li::before{content:"↳";font-family:'Space Mono',monospace;color:var(--mint);font-weight:700;flex:none}
+  .review-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+  .review-metric{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:13px}
+  .review-metric b{display:block;font-family:'Archivo',sans-serif;font-size:1.15rem;color:#fff;line-height:1.1}
+  .review-metric span{display:block;font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:#A7A6AE;margin-top:5px}
+  .review-action{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:26px;font-family:'Archivo',sans-serif;font-size:.93rem;font-weight:800;color:#fff}
+  .review-action span:last-child{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--signal);font-size:1.1rem;transition:transform .22s var(--ease),background .22s}
+  .review-card:hover .review-action span:last-child{transform:translateX(5px);background:#fff;color:var(--ink)}
+  .review-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  .review-rail-item{min-height:118px;padding:18px;border:1px dashed #C9C7BC;border-radius:13px;background:rgba(255,255,255,.32);display:flex;flex-direction:column;justify-content:space-between}
+  .review-rail-item span{font-family:'Space Mono',monospace;font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--label)}
+  .review-rail-item strong{font-family:'Archivo',sans-serif;font-size:1rem;line-height:1.25}
+  .review-proof{margin-top:18px;padding:20px 22px;border-radius:13px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .review-proof p{font-size:.9rem;color:var(--muted);max-width:70ch}
+  .review-proof b{color:var(--ink)}
+  @media(max-width:900px){.review-card{grid-template-columns:1fr;min-height:0}.review-side{padding-left:0;padding-top:26px;border-left:0;border-top:1px solid rgba(255,255,255,.12)}.review-intro{align-items:flex-start}.review-note{text-align:left}.review-rail{grid-template-columns:1fr 1fr}.review-rail-item:last-child{grid-column:1/-1}}
+  @media(max-width:640px){.review-intro{display:block}.review-note{margin-top:16px}.review-card{padding:24px;border-radius:15px}.review-card h3{font-size:2.25rem}.review-top{margin-bottom:26px}.review-meta{grid-template-columns:1fr 1fr}.review-rail{grid-template-columns:1fr}.review-rail-item:last-child{grid-column:auto}.review-proof{align-items:flex-start}}
+
+  /* plattform */
+  .plat-avail{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:space-between;background:var(--ink-2);border:1px solid var(--ink-3);border-left:4px solid var(--mint);border-radius:var(--radius);padding:24px 28px;margin-top:32px;transition:transform .2s var(--ease)}
+  .plat-avail:hover{transform:translateY(-3px)}
+  .plat-avail .k{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);display:block;margin-bottom:6px}
+  .plat-avail h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-.01em;color:#fff}
+  .plat-avail .go{font-family:'Space Mono',monospace;font-size:.82rem;color:#fff;font-weight:700;display:inline-flex;gap:8px;align-items:center;transition:gap .2s var(--ease)}
+  .plat-avail:hover .go{gap:14px}
+  .dev-label{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--label-dark);margin:34px 0 16px}
+  .dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:10px}
+  /* systemreihe */
+  .sysgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;margin-top:34px}
+  .syscard{display:block;background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--radius);padding:26px 26px;position:relative;overflow:hidden;transition:transform .22s var(--ease),border-color .22s}
+  .syscard.on{border-left:4px solid var(--mint)}
+  .syscard.on:hover{transform:translateY(-4px);border-color:#3C3C48}
+  .syscard:not(.on){opacity:.8}
+  .syscard .sstat{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--label-dark);display:inline-block;margin-bottom:12px}
+  .syscard .sstat.on{color:var(--mint)}
+  .syscard h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.24rem;letter-spacing:-.01em;color:#fff;margin-bottom:8px}
+  .syscard p{font-size:.92rem;color:#9C9CA4;line-height:1.5}
+  .syscard.on p{color:#B8B7BD}
+  .syscard .sgo{font-family:'Space Mono',monospace;font-size:.78rem;color:#fff;font-weight:700;display:inline-flex;gap:8px;align-items:center;margin-top:14px;transition:gap .2s var(--ease)}
+  .syscard.on:hover .sgo{gap:14px}
+  .dev-chip{border:1px dashed var(--ink-3);border-radius:10px;padding:15px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .dev-chip .n{font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;color:#D8D7DC}
+  .dev-chip .s{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--label-dark)}
+
+  /* für wen */
+  .aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:16px;margin-top:34px}
+  .acard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px;transition:transform .22s var(--ease),box-shadow .22s,border-color .22s}
+  .acard:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(21,21,28,.3);border-color:var(--ink)}
+  .acard .an{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);display:block;margin-bottom:10px}
+  .acard h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:-.01em;margin-bottom:8px}
+  .acard p{font-size:.94rem;color:var(--muted);line-height:1.5}
+  .aud-cta{margin-top:30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .aud-cta .note{font-family:'Space Mono',monospace;font-size:.78rem;color:var(--muted)}
+
+  /* feature card */
+  .feature{display:block;background:var(--card);border:1px solid var(--ink-3);border-radius:var(--radius);padding:38px 40px;position:relative;overflow:hidden;transition:transform .24s var(--ease),box-shadow .24s;margin-top:8px}
+  .feature::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mint)}
+  .feature:hover{transform:translateY(-4px);box-shadow:0 26px 54px -24px rgba(0,0,0,.5)}
+  .feature .fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+  .feature .tag{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);line-height:1.5}
+  .feature .px{font-family:'Archivo Black',sans-serif;font-size:1.5rem;color:var(--ink);flex:none;white-space:nowrap;line-height:1;margin-top:-2px}
+  .feature h3{font-family:'Archivo Black',sans-serif;font-size:clamp(1.6rem,3.6vw,2.2rem);letter-spacing:-.025em;margin-bottom:14px;color:var(--ink)}
+  .feature .best{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.05rem,2.1vw,1.28rem);color:var(--ink);line-height:1.35;margin-bottom:14px;max-width:38ch}
+  .feature .desc{font-size:1rem;color:var(--muted);line-height:1.55;margin-bottom:24px;max-width:54ch}
+  .feature .go{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--ink);display:inline-flex;align-items:center;gap:9px;transition:gap .2s var(--ease);font-weight:700}
+  .feature:hover .go{gap:15px}
+  .honest{font-size:.94rem;color:#9C9CA4;margin-top:22px;max-width:60ch;line-height:1.55}
+
+  /* warum + gründer */
+  .whyline{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.3;letter-spacing:-.015em;max-width:26ch;margin-top:8px}
+  .founder{display:grid;grid-template-columns:120px 1fr;gap:26px;align-items:center;margin-top:40px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px}
+  .founder .ph{width:120px;height:120px;border-radius:12px;background:linear-gradient(150deg,#20202B,#111119);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .founder .ph .mono{font-family:'Archivo Black',sans-serif;font-size:2rem;color:#3A3A47}
+  .founder .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .founder blockquote{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--ink);line-height:1.55}
+  .founder .sig{font-family:'Space Mono',monospace;font-size:.76rem;color:var(--muted);margin-top:14px}
+
+  /* prinzipien */
+  .princ{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:0 40px;margin-top:34px}
+  .princ .p{display:flex;gap:15px;align-items:baseline;padding:17px 0;border-bottom:1px solid var(--line-dark)}
+  .princ .p .no{font-family:'Space Mono',monospace;color:var(--signal);font-size:.82rem;flex:none}
+  .princ .p .t{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.12rem;color:#fff;letter-spacing:-.01em}
+
+  /* roadmap */
+  .rgroup{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;margin:30px 0 8px}
+  .rgroup.now{color:var(--mint)}.rgroup.next{color:var(--label);margin-top:26px}
+  .rmap{position:relative;padding-left:30px}
+  .rmap::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:2px;background:var(--rail)}
+  .rstep{position:relative;padding:12px 0}
+  .rstep::before{content:"";position:absolute;left:-30px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--rail);border:3px solid var(--paper);box-sizing:border-box}
+  .rstep.now::before{background:var(--mint);box-shadow:0 0 0 4px rgba(20,184,160,.18)}
+  .rstep h4{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.12rem;letter-spacing:-.01em;display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted-light)}
+  .rstep.now h4{color:var(--ink)}
+  .rstep .st{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;border-radius:6px;padding:2px 8px}
+  .rstep.now .st{color:var(--mint);border:1px solid rgba(20,184,160,.45)}
+  .rstep p{font-size:.9rem;color:var(--muted);margin-top:2px}
+  .rstep:not(.now) p{color:var(--muted-light)}
+
+  /* vision */
+  .vision p{font-family:'Archivo Black',sans-serif;font-size:clamp(1.5rem,3.8vw,2.6rem);line-height:1.14;letter-spacing:-.025em;max-width:24ch;color:#fff}
+  .vision .r{color:var(--signal)}
+  .vision .foot{font-family:'Space Mono',monospace;font-size:.74rem;color:var(--label-dark);margin-top:24px}
+
+  /* kontakt */
+  .contact{background:var(--ink);color:#EDECEA;position:relative;overflow:hidden;text-align:center}
+  .contact::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 20%,rgba(255,74,87,.16),transparent 70%);pointer-events:none}
+  .contact .cbox{position:relative;z-index:1;max-width:640px;margin:0 auto}
+  .contact h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.025em;line-height:1.05;color:#fff}
+  .contact .csub{font-size:clamp(1.02rem,1.7vw,1.18rem);color:#B8B7BD;line-height:1.55;margin-top:18px}
+  .contact .cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .contact .cnote{font-family:'Space Mono',monospace;font-size:.74rem;color:var(--label-dark);margin-top:18px}
+
+  /* footer */
+  footer{background:var(--ink);color:#EDECEA;padding:50px 0 40px;border-top:1px solid var(--ink-3)}
+  .foot-top{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;max-width:52ch;line-height:1.5}
+  .foot-sub{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--muted-light);margin-top:12px}
+  .foot-sub .pw{color:var(--signal)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:.74rem;color:var(--label-dark);margin-top:30px;padding-top:22px;border-top:1px solid var(--ink-3)}
+  .foot a{color:#9A9AA2;transition:color .2s}.foot a:hover{color:#fff}
+  .foot nav{display:flex;gap:18px;flex-wrap:wrap}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}
+
+  @media(max-width:860px){.nav-links a.link{display:none}.hero h1{font-size:clamp(2.1rem,8.5vw,3.1rem)}}
+  @media(max-width:640px){
+    .band{padding:52px 0}.hero{padding:42px 0 0}
+    .stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-dark)}
+    .cmp2{grid-template-columns:1fr}
+    .feature{padding:28px 24px}.feature .px{font-size:1.3rem}
+    .plat-avail{padding:20px 22px}
+    .founder{grid-template-columns:1fr;text-align:left}
+    .whyline,.vision p,.hero h1{max-width:100%;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+    .flow-track{flex-direction:column;gap:0;align-items:stretch}
+    .flow-track::before{left:23px;right:auto;top:23px;bottom:23px;width:2px;height:auto}
+    .fnode{display:flex;align-items:center;gap:14px;min-width:0;text-align:left;padding:9px 0}
+    .fnode .fc{margin:0}.fnode .fl{margin-top:0}
+  }
+  @media(max-width:400px){
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-<div class="layout">
-  <aside>
-    <div class="brand">
-      <strong>Meta Engine Review</strong>
-      <span>Volkswagen · Stand 29.07.2026</span>
-    </div>
-    <nav>
-      <h4>Engine</h4>
-      <a href="#engine">Was die Engine leisten sollte</a>
-      <a href="#methodik">Methodik & Evidenz</a>
-      <h4>Review</h4>
-      <a href="#executive">Executive Summary</a>
-      <a href="#problem">Problemdefinition</a>
-      <a href="#chronologie">Chronologie</a>
-      <a href="#markt">Marktanalyse</a>
-      <a href="#wettbewerb">Wettbewerbsvergleich</a>
-      <a href="#rootcause">Root Cause Analyse</a>
-      <a href="#entscheidungen">Entscheidungsanalyse</a>
-      <a href="#reality">Reality Check</a>
-      <a href="#empfehlungen">Handlungsempfehlungen</a>
-      <a href="#quellen">Quellen</a>
-      <a href="#annahmen">Annahmen</a>
-      <a href="#fazit">Fazit</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="hk">Hook</span><span class="fb">fabrik</span><span class="dot"></span></a>
+    <nav class="nav-links">
+      <a class="link" href="#engine">Meta Engine</a>
+      <a class="link" href="#systeme">Systeme</a>
+      <a class="link" href="#reviews">Reviews</a>
+      <a class="link" href="#fuerwen">Für wen</a>
+      <a class="link" href="#kontakt">Kontakt</a>
+      <a class="btn btn-primary btn-sm" href="#kontakt">Angebot anfragen</a>
     </nav>
-  </aside>
+    <div class="nav-prog"></div>
+  </div>
+</header>
 
-  <main>
-    <header class="hero">
-      <div class="hero-inner">
-        <span class="eyebrow">Strategisches Unternehmensreview</span>
-        <h1>Volkswagen: Wettbewerbsverlust, Ursachen und Handlungsoptionen</h1>
-        <p class="lead">Ein datenbasiertes Review der strategischen Entwicklung von 2015 bis zum ersten Halbjahr 2026. Die Analyse trennt belegte Fakten, belastbare Schlussfolgerungen und verbleibende Annahmen.</p>
-        <p class="meta">Analysestand: 29. Juli 2026 · Schwerpunkt: Volkswagen Group und Kernmarke Volkswagen Pkw</p>
-        <div class="tagline"><strong>Kernbefund:</strong> Volkswagen hat den Technologiewandel früh erkannt, aber zu lange versucht, ihn mit einer historisch gewachsenen, komplexen Konzern-, Plattform- und Entscheidungsstruktur umzusetzen.</div>
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <span class="eyebrow" style="color:var(--label-dark)">Hookfabrik Meta Engine · v3.7</span>
+      <h1 class="reveal in">Die meisten nutzen KI.<br><span class="em">Wir entwickeln Systeme, die mit KI arbeiten.</span></h1>
+      <p class="hero-sub reveal in d1">Jedes ist ein fertiges System für eine echte Problemklasse, gebaut in unserer Meta Engine, der Fabrik dahinter. Nicht Antworten. Lösungen.</p>
+      <div class="hero-cta reveal in d2">
+        <a class="btn btn-primary" href="#systeme">Unsere Systeme &rarr;</a>
+        <a class="btn btn-ghost on-dark" href="/content-system/">Content System ansehen</a>
       </div>
-    </header>
+      <div class="line">
+        <p class="line-cap">// Reale Kundenprobleme werden zu belastbaren Systemen</p>
+        <div class="me-stage-shell">
+<div class="me-frame">
+  <p class="me-cap">// Reale Probleme. Klare Systeme.</p>
+  <p class="me-status" id="me-status">Anfrage wird analysiert …</p>
+  <div class="me-stage" id="me-stage">
 
-    <div class="content">
-      <section id="engine" class="band">
-        <h2>Was die Meta Engine bei dieser Aufgabe leisten sollte</h2>
-        <p>Die Engine soll nicht lediglich Informationen über Volkswagen sammeln. Sie soll aus einer offenen Managementfrage ein belastbares Analyse- und Entscheidungssystem bauen.</p>
-        <div class="grid">
-          <div class="card"><strong>1. Problem präzisieren</strong><span class="muted">Symptome wie Margenrückgang, Stellenabbau oder Softwareverzögerungen von tieferen Ursachen trennen.</span></div>
-          <div class="card"><strong>2. Evidenz strukturieren</strong><span class="muted">Fakten, Schlussfolgerungen und Annahmen eindeutig kennzeichnen; Quellenqualität und Unsicherheit bewerten.</span></div>
-          <div class="card"><strong>3. Kausalität modellieren</strong><span class="muted">Nicht nur Ereignisse aufzählen, sondern Ursache-Wirkungs-Ketten, Rückkopplungen und Abhängigkeiten darstellen.</span></div>
-          <div class="card"><strong>4. Hypothesen testen</strong><span class="muted">Alternative Erklärungen prüfen: China, Software, Kosten, Governance, Management, Regulierung oder Konjunktur.</span></div>
-          <div class="card"><strong>5. Entscheidungen bewerten</strong><span class="muted">Richtige, falsche, verspätete und noch offene Entscheidungen mit ihren Opportunitätskosten untersuchen.</span></div>
-          <div class="card"><strong>6. Maßnahmen ableiten</strong><span class="muted">Empfehlungen priorisieren, mit KPIs, Zeitfenstern, Risiken und Abbruchkriterien versehen.</span></div>
-        </div>
-        <blockquote>Die Engine soll nicht eine überzeugend klingende Erklärung produzieren, sondern ein überprüfbares Modell dafür, warum Volkswagen unter Druck geraten ist und welche Eingriffe die größten Hebel besitzen.</blockquote>
-      </section>
+    <!-- ROBOT / SYSTEM OPERATOR (links) -->
+    <svg class="me-robot" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="me-rShell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B3B49"/><stop offset=".48" stop-color="#24242E"/><stop offset="1" stop-color="#17171E"/></linearGradient>
+        <linearGradient id="me-rFace" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15151C"/><stop offset="1" stop-color="#09090D"/></linearGradient>
+        <linearGradient id="me-rMetal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#555565"/><stop offset=".5" stop-color="#2F2F3A"/><stop offset="1" stop-color="#202028"/></linearGradient>
+        <radialGradient id="me-rCore" cx="45%" cy="38%" r="68%"><stop offset="0" stop-color="#F3F2EC"/><stop offset=".2" stop-color="#00FAFC"/><stop offset="1" stop-color="#087B82"/></radialGradient>
+        <filter id="me-rCyanGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="me-rCoralGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="me-rShadow" x="-40%" y="-100%" width="180%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+      </defs>
+      <ellipse cx="89" cy="164" rx="57" ry="8" fill="#000" opacity=".42" filter="url(#me-rShadow)"/>
+      <!-- lower platform -->
+      <path d="M49 141h80l10 11c2 3 0 7-4 7H43c-4 0-6-4-4-7z" fill="#18181F" stroke="#3F3F4B" stroke-width="1.5"/>
+      <rect x="58" y="151" width="62" height="5" rx="2.5" fill="#00FAFC" opacity=".42"/>
+      <!-- body shell -->
+      <path d="M49 80c0-13 10-23 23-23h34c13 0 23 10 23 23v51c0 12-10 22-22 22H71c-12 0-22-10-22-22z" fill="url(#me-rShell)" stroke="#50505E" stroke-width="1.6"/>
+      <path d="M55 83c0-10 8-18 18-18h32c10 0 18 8 18 18v13H55z" fill="#fff" opacity=".035"/>
+      <path d="M61 130h56" stroke="#111118" stroke-width="1.3"/><path d="M66 136h46" stroke="#343440" stroke-width="1"/>
+      <!-- chest core -->
+      <circle cx="89" cy="108" r="18" fill="#111118" stroke="#494958" stroke-width="1.5"/>
+      <circle cx="89" cy="108" r="11" fill="url(#me-rCore)" filter="url(#me-rCyanGlow)"/>
+      <circle cx="89" cy="108" r="5" fill="#F3F2EC" opacity=".8"/>
+      <path d="M89 84v8M89 124v8M65 108h8M105 108h8" stroke="#00FAFC" opacity=".35"/>
+      <!-- neck -->
+      <rect x="78" y="50" width="22" height="14" rx="5" fill="#22222B" stroke="#464654" stroke-width="1.3"/>
+      <!-- head -->
+      <path d="M51 25c0-11 9-20 20-20h36c11 0 20 9 20 20v24c0 11-9 20-20 20H71c-11 0-20-9-20-20z" fill="url(#me-rShell)" stroke="#565665" stroke-width="1.7"/>
+      <path d="M58 29c0-8 7-15 15-15h32c8 0 15 7 15 15v15c0 8-7 15-15 15H73c-8 0-15-7-15-15z" fill="url(#me-rFace)" stroke="#31313D" stroke-width="1.3"/>
+      <path d="M62 30h54" stroke="#fff" opacity=".05"/>
+      <!-- eye interface -->
+      <g class="me-eye">
+        <rect x="69" y="34" width="40" height="11" rx="5.5" fill="#FF4B58" opacity=".22" filter="url(#me-rCoralGlow)"/>
+        <rect x="73" y="36.5" width="32" height="6" rx="3" fill="#FF4B58" filter="url(#me-rCoralGlow)"/>
+        <rect x="78" y="38" width="22" height="2" rx="1" fill="#F3F2EC" opacity=".7"/>
+      </g>
+      <!-- receiver -->
+      <path d="M89 5V-3" stroke="#5A5A68" stroke-width="2"/>
+      <circle class="ant-ring" id="me-antRing" cx="89" cy="4" r="8" fill="none" stroke="#00FAFC" stroke-width="1.2" opacity=".28"/>
+      <circle id="me-antTip" cx="89" cy="4" r="4" fill="#00FAFC" filter="url(#me-rCyanGlow)"/>
+      <!-- side arms -->
+      <g opacity=".95"><circle cx="48" cy="95" r="8" fill="#202028" stroke="#4B4B58" stroke-width="1.5"/><path d="M41 95H24" stroke="url(#me-rMetal)" stroke-width="10" stroke-linecap="round"/><rect x="16" y="88" width="10" height="14" rx="4" fill="#2D2D37" stroke="#4A4A57"/></g>
+      <g class="me-arm"><circle cx="130" cy="95" r="8" fill="#202028" stroke="#4B4B58" stroke-width="1.5"/><path d="M137 95h24" stroke="url(#me-rMetal)" stroke-width="10" stroke-linecap="round"/><circle cx="163" cy="95" r="6" fill="#2E2E38" stroke="#535361"/><path d="M168 90v10M172 91v8" stroke="#676776" stroke-width="3" stroke-linecap="round"/></g>
+      <!-- details -->
+      <circle cx="61" cy="76" r="2" fill="#FF4B58"/><circle cx="68" cy="76" r="2" fill="#00FAFC"/><path d="M108 76h10" stroke="#5C5C69" stroke-width="2"/>
+    </svg>
 
-      <section id="methodik">
-        <h2>Methodik und Evidenzlogik</h2>
-        <p><span class="pill">Fakt</span> direkt durch Geschäftsberichte, Unternehmensmeldungen oder etablierte Marktquellen belegt.</p>
-        <p><span class="pill">Schlussfolgerung</span> aus mehreren Fakten abgeleitet, aber nicht unmittelbar als Unternehmensfakt beweisbar.</p>
-        <p><span class="pill">Annahme</span> notwendige, noch nicht vollständig verifizierbare Grundlage.</p>
-        <p>Die Root-Cause-Analyse kombiniert 5-Why-Logik, Systemdenken, Wettbewerbsvergleich und einen Reality Check mit Gegenhypothesen. Unternehmensquellen werden dort, wo sie Eigeninteressen berühren, nicht unkritisch übernommen.</p>
-      </section>
+    <!-- META ENGINE / COMPUTE CORE (rechts) -->
+    <svg class="me-engine" width="290" height="190" viewBox="0 0 290 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="me-eShell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#343440"/><stop offset=".52" stop-color="#202028"/><stop offset="1" stop-color="#131319"/></linearGradient>
+        <linearGradient id="me-eEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF4B58"/><stop offset=".52" stop-color="#00FAFC"/><stop offset="1" stop-color="#FF4B58"/></linearGradient>
+        <radialGradient id="me-eScreen" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#171726"/><stop offset="1" stop-color="#08080D"/></radialGradient>
+        <filter id="me-eGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="me-egSoft" x="-40%" y="-80%" width="180%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+      </defs>
+      <ellipse cx="147" cy="178" rx="120" ry="9" fill="#000" opacity=".38" filter="url(#me-egSoft)"/>
+      <!-- rear rails -->
+      <path d="M36 42h-13v111h13M255 42h13v111h-13" fill="none" stroke="#343440" stroke-width="5"/>
+      <!-- main chassis -->
+      <rect x="31" y="24" width="228" height="142" rx="20" fill="url(#me-eShell)" stroke="#535361" stroke-width="1.8"/>
+      <rect x="35" y="28" width="220" height="134" rx="17" fill="none" stroke="#fff" stroke-opacity=".045"/>
+      <path d="M50 25h190" stroke="url(#me-eEdge)" stroke-width="2.2" opacity=".85"/>
+      <!-- header -->
+      <text x="52" y="50" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2.6" fill="#F3F2EC">META ENGINE</text>
+      <text x="238" y="50" text-anchor="end" font-family="'Space Mono',monospace" font-size="7" letter-spacing="1.4" fill="#8E8E96">CORE / ONLINE</text>
+      <circle cx="244" cy="42" r="3" fill="#00FAFC" filter="url(#me-eGlow)"/>
+      <!-- input port -->
+      <rect id="me-eng-slot" x="13" y="82" width="22" height="38" rx="6" fill="#09090D" stroke="#555563" stroke-width="1.4"/>
+      <rect x="17" y="88" width="4" height="26" rx="2" fill="#00FAFC" opacity=".55"/>
+      <!-- screen -->
+      <rect x="47" y="61" width="196" height="84" rx="13" fill="url(#me-eScreen)" stroke="#3B3B48" stroke-width="1.4"/>
+      <rect x="52" y="66" width="186" height="74" rx="10" fill="none" stroke="#00FAFC" stroke-opacity=".12"/>
+      <g opacity=".28" stroke="#00FAFC" stroke-width=".55"><path d="M52 84h186M52 103h186M52 122h186"/><path d="M84 66v74M116 66v74M148 66v74M180 66v74M212 66v74"/></g>
+      <g id="me-nn"></g>
+      <!-- system telemetry -->
+      <g font-family="'Space Mono',monospace" font-size="6.4" fill="#8E8E96"><text x="54" y="157">REASONING</text><text x="116" y="157">VALIDATION</text><text x="184" y="157">OUTPUT</text></g>
+      <g><rect x="54" y="161" width="46" height="3" rx="1.5" fill="#2E2E39"/><rect x="54" y="161" width="38" height="3" rx="1.5" fill="#00FAFC"/><rect x="116" y="161" width="50" height="3" rx="1.5" fill="#2E2E39"/><rect x="116" y="161" width="43" height="3" rx="1.5" fill="#FF4B58"/><rect x="184" y="161" width="54" height="3" rx="1.5" fill="#2E2E39"/><rect x="184" y="161" width="47" height="3" rx="1.5" fill="#00FAFC"/></g>
+      <!-- output crown -->
+      <path d="M112 24V13h66v11" fill="#15151C" stroke="#4B4B58" stroke-width="1.4"/><path d="M124 17h42" stroke="#FF4B58" stroke-width="2" opacity=".65"/>
+    </svg>
+    <div style="position:absolute;left:468px;top:270px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#6E6E77">// Hookfabrik Meta Engine</div>
 
-      <section id="executive" class="band">
-        <h2>Executive Summary</h2>
-        <p>Volkswagen befindet sich nicht in einer akuten Existenzkrise. Der Konzern verfügt weiterhin über enorme industrielle Substanz, rund neun Millionen jährliche Auslieferungen und eine starke Marktstellung in Europa. Die Krise ist eine <strong>strategische Ertrags-, Anpassungs- und Governance-Krise</strong>.</p>
-        <div class="grid-4">
-          <div class="card"><span class="metric">321,9 Mrd. €</span><span class="muted">Umsatz 2025</span></div>
-          <div class="card"><span class="metric">2,8 %</span><span class="muted">operative Konzernrendite 2025</span></div>
-          <div class="card"><span class="metric">8,98 Mio.</span><span class="muted">Auslieferungen 2025</span></div>
-          <div class="card"><span class="metric">+32 %</span><span class="muted">BEV-Auslieferungen 2025</span></div>
-        </div>
-        <h3>Die fünf wichtigsten Ursachen</h3>
-        <ol>
-          <li><strong>Software- und Elektronikarchitektur:</strong> Volkswagen musste mehrere Marken, Plattformen und Altsysteme parallel integrieren. Das Problem lag tiefer als reine Programmierkapazität.</li>
-          <li><strong>China:</strong> Das frühere Erfolgsmodell aus global entwickelter deutscher Technik, Joint Ventures und Markenstärke verlor gegenüber lokalem Softwaretempo, Batteriepreisen und schnellen Modellzyklen an Wirkung.</li>
-          <li><strong>Komplexität:</strong> Viele Marken, Plattformen, Varianten, Regionen und Machtzentren erhöhen Kosten und verlängern Entscheidungen.</li>
-          <li><strong>Technologische Parallelität:</strong> Der Konzern finanziert gleichzeitig Verbrenner, Hybride, mehrere Elektroplattformen, Batterien, Software und regionale Zielarchitekturen.</li>
-          <li><strong>Kosten und Kapazitäten:</strong> Europas strukturell niedrigeres Marktvolumen trifft auf hohe Fixkosten und unterausgelastete deutsche Werke.</li>
-        </ol>
-        <p><strong>Gesamturteil:</strong> Volkswagen hat Elektromobilität nicht grundsätzlich verschlafen. Der Konzern hat jedoch die organisatorische und wirtschaftliche Schwierigkeit unterschätzt, ein mechanisch geprägtes Mehrmarkensystem in ein softwaredefiniertes, regional differenziertes Technologieunternehmen umzubauen.</p>
-      </section>
-
-      <section id="problem">
-        <h2>Problemdefinition</h2>
-        <p>Die zentrale Frage lautet nicht, ob Volkswagen noch Fahrzeuge verkaufen kann. Die zentrale Frage lautet, ob der Konzern seine Größe, Technologieinvestitionen und regionale Präsenz wieder in eine dauerhaft ausreichende Rendite übersetzen kann.</p>
-        <h3>Messbare Symptome</h3>
-        <ul>
-          <li>Das operative Ergebnis fiel 2025 auf 8,9 Mrd. €, nach 19,1 Mrd. € im Vorjahr; die operative Umsatzrendite sank auf 2,8 %.</li>
-          <li>Im ersten Halbjahr 2026 lag die operative Rendite bei 3,8 %. Volkswagen selbst bezeichnet diese Größenordnung als zu niedrig.</li>
-          <li>Die Auslieferungen in China sanken 2025 um 8,0 % auf 2,692 Mio. Fahrzeuge; der BEV-Absatz in der Region Asien-Pazifik ging deutlich zurück.</li>
-          <li>Volkswagen vereinbarte eine dauerhafte Reduzierung der technischen Produktionskapazität deutscher Werke um 734.000 Fahrzeuge und einen sozialverträglichen Abbau von mehr als 35.000 Stellen bis 2030.</li>
-          <li>Für die künftige Software- und Elektronikarchitektur setzt Volkswagen regional auf Partnerschaften mit XPeng in China und Rivian für westliche Märkte.</li>
-        </ul>
-        <h3>Kernproblem</h3>
-        <blockquote>Volkswagen kann vorhandene und neu eingekaufte Technologie nicht schnell, einfach und kostengünstig genug in regional passende, profitable Produkte überführen.</blockquote>
-      </section>
-
-      <section id="chronologie">
-        <h2>Chronologie 2015–2026</h2>
-        <div class="timeline">
-          <article><time>2015</time><h3>Dieselkrise</h3><p>Der Abgasskandal zerstört Vertrauen, verursacht hohe finanzielle Belastungen und beschleunigt die strategische Hinwendung zu Elektromobilität und Dekarbonisierung.</p></article>
-          <article><time>2016–2018</time><h3>MEB und Elektrooffensive</h3><p>Volkswagen baut eine skalierbare Elektroplattform auf. Die physische Plattformstrategie entwickelt sich schneller als eine konzernweit einheitliche Software- und Elektronikarchitektur.</p></article>
-          <article><time>2019–2020</time><h3>ID.3 und Softwareintegration</h3><p>Der ID.3 macht sichtbar, dass industrielle Fahrzeugproduktion und stabile Software-Releases unterschiedlichen Entwicklungslogiken folgen.</p></article>
-          <article><time>2020–2022</time><h3>CARIAD und zentrale Softwareambition</h3><p>Softwarekompetenzen werden gebündelt. Die Einheit muss gleichzeitig bestehende Programme stabilisieren, mehrere Architekturen bedienen und eine künftige Konzernplattform entwickeln.</p></article>
-          <article><time>2022</time><h3>Führungswechsel</h3><p>Oliver Blume übernimmt den Konzern. Der Schwerpunkt verschiebt sich von radikaler Zentralisierung zu stärkerer Markenverantwortung, operativer Stabilisierung und Partnerschaften.</p></article>
-          <article><time>2023–2024</time><h3>XPeng, „In China, for China“ und neue China-Architektur</h3><p>Volkswagen lokalisiert Entwicklung und Entscheidungen. Die China Main Platform soll die Kosten um rund 40 % senken; lokale Strukturen sollen die Time-to-Market um etwa 30 % verkürzen.</p></article>
-          <article><time>2024</time><h3>Rivian-Joint-Venture</h3><p>Volkswagen und Rivian gründen ein Joint Venture für Software und zonale Elektronikarchitektur mit einem Transaktionsvolumen von bis zu 5,8 Mrd. US-Dollar.</p></article>
-          <article><time>Ende 2024</time><h3>„Zukunft Volkswagen“</h3><p>Kapazitäten, Personal und Kosten in Deutschland werden strukturell angepasst. Die Einigung bestätigt, dass das Problem nicht nur konjunkturell ist.</p></article>
-          <article><time>2025</time><h3>Ergebnisrückgang bei stabilen Auslieferungen</h3><p>Der Umsatz bleibt nahezu stabil, das operative Ergebnis sinkt deutlich. Gleichzeitig steigen die weltweiten BEV-Auslieferungen um 32 %.</p></article>
-          <article><time>H1 2026</time><h3>Transformation wirkt – Rendite bleibt zu niedrig</h3><p>Der Netto-Cashflow verbessert sich, doch Umsatz, Absatz und operatives Ergebnis bleiben unter Druck. Das Management fordert ausdrücklich weniger Produkt-, Plattform-, Beteiligungs- und Entscheidungskomplexität.</p></article>
-        </div>
-      </section>
-
-      <section id="markt">
-        <h2>Marktanalyse</h2>
-        <h3>Globaler Strukturwandel</h3>
-        <p>Die Branche wechselt nicht nur vom Verbrennungsmotor zum Elektroantrieb. Sie verschiebt sich zugleich von dezentralen Steuergeräten zu zentralen Rechnerarchitekturen, von langen Modellzyklen zu häufigeren Software-Releases und von globaler Standardisierung zu regionalen Technologieökosystemen.</p>
-        <h3>China</h3>
-        <p>China ist der wichtigste strategische Problemmarkt. Laut IEA waren 2025 nahezu 55 % der chinesischen Neuwagenverkäufe elektrisch; chinesische Hersteller stellten rund 60 % der weltweiten EV-Verkäufe. Preis, Batterieintegration, digitale Funktionen und Entwicklungsgeschwindigkeit werden dadurch zu zentralen Wettbewerbskriterien.</p>
-        <p><span class="evidence danger">Bewertung: hohe Evidenz</span> Volkswagens historischer Vorteil aus Marke, Verbrennungstechnik, Joint Ventures und globaler Plattformlogik ist in China strukturell weniger wertvoll geworden.</p>
-        <h3>Europa</h3>
-        <p>Volkswagen bleibt in Europa stark. Die eigenen BEV-Auslieferungen stiegen 2025 deutlich, während der EU-Gesamtmarkt nur moderat wuchs. Das Problem ist hier weniger fehlende Nachfrage nach Volkswagen-Produkten als die Frage, ob Produktion, Entwicklung und Verwaltung mit wettbewerbsfähigen Kosten betrieben werden können.</p>
-        <h3>USA</h3>
-        <p>Volkswagen besitzt im US-Markt geringere Skalierung als mehrere lokale und asiatische Wettbewerber. Zusätzliche Zölle, regionale Produktionsanforderungen und eine fragmentierte EV-Politik erhöhen den Druck. Die Rivian-Partnerschaft kann Technologiezeit sparen, erhöht aber zunächst Integrationsaufwand und Kapitalbindung.</p>
-      </section>
-
-      <section id="wettbewerb">
-        <h2>Wettbewerbsvergleich</h2>
-        <table>
-          <thead><tr><th>Unternehmen</th><th>Stärke</th><th>Risiko/Schwäche</th><th>Relevanz für Volkswagen</th></tr></thead>
-          <tbody>
-            <tr><td><strong>BYD</strong></td><td>Batterie- und Komponentenintegration, Kosten, schnelle Modellzyklen</td><td>Geopolitik, globale Markenposition</td><td>Zeigt den Vorteil integrierter Wertschöpfung und chinesischer Skalierung.</td></tr>
-            <tr><td><strong>Tesla</strong></td><td>Zentralisierte Software- und Elektronikarchitektur, OTA-Logik</td><td>Portfolioalterung, Preisdruck, Führungsrisiken</td><td>Zeigt, wie geringe Variantenkomplexität Softwareintegration erleichtert.</td></tr>
-            <tr><td><strong>Toyota</strong></td><td>Produktionssystem, Hybridbreite, Kapitaldisziplin</td><td>Späterer BEV-Hochlauf</td><td>Zeigt den Wert flexibler Übergangspfade und operativer Stabilität.</td></tr>
-            <tr><td><strong>Hyundai/Kia</strong></td><td>Schnelle Umsetzung, wettbewerbsfähige EV-Plattformen</td><td>Geringere Premiumstärke</td><td>Zeigt die Vorteile geringerer Konzern- und Markenkomplexität.</td></tr>
-            <tr><td><strong>BMW/Mercedes</strong></td><td>Fokussiertere Premiumpositionierung</td><td>China- und Premiumabhängigkeit</td><td>Belegt, dass China-Schwäche branchenweit ist, aber Volkswagen durch größere Breite komplexer betroffen ist.</td></tr>
-            <tr><td><strong>Volkswagen</strong></td><td>Skalierung, Marken, Produktion, Europa, technisches Potenzial</td><td>Komplexität, Kosten, regionale Divergenz, parallele Architekturen</td><td>Besitzt den größten Synergiehebel – aber auch die schwierigste Umsetzung.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="rootcause" class="band">
-        <h2>Root Cause Analyse</h2>
-        <h3>1. Softwareproblem als Architektur- und Governanceproblem</h3>
-        <p>Verspätete oder instabile Softwarestände entstanden nicht allein durch fehlende Entwickler. Mehrere Marken, elektronische Architekturen und Altsysteme mussten gleichzeitig versorgt werden. Die organisatorische Bündelung in CARIAD beseitigte technische Fragmentierung nicht automatisch.</p>
-        <p><span class="evidence good">Kernursache:</span> Volkswagen war als mechanisch geprägter Mehrmarkenkonzern optimiert, nicht als zentral geführtes Softwareplattformunternehmen.</p>
-
-        <h3>2. China als verspätet lokalisierter Technologiemarkt</h3>
-        <p>Volkswagen behandelte China lange primär als großen Absatzmarkt für global entwickelte Produkte. Der Markt entwickelte sich jedoch zu einem eigenständigen Technologieökosystem mit lokalen Software-, Batterie-, Preis- und Geschwindigkeitsstandards.</p>
-        <p><span class="evidence good">Kernursache:</span> Die Anpassung der Entwicklungs- und Entscheidungslogik erfolgte erst, nachdem lokale Wettbewerber deutliche Vorteile aufgebaut hatten.</p>
-
-        <h3>3. Kostenproblem als Komplexitäts- und Kapazitätsproblem</h3>
-        <p>Hohe Löhne sind nur ein Teil des Problems. Viele Plattformen, Modelle, Sonderlösungen und unterausgelastete Werke erhöhen Fixkosten und Entwicklungsaufwand.</p>
-        <p><span class="evidence good">Kernursache:</span> Ein für stabile oder wachsende Volumina optimiertes System trifft auf stagnierende beziehungsweise regionale rückläufige Märkte.</p>
-
-        <h3>4. Langsame Entscheidungen durch unvollständige Zentralisierung</h3>
-        <p>Volkswagen ist zu zentral, um vollständig autonome Marken zu ermöglichen, aber zu dezentral, um schnell eine einheitliche Technologiearchitektur durchzusetzen. Ergebnis-, Plattform- und Entwicklungsverantwortung liegen nicht immer im selben Machtzentrum.</p>
-        <p><span class="evidence warn">Kernursache:</span> Die Konzernstruktur erzeugt hohe Koordinationskosten und reale interne Verteilungskonflikte.</p>
-
-        <h3>5. Kapitalallokation unter technologischer Parallelität</h3>
-        <p>Der Konzern finanziert gleichzeitig bestehende Verbrennerprogramme, Hybride, MEB/PPE/SSP, regionale China-Plattformen, Batteriekapazitäten, CARIAD sowie Partnerschaften mit XPeng und Rivian.</p>
-        <p><span class="evidence good">Kernursache:</span> Kapital bleibt lange in Übergangsarchitekturen gebunden, während neue Wettbewerber stärker aus Zielarchitekturen heraus wachsen.</p>
-
-        <h3>Systemische Rückkopplung</h3>
-        <blockquote>Mehr Marken und Plattformen → höhere technische Komplexität → langsamere Integration → spätere Markteintritte → höherer Rabatt- und Kostendruck → niedrigere Rendite → weniger Transformationsspielraum.</blockquote>
-      </section>
-
-      <section id="entscheidungen">
-        <h2>Entscheidungsanalyse</h2>
-        <table>
-          <thead><tr><th>Entscheidung</th><th>Bewertung</th><th>Begründung</th></tr></thead>
-          <tbody>
-            <tr><td>MEB als eigenständige Elektroplattform</td><td class="good"><strong>Strategisch richtig</strong></td><td>Ermöglichte ein breites BEV-Portfolio und Skalierung; Softwareintegration blieb jedoch hinter der Hardwareplattform zurück.</td></tr>
-            <tr><td>Aufbau eigener Softwarekompetenz</td><td class="good"><strong>Strategisch richtig</strong></td><td>Ohne eigene Integrationskompetenz wäre Volkswagen dauerhaft von Zulieferern abhängig.</td></tr>
-            <tr><td>CARIAD mit vielen parallelen Zielen</td><td class="danger"><strong>Fehler in Umfang und Sequenzierung</strong></td><td>Altsystempflege, neue Architekturen, Markenintegration und Zielplattform wurden gleichzeitig verlangt.</td></tr>
-            <tr><td>Globale Plattformlogik für China</td><td class="danger"><strong>Zu lange beibehalten</strong></td><td>Lokale Nutzeranforderungen und Entwicklungszyklen entwickelten sich schneller als die globale Governance.</td></tr>
-            <tr><td>XPeng- und Rivian-Partnerschaften</td><td class="good"><strong>Plausible Korrektur</strong></td><td>Verkürzen Technologiezeit, setzen aber klare Schnittstellen und Abhängigkeitsmanagement voraus.</td></tr>
-            <tr><td>Kapazitätsanpassung Deutschland</td><td class="warn"><strong>Notwendig, aber spät</strong></td><td>Strukturell niedrigere Auslastung erfordert dauerhafte Kosten- und Kapazitätskorrekturen.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="reality">
-        <h2>Reality Check</h2>
-        <h3>Gegenhypothese: „Volkswagen hat Elektromobilität verschlafen“</h3>
-        <p><strong>Widerlegt in dieser Pauschalität.</strong> Die weltweiten BEV-Auslieferungen stiegen 2025 um 32 %. Volkswagen ist in Europa bei Elektrofahrzeugen stark. Das Problem liegt in regionaler Passung, Kosten und Profitabilität.</p>
-        <h3>Gegenhypothese: „Die Krise ist ausschließlich China“</h3>
-        <p><strong>Unvollständig.</strong> China ist der wichtigste unmittelbare Belastungsfaktor, erklärt aber weder deutsche Überkapazitäten noch Softwarefragmentierung und konzernweite Komplexität.</p>
-        <h3>Gegenhypothese: „Die Krise ist ausschließlich Managementversagen“</h3>
-        <p><strong>Zu personalisiert.</strong> Managemententscheidungen waren relevant, aber Zölle, Regulierung, Branchenwandel und chinesischer Wettbewerb betreffen auch andere Hersteller.</p>
-        <h3>Gegenhypothese: „Hohe deutsche Löhne sind die Hauptursache“</h3>
-        <p><strong>Zu einfach.</strong> Arbeitskosten sind wichtig, aber die Vereinbarung „Zukunft Volkswagen“ adressiert zugleich Kapazität, Entwicklung, Strukturen und Auslastung.</p>
-        <h3>Gegenhypothese: „Volkswagen ist grundsätzlich nicht innovativ“</h3>
-        <p><strong>Nicht haltbar.</strong> MEB, Batterieaktivitäten, CARIAD sowie XPeng- und Rivian-Architekturen zeigen erhebliche Innovationsinvestitionen. Die Schwäche liegt stärker in Integration und wirtschaftlicher Umsetzung.</p>
-      </section>
-
-      <section id="empfehlungen" class="band">
-        <h2>Handlungsempfehlungen</h2>
-        <h3>1. Technische Zielarchitektur verbindlich vereinfachen</h3>
-        <p>Wenige globale Software- und Elektronikbaselines, klar definierte regionale Ableitungen und feste Abschalttermine für Übergangsarchitekturen.</p>
-        <p><strong>KPIs:</strong> Zahl aktiver Baselines, Integrationszeit je Release, Wiederverwendungsquote, Softwarefehler in den ersten 90 Tagen.</p>
-
-        <h3>2. China als eigenständiges Produkt- und Technologiezentrum führen</h3>
-        <p>Lokale Produktverantwortung, lokale UX- und Softwareentscheidungen, chinesische Lieferketten und Entwicklungszyklen – innerhalb globaler Sicherheits- und Markenstandards.</p>
-        <p><strong>KPIs:</strong> Time-to-Market, lokale Wertschöpfung, NEV-Marktanteil, Produktkosten, digitale Kundenzufriedenheit.</p>
-
-        <h3>3. Varianten-, Modell- und Markenkomplexität reduzieren</h3>
-        <p>Jedes Modell und jede Sonderlösung anhand von Deckungsbeitrag, strategischer Funktion, Plattformsynergie und Komplexitätskosten prüfen.</p>
-        <p><strong>KPIs:</strong> Varianten je Baureihe, Teilevielfalt, Plattformen je Konzern, Entwicklungsstunden je Fahrzeug.</p>
-
-        <h3>4. Kapitalallokation mit harten Meilensteinen steuern</h3>
-        <p>Großprojekte benötigen unabhängige technische Reviews, Stop-Loss-Kriterien und eine klare Trennung zwischen bereits investiertem Kapital und künftigem strategischem Wert.</p>
-        <p><strong>KPIs:</strong> Kosten- und Terminabweichung, Projektabbrüche, Investitionsanteil in Zielarchitekturen, Plattformrendite.</p>
-
-        <h3>5. Europäische Kapazitäten auf realistische Nachfrage ausrichten</h3>
-        <p>Jeder Standort braucht eine belastbare Zukunftsrolle. Dauerhafte Unterauslastung darf nicht durch immer neue Übergangsmodelle verdeckt werden.</p>
-        <p><strong>KPIs:</strong> Werksauslastung, Fixkosten je Fahrzeug, Break-even-Volumen, Fertigungsstunden je Einheit.</p>
-
-        <h3>6. Governance entlang von Produktverantwortung neu ordnen</h3>
-        <p>Entscheidungsrecht, Budget, Ergebnisverantwortung und technische Architektur müssen pro Produktdomäne möglichst zusammengeführt werden.</p>
-        <p><strong>KPIs:</strong> Zeit bis zur Entscheidung, Eskalationsstufen, Zahl konzernweiter Ausnahmegenehmigungen, Verantwortungsüberschneidungen.</p>
-      </section>
-
-      <section id="quellen">
-        <h2>Quellen</h2>
-        <p>Primärquellen und etablierte Marktquellen, abgerufen beziehungsweise geprüft bis 29. Juli 2026:</p>
-        <ol class="source-list">
-          <li><a href="https://annualreport2025.volkswagen-group.com/group-management-report/results-of-operations-financial-position-and-net-assets/results-of-operations.html">Volkswagen Group Annual Report 2025 – Results of Operations</a></li>
-          <li><a href="https://annualreport2025.volkswagen-group.com/group-management-report/business-development/deliveries.html">Volkswagen Group Annual Report 2025 – Deliveries</a></li>
-          <li><a href="https://www.volkswagen-group.com/en/half-yearly-financial-report-and-results-2026-20506">Volkswagen Group – Half-Yearly Financial Report 2026</a></li>
-          <li><a href="https://www.volkswagen-group.com/en/press-releases/agreement-reached-volkswagen-ag-positions-itself-competitively-for-the-future-18911">Volkswagen Group – „Zukunft Volkswagen“, 20.12.2024</a></li>
-          <li><a href="https://www.volkswagen-group.com/en/press-releases/volkswagen-group-takes-the-offensive-in-china-by-strengthening-tech-capabilities-and-reducing-costs-18350">Volkswagen Group – China Main Platform und VCTC</a></li>
-          <li><a href="https://www.volkswagen-group.com/en/press-releases/faster-leaner-more-efficient-rivian-and-volkswagen-group-announce-the-launch-of-their-joint-venture-18828">Volkswagen Group – Rivian Joint Venture</a></li>
-          <li><a href="https://annualreport2024.volkswagen-group.com/group-management-report/sustainable-value-enhancement/research-and-development.html">Volkswagen Group Annual Report 2024 – Research and Development / CARIAD</a></li>
-          <li><a href="https://www.iea.org/reports/global-ev-outlook-2026/executive-summary">IEA – Global EV Outlook 2026</a></li>
-          <li><a href="https://www.iea.org/reports/global-ev-outlook-2025/trends-in-electric-car-markets-2">IEA – Global EV Outlook 2025, Market Trends</a></li>
-          <li><a href="https://www.acea.auto/pc-registrations/new-car-registrations-1-8-in-2025-battery-electric-17-4-market-share/">ACEA – EU-Neuzulassungen 2025</a></li>
-        </ol>
-        <div class="note"><strong>Quellenhinweis:</strong> Unternehmensmeldungen sind für Kennzahlen und offizielle Pläne belastbar, können aber strategische Eigeninteressen enthalten. Kausale Bewertungen in diesem Review bleiben deshalb ausdrücklich als Schlussfolgerungen gekennzeichnet.</div>
-      </section>
-
-      <section id="annahmen">
-        <h2>Annahmen und Grenzen</h2>
-        <ul>
-          <li>Interne Produktkalkulationen, Vorstandsvorlagen und Entscheidungsprotokolle sind nicht öffentlich.</li>
-          <li>Die Bewertung von Governance und Unternehmenskultur beruht auf beobachtbaren Strukturen und Entscheidungen, nicht auf vollständigem Innenwissen.</li>
-          <li>China bleibt ein zentraler Automobil- und Technologiemarkt; geopolitische Entkopplung könnte diese Annahme verändern.</li>
-          <li>Softwaredefinierte Fahrzeuge und zentralere Elektronikarchitekturen bleiben strategisch relevant, auch wenn nicht jede digitale Funktion zusätzliche Erlöse erzeugt.</li>
-          <li>Partnerschaften mit XPeng und Rivian liefern die erwarteten Technologien rechtzeitig; Integrations- und Abhängigkeitsrisiken bleiben offen.</li>
-          <li>Die europäische Nachfrage kehrt nicht dauerhaft auf frühere Hochvolumenpfade zurück.</li>
-        </ul>
-      </section>
-
-      <section id="fazit" class="band">
-        <h2>Fazit</h2>
-        <p>Volkswagen hat in den vergangenen Jahren strategische Wettbewerbsfähigkeit verloren, weil das Unternehmen eine neue technologische Industrie mit Strukturen bewältigen musste, die für die alte Industrie außergewöhnlich erfolgreich optimiert waren.</p>
-        <p>Die historische Logik lautete: viele Marken, globale Plattformen, hohe industrielle Skalierung, starke Verbrennungstechnik und regionale Vertriebsorganisationen. Die neue Logik verlangt: wenige technische Kerne, schnelle Softwarezyklen, regionale Produktentwicklung, integrierte Batterie- und Elektronikkosten sowie geringere Variantenkomplexität.</p>
-        <blockquote><strong>Tiefste Root Cause:</strong> Volkswagen besitzt nicht zu wenig Technologie. Der Konzern besitzt zu viele parallele Technologien, Strukturen, Interessen und Übergangslösungen, um Technologie schnell und kostengünstig in einheitliche, regional passende und profitable Produkte zu übersetzen.</blockquote>
-        <p style="margin-top:20px">Damit ist die Lage weder reine Elektrokrise noch reine Chinakrise oder reine Managementkrise. Sie ist eine <strong>Transformations-Governance-Krise</strong>, die durch China, Software, Kosten, Marktstagnation und geopolitischen Druck wirtschaftlich akut geworden ist.</p>
-      </section>
+    <!-- Kundenanfrage -->
+    <div class="me-req" id="me-req"><span class="me-rl">// Anfrage · Kunde</span><span class="me-rt" id="me-reqtext"></span></div>
+    <!-- ingest / reveal flash -->
+    <div class="me-flash" id="me-flash"></div>
+    <!-- Ergebnis-System -->
+    <div class="me-system" id="me-system">
+      <div class="me-system-head">
+        <div class="me-system-kicker"><span class="me-sc"></span><span id="me-systype">SYSTEM OUTPUT</span></div>
+        <div class="me-system-state" id="me-sysstate">READY</div>
+      </div>
+      <div class="me-system-title" id="me-sysname">Business Review</div>
+      <div class="me-system-grid">
+        <div class="me-system-pill"><b id="me-label1">Markt</b><span id="me-value1">analysiert</span></div>
+        <div class="me-system-pill"><b id="me-label2">Strategie</b><span id="me-value2">geprüft</span></div>
+        <div class="me-system-pill"><b id="me-label3">Risiken</b><span id="me-value3">erkannt</span></div>
+        <div class="me-system-pill"><b id="me-label4">Roadmap</b><span id="me-value4">erstellt</span></div>
+      </div>
+      <div class="me-system-foot"><span>Powered by Meta Engine</span><strong id="me-sysresult">Abgeschlossen</strong></div>
+      <span class="me-scan"></span>
     </div>
-
-    <footer>Meta Engine Case Review · Volkswagen 2015–2026 · Datenstand 29. Juli 2026</footer>
-  </main>
+  </div>
 </div>
+</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num" data-count="6">6</div><div class="cap">Systeme</div></div>
+        <div class="stat"><div class="num" data-count="12">12</div><div class="cap">Schritte im Prozess</div></div>
+        <div class="stat"><div class="num" data-count="1">1</div><div class="cap">System verfügbar</div></div>
+        <div class="stat"><div class="num">3.7</div><div class="cap">Version</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WER WIR SIND -->
+  <section class="band" id="wer">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Wer wir sind</span>
+        <h2>Wir entwickeln intelligente KI-Systeme für Unternehmen.</h2>
+        <p class="sec-lead">Keine Chatbots. Keine Prompt-Sammlungen. Keine Software von der Stange. <b>Wir bauen Systeme für individuelle Problemklassen</b>, jedes nach derselben Architektur. Unser Fokus ist Problemlösung, nicht Prompt-Engineering.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- META ENGINE -->
+  <section class="band band-dark" id="engine">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Die Fabrik</span>
+        <h2>Die Meta Engine ist unsere Fabrik für Systeme.</h2>
+        <p class="sec-lead">Sie ist keine KI, sondern eine Denkarchitektur. Sie analysiert Probleme, entwirft die Struktur und baut daraus fertige Systeme. <b>Nicht ein besserer Prompt. Ein System, das läuft.</b></p>
+      </div>
+      <div class="cmp2 reveal d1">
+        <div class="panel">
+          <span class="pl">Prompt</span>
+          <div class="promptbox"><span class="cur">&gt;</span> Warum steckt Volkswagen in der Krise?</div>
+          <div class="answer"><span class="albl">Antwort</span>Eine plausible Zusammenfassung der aktuellen Probleme. Beim nächsten strategischen Thema beginnt die Analyse wieder von vorn.</div>
+          <p class="pc">Ein Prompt liefert eine Antwort. Ohne belastbare Architektur.</p>
+        </div>
+        <div class="panel hi">
+          <span class="pl">Meta Engine</span>
+          <div class="promptbox"><span class="cur">&gt;</span> Warum steckt Volkswagen in der Krise?</div>
+          <div class="build" id="build">
+            <div class="bstep"><span class="bd"></span><span class="bt">Symptome von Ursachen trennen</span><span class="bc">&check;</span></div>
+            <div class="bstep"><span class="bd"></span><span class="bt">Markt und Wettbewerb verbinden</span><span class="bc">&check;</span></div>
+            <div class="bstep"><span class="bd"></span><span class="bt">Strategische Fehler bewerten</span><span class="bc">&check;</span></div>
+            <div class="bstep"><span class="bd"></span><span class="bt">Entscheidungsfelder priorisieren</span><span class="bc">&check;</span></div>
+            <div class="bstep"><span class="bd"></span><span class="bt">Handlungsarchitektur ableiten</span><span class="bc">&check;</span></div>
+          </div>
+          <div class="sysbar" id="sysbar"><span class="sd"></span><span class="stx">Volkswagen Business Review</span><span class="srun">bereit</span></div>
+          <p class="pc" style="margin-top:16px">Die Meta Engine baut aus einer Frage eine prüfbare Analyse.</p>
+        </div>
+      </div>
+      <p class="cmp-note reveal">Gleiche Aufgabe, zwei Welten. <b>Antwort gegen System.</b></p>
+    </div>
+  </section>
+
+  <!-- ARCHITEKTUR-ABLAUF -->
+  <section class="band" id="ablauf">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// So denkt sie</span>
+        <h2>Vom Problem zur Lösung. In sechs Schritten.</h2>
+        <p class="sec-lead">Jedes System durchläuft denselben Weg. Kein Zufall, sondern Architektur.</p>
+      </div>
+      <div class="flow reveal d1">
+        <div class="flow-track">
+          <div class="fnode"><div class="fc">01</div><div class="fl">Problem</div></div>
+          <div class="fnode k"><div class="fc">02</div><div class="fl">Analyse</div></div>
+          <div class="fnode k"><div class="fc">03</div><div class="fl">Architektur</div></div>
+          <div class="fnode k"><div class="fc">04</div><div class="fl">System</div></div>
+          <div class="fnode k"><div class="fc">05</div><div class="fl">Validierung</div></div>
+          <div class="fnode last"><div class="fc">06</div><div class="fl">Lösung</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- META ENGINE REVIEWS -->
+  <section class="band" id="reviews">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Public Meta Engine Reviews</span>
+        <h2>Die Meta Engine muss man nicht glauben. Man kann sie prüfen.</h2>
+        <p class="sec-lead">Wir veröffentlichen vollständige Analysen realer Unternehmen. Jeder Review macht sichtbar, wie die Meta Engine Probleme strukturiert, Ursachen bewertet und aus Erkenntnissen konkrete Handlungsarchitekturen entwickelt.</p>
+      </div>
+
+      <div class="review-intro reveal d1">
+        <p class="whyline">Keine Testimonials. Keine geschönten Fallstudien. Öffentliche Arbeit.</p>
+        <p class="review-note">Jeder Review besitzt eine eigene URL und zeigt Problemdefinition, Analysemodell, zentrale Befunde, Prioritäten, Risiken und Empfehlungen.</p>
+      </div>
+
+      <div class="review-library reveal d1">
+        <a class="review-card" href="/review/volkswagen-meta-engine-review.html" aria-label="Volkswagen Meta Engine Review öffnen">
+          <div class="review-main">
+            <div class="review-top">
+              <span class="review-type">Meta Engine Review · 001</span>
+              <span class="review-status">Live und öffentlich</span>
+            </div>
+            <h3>Volkswagen AG</h3>
+            <p class="review-question">Warum verliert Volkswagen Wettbewerbsfähigkeit und welche strukturellen Entscheidungen haben den Druck verstärkt?</p>
+            <div class="review-topics" aria-label="Analysierte Bereiche">
+              <span>Strategie</span><span>Organisation</span><span>Technologie</span><span>Markt</span><span>Entscheidungslogik</span>
+            </div>
+          </div>
+
+          <div class="review-side">
+            <span class="review-side-label">Im Review</span>
+            <ul class="review-findings">
+              <li>Symptome und strukturelle Ursachen getrennt</li>
+              <li>Markt, Wettbewerb und Technologie verbunden</li>
+              <li>Entscheidungsfelder nach Wirkung priorisiert</li>
+              <li>Konkrete Handlungsarchitektur abgeleitet</li>
+            </ul>
+            <div class="review-meta">
+              <div class="review-metric"><b>5</b><span>Analyseebenen</span></div>
+              <div class="review-metric"><b>12</b><span>Entscheidungsfelder</span></div>
+            </div>
+            <div class="review-action"><span>Vollständigen Review lesen</span><span aria-hidden="true">→</span></div>
+          </div>
+        </a>
+
+        <div class="review-rail" aria-label="Weitere Meta Engine Reviews">
+          <div class="review-rail-item"><span>Nächster Review</span><strong>Neue öffentliche Analyse folgt</strong></div>
+          <div class="review-rail-item"><span>Format</span><strong>Eine eigene URL pro Review</strong></div>
+          <div class="review-rail-item"><span>Bibliothek</span><strong>Wächst mit jeder neuen Analyse</strong></div>
+        </div>
+      </div>
+
+      <div class="review-proof reveal">
+        <p><b>Das Prinzip:</b> Nicht behaupten, dass die Meta Engine leistungsfähig ist. Ihre Arbeit öffentlich zugänglich machen.</p>
+        <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/company/hookfabrik" target="_blank" rel="noopener">Unternehmen analysieren lassen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATTFORM -->
+  <section class="band band-dark" id="systeme">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Unsere Systeme</span>
+        <h2>Wir verkaufen keine Tools. Wir verkaufen Systeme.</h2>
+        <p class="sec-lead">Jedes System löst eine Problemklasse und entsteht in derselben Fabrik, der Meta Engine. Content ist verfügbar, die anderen sind in Arbeit.</p>
+      </div>
+      <div class="sysgrid reveal d1">
+        <a class="syscard on" href="/content-system/">
+          <span class="sstat on">✓ Verfügbar</span>
+          <h3>Content System</h3>
+          <p>Content für TikTok, Reels und Shorts. Von der Idee bis zum Umsatz.</p>
+          <span class="sgo">Ansehen &rarr;</span>
+        </a>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Business System</h3><p>Strategie, Geschäftsmodell, Positionierung.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Marketing System</h3><p>Kampagnen, Funnels und Botschaften, die konvertieren.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Workflow System</h3><p>Prozesse und Automatisierung, die einmal gebaut immer laufen.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Knowledge System</h3><p>Recherche, Quellen und Wissen, das nutzbar wird.</p></div>
+        <div class="syscard"><span class="sstat">In Entwicklung</span><h3>Decision System</h3><p>Optionen, Kriterien, Gewichtung, klare Empfehlung.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FÜR WEN -->
+  <section class="band" id="fuerwen">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Für wen</span>
+        <h2>Für alle, die Systeme brauchen statt Tools.</h2>
+      </div>
+      <div class="aud reveal d1">
+        <div class="acard"><span class="an">01</span><h3>Unternehmen</h3><p>Für Strategie, Prozesse und Wachstum. Entscheidungen mit Struktur statt Bauchgefühl.</p></div>
+        <div class="acard"><span class="an">02</span><h3>Creator</h3><p>Für Content-Systeme, die skalieren. Von der Rohidee bis zum Umsatz.</p></div>
+        <div class="acard"><span class="an">03</span><h3>Agenturen</h3><p>Für wiederholbare, skalierbare Workflows statt Einzelkämpfer-Prozesse.</p></div>
+        <div class="acard"><span class="an">04</span><h3>Softwareteams</h3><p>Für Architektur und Spezifikation, bevor die erste Zeile Code entsteht.</p></div>
+      </div>
+      <div class="aud-cta reveal">
+        <a class="btn btn-ghost" href="https://www.linkedin.com/company/hookfabrik" target="_blank" rel="noopener">Mit uns sprechen &rarr;</a>
+        <span class="note">Anfragen laufen direkt über LinkedIn.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT / BEWEIS -->
+  <section class="band band-dark" id="verfuegbar">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Verfügbar: das erste System</span>
+        <h2>So sieht ein fertiges System aus.</h2>
+        <p class="sec-lead">Content war die erste Klasse, die wir zu Ende gebaut haben. Nicht der Star der Plattform, sondern der Beweis, dass die Architektur trägt.</p>
+      </div>
+      <a class="feature reveal d1" href="/content-system/">
+        <div class="fhead"><span class="tag">// Content System · Claude Edition 2026</span><span class="px">59 €</span></div>
+        <h3>Content System</h3>
+        <p class="best">Von der Rohidee bis zum Umsatz. Eine durchgehende Kette.</p>
+        <p class="desc">56 Prompts in 8 Kategorien, jeder mit fertigem Beispiel-Output. Dazu 7 Bonus-Sektionen, ein Master-Prompt und ein komplettes Praxisprojekt. Gebaut für Claude.</p>
+        <span class="go">Ansehen <span>&rarr;</span></span>
+      </a>
+      <p class="honest reveal">Kein Autopilot. Das System liefert Struktur, Tempo und die Architektur. Die Realität lässt sich nicht wegprompten, posten und testen musst du selbst.</p>
+    </div>
+  </section>
+
+  <!-- WARUM + GRÜNDER -->
+  <section class="band" id="warum">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Warum Hookfabrik</span>
+        <h2>Weil Unternehmen keine weiteren Tools brauchen.</h2>
+        <p class="whyline">Sie brauchen Systeme. KI beantwortet Fragen. Unternehmen müssen Probleme lösen. Zwischen beidem fehlt eine Architektur. Genau die bauen wir.</p>
+      </div>
+      <div class="founder reveal d1">
+        <div class="ph"><span class="mono" aria-hidden="true">HF</span><img src="/content-system/Ich.webp" alt="Gründer von Hookfabrik" loading="lazy" decoding="async"></div>
+        <div>
+          <blockquote>„Ich hab Hookfabrik gebaut, weil ich es leid war, KI-Tools zu sehen, die Fragen beantworten, aber keine Probleme lösen. Der Unterschied ist kein besserer Prompt. Der Unterschied ist ein System dahinter. Genau das bauen wir, eine Klasse nach der anderen."</blockquote>
+          <p class="sig">Tim · Gründer von Hookfabrik</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINZIPIEN -->
+  <section class="band band-dark" id="prinzipien">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Unsere Prinzipien</span>
+        <h2>Woran wir jede Entscheidung messen.</h2>
+      </div>
+      <div class="princ reveal d1">
+        <div class="p"><span class="no">01</span><span class="t">Verständnis vor Antwort.</span></div>
+        <div class="p"><span class="no">02</span><span class="t">Struktur vor Geschwindigkeit.</span></div>
+        <div class="p"><span class="no">03</span><span class="t">System vor Einzelprompt.</span></div>
+        <div class="p"><span class="no">04</span><span class="t">Validierung vor Ergebnis.</span></div>
+        <div class="p"><span class="no">05</span><span class="t">Evolution statt Stillstand.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="band" id="roadmap">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// Roadmap</span>
+        <h2>Das wächst.</h2>
+        <p class="sec-lead">Eine Plattform, eine Klasse nach der anderen. Content steht, der Rest folgt demselben Bauplan.</p>
+      </div>
+      <div class="reveal d1">
+        <p class="rgroup now">// Heute</p>
+        <div class="rmap" style="margin-bottom:6px">
+          <div class="rstep now"><h4>Content System <span class="st">Verfügbar</span></h4><p>Content für Creator. Idee bis Umsatz.</p></div>
+        </div>
+        <p class="rgroup next">// Morgen</p>
+        <div class="rmap">
+          <div class="rstep"><h4>Business System</h4><p>Strategie, Geschäftsmodell, Positionierung.</p></div>
+          <div class="rstep"><h4>Marketing System</h4><p>Kampagnen, Funnels und Botschaften, die konvertieren.</p></div>
+          <div class="rstep"><h4>Workflow System</h4><p>Prozesse und Automatisierung, die einmal gebaut immer laufen.</p></div>
+          <div class="rstep"><h4>Knowledge System</h4><p>Recherche, Quellen und Wissen, das nutzbar wird.</p></div>
+          <div class="rstep"><h4>Decision System</h4><p>Optionen, Kriterien, Gewichtung, klare Empfehlung.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT / ANGEBOT -->
+  <section class="band contact" id="kontakt">
+    <div class="wrap">
+      <div class="cbox reveal">
+        <span class="eyebrow" style="color:var(--label-dark)">// Kontakt</span>
+        <h2 style="margin-top:16px">Du hast ein Problem, das ein System braucht?</h2>
+        <p class="csub">Unternehmen, Selbständige, Teams: erzähl uns, woran du hängst. Wir sagen dir, welches System es löst, und ob wir es für dich bauen.</p>
+        <div class="cbtns">
+          <a class="btn btn-primary" href="https://www.linkedin.com/company/hookfabrik" target="_blank" rel="noopener">Angebot anfragen &rarr;</a>
+          <a class="btn btn-ghost on-dark" href="mailto:hookfabrik@proton.me?subject=Anfrage%20an%20Hookfabrik">E-Mail schreiben</a>
+        </div>
+        <p class="cnote">Anfragen laufen über LinkedIn oder direkt per E-Mail.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="band band-dark vision" id="vision">
+    <div class="wrap">
+      <span class="eyebrow reveal">// Vision</span>
+      <div class="reveal d1" style="margin-top:16px">
+        <p>Die Zukunft gehört nicht den Unternehmen mit den meisten KI-Tools.<span class="r"> Sie gehört denen mit den besten Systemen.</span></p>
+        <p class="foot">Daran arbeiten wir. Hookfabrik Meta Engine v3.7.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-top">Hookfabrik entwickelt intelligente KI-Systeme für Unternehmen.</p>
+    <p class="foot-sub">Intelligente KI-Systeme. Entwickelt in Deutschland. <span class="pw">Powered by Hookfabrik Meta Engine.</span></p>
+    <div class="foot">
+      <span>© 2026 Hookfabrik</span>
+      <nav>
+        <a href="/content-system/">Content System</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="https://www.linkedin.com/company/hookfabrik" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:hookfabrik@proton.me">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){"use strict";
+  var SLOW=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+  function sleep(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function countUp(el){var t=parseFloat(el.getAttribute('data-count'));if(SLOW||isNaN(t)){el.textContent=t;return;}
+    var dur=900,t0=null;function f(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/dur,1);var e=1-Math.pow(1-p,4);el.textContent=Math.round(t*e);if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    $$('.reveal').forEach(function(el){io.observe(el);});
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}});},{threshold:.6});
+    $$('.num[data-count]').forEach(function(el){cio.observe(el);});
+  }else{$$('.reveal').forEach(function(el){el.classList.add('in');});$$('.num[data-count]').forEach(function(el){el.textContent=el.getAttribute('data-count');});}
+
+  /* Meta-Engine-Seite: System-Aufbau */
+  var bsteps=$$('#build .bstep'), sysbar=document.getElementById('sysbar');
+  if(bsteps.length && !SLOW){
+    (async function bloop(){
+      while(true){
+        bsteps.forEach(function(s){s.classList.remove('on');}); if(sysbar)sysbar.classList.remove('on');
+        await sleep(600);
+        for(var j=0;j<bsteps.length;j++){ bsteps[j].classList.add('on'); await sleep(520); }
+        await sleep(220); if(sysbar)sysbar.classList.add('on');
+        await sleep(2800);
+      }
+    })();
+  } else { bsteps.forEach(function(s){s.classList.add('on');}); if(sysbar)sysbar.classList.add('on'); }
+})();
+</script>
+
+<script>
+
+(function(){
+  "use strict";
+  var NS='http://www.w3.org/2000/svg';
+  var SLOW=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.querySelector(s);};
+  var stage=$('#me-stage'),status=$('#me-status'),req=$('#me-req'),reqtext=$('#me-reqtext'),system=$('#me-system'),sysname=$('#me-sysname'),flash=$('#me-flash');
+  var systype=$('#me-systype'),sysstate=$('#me-sysstate'),sysresult=$('#me-sysresult');
+  var labels=[$('#me-label1'),$('#me-label2'),$('#me-label3'),$('#me-label4')],values=[$('#me-value1'),$('#me-value2'),$('#me-value3'),$('#me-value4')];
+  var antTip=$('#me-antTip'),antRing=$('#me-antRing'),arm=document.querySelector('.me-arm'),scan=$('.me-system .me-scan');
+  function A(el,f,o){return el.animate(f,o).finished;}
+  function sleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
+  function setStatus(t,c){status.textContent=t;status.className='me-status'+(c?' '+c:'');}
+
+  var REQ=[
+    {
+      q:'„Warum steckt Volkswagen in der Krise und welche strategischen Fehler haben dazu geführt?“',
+      s:'Business Review',
+      type:'STRATEGIC ANALYSIS',
+      state:'VERIFIED',
+      result:'Analyse bereit',
+      items:[['Markt','10 Jahre'],['Strategie','bewertet'],['Risiken','identifiziert'],['Roadmap','priorisiert']],
+      steps:['Anfrage wird analysiert …','Markt, Wettbewerb und Entscheidungen werden strukturiert …','Meta Engine entwickelt die Analysearchitektur …','Business Review bereit.']
+    },
+    {
+      q:'„Wir möchten einen KI-Agenten für unseren Kundenservice entwickeln.“',
+      s:'Agent Blueprint',
+      type:'AGENT ARCHITECTURE',
+      state:'READY',
+      result:'Blueprint bereit',
+      items:[['Ziel','definiert'],['Tools','zugeordnet'],['Entscheidungen','modelliert'],['Eskalation','geregelt']],
+      steps:['Anforderungen werden analysiert …','Rollen, Tools und Grenzen werden strukturiert …','Meta Engine entwickelt die Agentenlogik …','Agent Blueprint bereit.']
+    },
+    {
+      q:'„Unser Unternehmen wächst, aber intern herrscht nur Chaos.“',
+      s:'Workflow System',
+      type:'PROCESS ARCHITECTURE',
+      state:'READY',
+      result:'System bereit',
+      items:[['Prozesse','erfasst'],['Engpässe','erkannt'],['Übergaben','geordnet'],['Automationen','definiert']],
+      steps:['Ausgangslage wird analysiert …','Abläufe und Engpässe werden strukturiert …','Meta Engine entwickelt die Prozessarchitektur …','Workflow System bereit.']
+    },
+    {
+      q:'„Unsere Positionierung funktioniert nicht mehr. Wie stellen wir uns neu auf?“',
+      s:'Business System',
+      type:'BUSINESS ARCHITECTURE',
+      state:'VERIFIED',
+      result:'Strategie bereit',
+      items:[['Zielgruppe','geschärft'],['Angebot','geordnet'],['Positionierung','entwickelt'],['Kill-Punkte','geprüft']],
+      steps:['Business wird verstanden …','Zielgruppe, Angebot und Markt werden strukturiert …','Meta Engine entwickelt die Geschäftsarchitektur …','Business System bereit.']
+    },
+    {
+      q:'„Unsere Website hat viele Besucher, aber kaum Anfragen. Woran liegt das?“',
+      s:'Conversion Review',
+      type:'MARKETING ANALYSIS',
+      state:'VERIFIED',
+      result:'Review bereit',
+      items:[['Funnel','analysiert'],['Botschaft','geprüft'],['Hürden','erkannt'],['Hebel','priorisiert']],
+      steps:['Website-Signale werden analysiert …','Funnel und Botschaften werden strukturiert …','Meta Engine entwickelt die Review-Logik …','Conversion Review bereit.']
+    }
+  ];
+
+  // ---- neuronales Netz aufbauen ----
+  var nnG=$('#me-nn');
+  var layers=[3,5,5,3];
+  var x0=52,x1=212,ytop=66,ybot=128;
+  var cols=layers.map(function(_,i){return x0+(x1-x0)*(i/(layers.length-1));});
+  var nodes=layers.map(function(cnt,li){var a=[];for(var n=0;n<cnt;n++){var y=cnt===1?(ytop+ybot)/2:ytop+(ybot-ytop)*(n/(cnt-1));a.push({x:cols[li],y:y});}return a;});
+  var edgeGroups=[],nodeGroups=[];
+  for(var li=0;li<layers.length-1;li++){
+    var g=document.createElementNS(NS,'g');
+    nodes[li].forEach(function(a){nodes[li+1].forEach(function(b){
+      var l=document.createElementNS(NS,'line');l.setAttribute('x1',a.x);l.setAttribute('y1',a.y);l.setAttribute('x2',b.x);l.setAttribute('y2',b.y);
+      l.setAttribute('stroke','#242430');l.setAttribute('stroke-width','1');g.appendChild(l);});});
+    nnG.appendChild(g);edgeGroups.push(g);
+  }
+  nodes.forEach(function(arr){var g=document.createElementNS(NS,'g');arr.forEach(function(nd){
+    var c=document.createElementNS(NS,'circle');c.setAttribute('cx',nd.x);c.setAttribute('cy',nd.y);c.setAttribute('r',3.4);c.setAttribute('fill','#3A3A47');g.appendChild(c);});
+    nnG.appendChild(g);nodeGroups.push(g);});
+  function flashInput(){nodeGroups[0].querySelectorAll('circle').forEach(function(c){c.animate([{fill:'#5EC8E8',r:5},{fill:'#3A3A47',r:3.4}],{duration:300});});}
+
+  async function fireNN(){
+    for(var wave=0;wave<3;wave++){
+      for(var t=0;t<edgeGroups.length;t++){
+        edgeGroups[t].querySelectorAll('line').forEach(function(l){l.animate([{stroke:'#00FAFC',opacity:1},{stroke:'#242430',opacity:.55}],{duration:300,easing:'ease-out'});});
+        nodeGroups[t+1].querySelectorAll('circle').forEach(function(c){c.animate([{fill:'#4FEAD6',r:5.2},{fill:'#3A3A47',r:3.4}],{duration:300,easing:'ease-out'});});
+        await sleep(85);
+      }
+      await sleep(55);
+    }
+    // Output-Layer leuchtet final
+    nodeGroups[nodeGroups.length-1].querySelectorAll('circle').forEach(function(c){c.animate([{fill:'#00FAFC',r:5},{fill:'#00FAFC',r:4.4}],{duration:300,fill:'forwards'});});
+  }
+
+  function bit(fromX,fromY,toX,toY,delay){
+    var b=document.createElement('div');b.className='me-bit';b.style.left=(fromX-5)+'px';b.style.top=(fromY-5)+'px';stage.appendChild(b);
+    return b.animate([
+      {transform:'translate(0,0) rotate(0)',opacity:0},
+      {transform:'translate(6px,-2px)',opacity:1,offset:.08},
+      {transform:'translate('+(toX-fromX-30)+'px,'+(toY-fromY)+'px) rotate(180deg)',opacity:1,offset:.85},
+      {transform:'translate('+(toX-fromX)+'px,'+(toY-fromY)+'px) rotate(220deg)',opacity:0}
+    ],{duration:640,delay:delay,easing:'cubic-bezier(.3,.05,.35,1)'}).finished.then(function(){b.remove();});
+  }
+  function pointInStage(el,fx,fy){
+    var er=el.getBoundingClientRect(),sr=stage.getBoundingClientRect();
+    return {x:er.left-sr.left+er.width*fx,y:er.top-sr.top+er.height*fy};
+  }
+  function dropOntoAnt(delay){
+    var p=pointInStage(antTip,.5,.5);
+    var b=document.createElement('div');b.className='me-bit';b.style.left=(p.x-5)+'px';b.style.top='-12px';stage.appendChild(b);
+    return b.animate([{transform:'translateY(0)',opacity:0},{transform:'translateY(12px)',opacity:1,offset:.12},
+      {transform:'translateY('+(p.y+12)+'px)',opacity:1,offset:.85},{transform:'translateY('+(p.y+20)+'px)',opacity:0}],
+      {duration:640,delay:delay,easing:'cubic-bezier(.5,0,.7,1)'}).finished.then(function(){b.remove();antPing();});
+  }
+  function antPing(){antTip.animate([{opacity:1,filter:'brightness(1)'},{opacity:1,filter:'brightness(2.2)'},{opacity:1,filter:'brightness(1)'}],{duration:280});
+    antRing.animate([{opacity:.6,transform:'scale(1)'},{opacity:0,transform:'scale(2.4)'}],{duration:560,easing:'ease-out'});}
+
+  function scramble(el,final,dur){
+    var chars='ABCDEFGHKLMNPRSTUVWXYZ0123456789/·';var t0=performance.now();
+    (function tick(t){var p=Math.min((t-t0)/dur,1);var rev=Math.floor(final.length*p);var out='';
+      for(var i=0;i<final.length;i++){out+= i<rev?final[i]:(final[i]===' '?' ':chars[(Math.random()*chars.length)|0]);}
+      el.textContent=out;if(p<1)requestAnimationFrame(tick);else el.textContent=final;})(t0);
+  }
+
+
+  async function loop(){
+    var i=0;
+    while(true){
+      var cur=REQ[i];
+      // reset
+      system.style.opacity=0;system.style.transform=(window.matchMedia('(max-width:700px)').matches?'translateX(-50%) ':'')+'translateY(10px) scale(.9)';
+      // 1) Kundenanfrage kommt
+      setStatus(cur.steps[0],'');
+      reqtext.textContent=cur.q;
+      dropOntoAnt(120);
+      var reqBase=window.matchMedia('(max-width:700px)').matches?'translateX(-50%) ':'';
+      await A(req,[{opacity:0,transform:reqBase+'translateY(-22px) scale(.92)'},{opacity:1,transform:reqBase+'translateY(0) scale(1)'}],{duration:420,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
+      await sleep(700);
+
+      // 2) Roboter empfängt und zerlegt in mehrere Pakete
+      setStatus(cur.steps[1],'');
+      A(req,[{opacity:1,transform:reqBase+'translateY(0) scale(1)'},{opacity:0,transform:reqBase+'translateY(6px) scale(.9)'}],{duration:360,fill:'forwards'});
+      A(arm,[{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(16px)'}],{duration:520,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+      var hand=document.querySelector('.me-arm');
+      var from=pointInStage(hand,.96,.55),to=pointInStage(document.getElementById('me-eng-slot'),.5,.5);
+      var streams=[];
+      for(var k=0;k<5;k++){ streams.push(bit(from.x,from.y,to.x,to.y,k*130)); }
+      // Slot blinkt bei Ankunft
+      for(var k2=0;k2<5;k2++){ setTimeout(function(){document.getElementById('me-eng-slot').animate([{fill:'#101017'},{fill:'#00FAFC'},{fill:'#101017'}],{duration:260});},700+k2*130); }
+      A(arm,[{transform:'translateX(16px)'},{transform:'translateX(0)'}],{duration:300,delay:400,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
+      await Promise.all(streams);
+      flashInput();
+
+      // 3) Meta Engine rechnet (neuronales Netz, blitzschnell)
+      setStatus(cur.steps[2],'proc');
+      await fireNN();
+
+      // 4) System fertig (Scramble-Reveal, kein Konfetti)
+      setStatus(cur.steps[3],'done');
+      A(flash,[{opacity:0,transform:'translate(-50%,-50%) scale(.4)'},{opacity:.9,transform:'translate(-50%,-50%) scale(3)'},{opacity:0,transform:'translate(-50%,-50%) scale(4.5)'}],{duration:520,easing:'ease-out'});
+      systype.textContent=cur.type;
+      sysstate.textContent=cur.state;
+      sysresult.textContent=cur.result;
+      cur.items.forEach(function(item,idx){labels[idx].textContent=item[0];values[idx].textContent=item[1];});
+      system.style.opacity='';
+      var mobile=window.matchMedia('(max-width:700px)').matches;
+      var baseTransform=mobile?'translateX(-50%)':'none';
+      A(system,[
+        {opacity:0,transform:baseTransform+' translateY(12px) scale(.92)'},
+        {opacity:1,transform:baseTransform+' translateY(-4px) scale(1.04)',offset:.6},
+        {opacity:1,transform:baseTransform+' translateY(0) scale(1)'}
+      ],{duration:SLOW?1:420,easing:'cubic-bezier(.3,.9,.4,1)',fill:'forwards'});
+      scramble(sysname,cur.s,SLOW?1:620);
+      // scanline über die Karte
+      var sc=document.createElement('div');sc.style.cssText='position:absolute;top:0;bottom:0;width:36%;left:-40%;border-radius:11px;background:linear-gradient(90deg,transparent,rgba(0,250,252,.42),transparent);pointer-events:none;';
+      system.appendChild(sc);sc.animate([{left:'-40%'},{left:'140%'}],{duration:700,easing:'ease-in-out'}).finished.then(function(){sc.remove();});
+
+      await sleep(1600);
+      await A(system,[{opacity:1},{opacity:0,transform:(window.matchMedia('(max-width:700px)').matches?'translateX(-50%) ':'')+'translateY(-6px) scale(.97)'}],{duration:SLOW?1:420,easing:'ease',fill:'forwards'});
+      await sleep(450);
+      i=(i+1)%REQ.length;
+    }
+  }
+  loop();
+})();
+
+</script>
 </body>
 </html>
