@@ -15,12 +15,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hookfabrik">
 <meta property="og:title" content="Hookfabrik · Intelligente KI-Systeme für Unternehmen">
-<meta property="og:description" content="Die meisten nutzen KI. Wir entwickeln Systeme, die mit KI arbei3ten. Powered by Hookfabrik Meta Engine.">
+<meta property="og:description" content="Die meisten nutzen KI. Wir entwickeln Systeme, die mit KI arbeiten. Powered by Hookfabrik Meta Engine.">
 <meta property="og:url" content="https://hookfabrik.github.io/">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://hookfabrik.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Hookfabrik · Wir entwickeln Systeme, die mit KI arbeiten.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Hookfabrik · Intelligente KI-Systeme für Unternehmen">
 <meta name="twitter:description" content="Die meisten nutzen KI. Wir entwickeln Systeme, die mit KI arbeiten.">
@@ -37,7 +39,7 @@
   :root{
     --ink:#15151C;--ink-2:#1E1E28;--ink-3:#2A2A36;--paper:#F3F2EC;--card:#FFFFFF;
     --signal:#FF4A57;--signal-deep:#E23346;--mint:#14B8A0;
-    --muted:#66666F;--muted-light:#9A9AA2;--line:#E4E2D8;--line-dark:rgba(255,255,255,.10);
+    --muted:#66666F;--muted-light:#9A9AA2;--line:#E4E2D8;--line-dark:rgba(255,255,255,.10);--rail:#C4C2B4;
     --label:#7A7982;--label-dark:#8E8E96;--maxw:1140px;--radius:14px;--ease:cubic-bezier(.22,.61,.36,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -140,9 +142,9 @@
   /* flow diagram */
   .flow{position:relative;margin-top:40px}
   .flow-track{display:flex;justify-content:space-between;gap:8px;position:relative}
-  .flow-track::before{content:"";position:absolute;left:23px;right:23px;top:23px;height:2px;background:var(--line);z-index:0}
+  .flow-track::before{content:"";position:absolute;left:23px;right:23px;top:23px;height:2px;background:var(--rail);z-index:0}
   .fnode{position:relative;z-index:1;flex:1;min-width:96px;text-align:center}
-  .fnode .fc{width:46px;height:46px;border-radius:50%;background:var(--card);border:1.6px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'Space Mono',monospace;font-weight:700;font-size:.8rem;color:var(--ink);position:relative}
+  .fnode .fc{width:46px;height:46px;border-radius:50%;background:var(--card);border:1.6px solid var(--rail);display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'Space Mono',monospace;font-weight:700;font-size:.8rem;color:var(--ink);position:relative}
   .fnode.k .fc{background:var(--ink);color:#fff;border-color:var(--ink)}
   .fnode.last .fc{background:var(--signal);border-color:var(--signal);color:#fff}
   .fnode .fc::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--signal);opacity:0;animation:fpulse 6s var(--ease) infinite}
@@ -191,8 +193,9 @@
   .feature{display:block;background:var(--card);border:1px solid var(--ink-3);border-radius:var(--radius);padding:38px 40px;position:relative;overflow:hidden;transition:transform .24s var(--ease),box-shadow .24s;margin-top:8px}
   .feature::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mint)}
   .feature:hover{transform:translateY(-4px);box-shadow:0 26px 54px -24px rgba(0,0,0,.5)}
-  .feature .tag{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);display:block;margin-bottom:14px}
-  .feature .px{position:absolute;top:34px;right:38px;font-family:'Archivo Black',sans-serif;font-size:1.5rem;color:var(--ink)}
+  .feature .fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+  .feature .tag{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);line-height:1.5}
+  .feature .px{font-family:'Archivo Black',sans-serif;font-size:1.5rem;color:var(--ink);flex:none;white-space:nowrap;line-height:1;margin-top:-2px}
   .feature h3{font-family:'Archivo Black',sans-serif;font-size:clamp(1.6rem,3.6vw,2.2rem);letter-spacing:-.025em;margin-bottom:14px;color:var(--ink)}
   .feature .best{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.05rem,2.1vw,1.28rem);color:var(--ink);line-height:1.35;margin-bottom:14px;max-width:38ch}
   .feature .desc{font-size:1rem;color:var(--muted);line-height:1.55;margin-bottom:24px;max-width:54ch}
@@ -219,9 +222,9 @@
   .rgroup{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;margin:30px 0 8px}
   .rgroup.now{color:var(--mint)}.rgroup.next{color:var(--label);margin-top:26px}
   .rmap{position:relative;padding-left:30px}
-  .rmap::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:2px;background:var(--line)}
+  .rmap::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:2px;background:var(--rail)}
   .rstep{position:relative;padding:12px 0}
-  .rstep::before{content:"";position:absolute;left:-30px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--line);border:3px solid var(--paper);box-sizing:border-box}
+  .rstep::before{content:"";position:absolute;left:-30px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--rail);border:3px solid var(--paper);box-sizing:border-box}
   .rstep.now::before{background:var(--mint);box-shadow:0 0 0 4px rgba(20,184,160,.18)}
   .rstep h4{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.12rem;letter-spacing:-.01em;display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted-light)}
   .rstep.now h4{color:var(--ink)}
@@ -260,9 +263,9 @@
   @media(max-width:860px){.nav-links a.link{display:none}.hero h1{font-size:clamp(2.1rem,8.5vw,3.1rem)}}
   @media(max-width:640px){
     .band{padding:52px 0}.hero{padding:42px 0 0}
-    .stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}
+    .stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-dark)}
     .cmp2{grid-template-columns:1fr}
-    .feature{padding:28px 24px}.feature .px{top:26px;right:24px;font-size:1.25rem}
+    .feature{padding:28px 24px}.feature .px{font-size:1.3rem}
     .plat-avail{padding:20px 22px}
     .founder{grid-template-columns:1fr;text-align:left}
     .whyline,.vision p,.hero h1{max-width:100%;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
@@ -488,8 +491,7 @@
         <p class="sec-lead">Content war die erste Klasse, die wir zu Ende gebaut haben. Nicht der Star der Plattform, sondern der Beweis, dass die Architektur trägt.</p>
       </div>
       <a class="feature reveal d1" href="/content-system/">
-        <span class="tag">// Content System · Claude Edition 2026</span>
-        <span class="px">59 €</span>
+        <div class="fhead"><span class="tag">// Content System · Claude Edition 2026</span><span class="px">59 €</span></div>
         <h3>Content System</h3>
         <p class="best">Von der Rohidee bis zum Umsatz. Eine durchgehende Kette.</p>
         <p class="desc">56 Prompts in 8 Kategorien, jeder mit fertigem Beispiel-Output. Dazu 7 Bonus-Sektionen, ein Master-Prompt und ein komplettes Praxisprojekt. Gebaut für Claude.</p>
